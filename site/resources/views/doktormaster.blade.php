@@ -54,40 +54,40 @@
     </head>
     <body class="fixed-left">
 
-       <?php $userid = Auth::user()->id; ?>
-       <?php $name = Auth::user()->name; ?>
-       <?php $surname = Auth::user()->surname; ?>
+     <?php $userid = Auth::user()->id; ?>
+     <?php $name = Auth::user()->name; ?>
+     <?php $surname = Auth::user()->surname; ?>
 
 
-       <!-- Modal Start -->
-       <!-- Modal Task Progress -->	
-       <div class="md-modal md-3d-flip-vertical" id="task-progress">
-          <div class="md-content">
-           <h3><strong>Task Progress</strong> Information</h3>
-           <div>
+     <!-- Modal Start -->
+     <!-- Modal Task Progress -->	
+     <div class="md-modal md-3d-flip-vertical" id="task-progress">
+      <div class="md-content">
+         <h3><strong>Task Progress</strong> Information</h3>
+         <div>
             <p>CLEANING BUGS</p>
             <div class="progress progress-xs for-modal">
               <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                 <span class="sr-only">80&#37; Complete</span>
-             </div>
-         </div>
-         <p>POSTING SOME STUFF</p>
-         <div class="progress progress-xs for-modal">
+               <span class="sr-only">80&#37; Complete</span>
+           </div>
+       </div>
+       <p>POSTING SOME STUFF</p>
+       <div class="progress progress-xs for-modal">
           <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-             <span class="sr-only">65&#37; Complete</span>
-         </div>
-     </div>
-     <p>BACKUP DATA FROM SERVER</p>
-     <div class="progress progress-xs for-modal">
+           <span class="sr-only">65&#37; Complete</span>
+       </div>
+   </div>
+   <p>BACKUP DATA FROM SERVER</p>
+   <div class="progress progress-xs for-modal">
       <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-         <span class="sr-only">95&#37; Complete</span>
-     </div>
- </div>
- <p>RE-DESIGNING WEB APPLICATION</p>
- <div class="progress progress-xs for-modal">
+       <span class="sr-only">95&#37; Complete</span>
+   </div>
+</div>
+<p>RE-DESIGNING WEB APPLICATION</p>
+<div class="progress progress-xs for-modal">
   <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-     <span class="sr-only">100&#37; Complete</span>
- </div>
+   <span class="sr-only">100&#37; Complete</span>
+</div>
 </div>
 <p class="text-center">
     <button class="btn btn-danger btn-sm md-close">Close</button>
@@ -99,24 +99,24 @@
 <!-- Modal Logout -->
 <div class="md-modal md-just-me" id="logout-modal">
   <div class="md-content">
-   <h3><strong>Çıkış</strong></h3>
-   <div>
-    <p class="text-center">Çıkmak istediğinize emin misiniz?</p>
-    <p class="text-center">
-        <button class="btn btn-danger md-close">Hayır</button>
+     <h3><strong>Çıkış</strong></h3>
+     <div>
+        <p class="text-center">Çıkmak istediğinize emin misiniz?</p>
+        <p class="text-center">
+            <button class="btn btn-danger md-close">Hayır</button>
 
-        <a href="{{ route('logout') }}"
-        class="btn btn-success md-close"
-        onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">Tabi ki !
-    </a>
+            <a href="{{ route('logout') }}"
+            class="btn btn-success md-close"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Tabi ki !
+        </a>
 
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        {{ csrf_field() }}
-    </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
 
-</p>
+    </p>
 </div>
 </div>
 </div>        <!-- Modal End -->	
@@ -334,10 +334,10 @@
 
   <!-- Start right content -->
   <div class="content-page">
-   <!-- ============================================================== -->
-   <!-- Start Content here -->
-   <!-- ============================================================== -->
-   <div class="content">
+     <!-- ============================================================== -->
+     <!-- Start Content here -->
+     <!-- ============================================================== -->
+     <div class="content">
 
       <div class="row">
           <div class="col-md-12 portlets">
@@ -354,10 +354,10 @@
     <footer>
 
         <div class="footer-links pull-right">
-         Estetik Takvimi &copy; 2017
-     </div>
- </footer>
- <!-- Footer End -->			
+           Estetik Takvimi &copy; 2017
+       </div>
+   </footer>
+   <!-- Footer End -->			
 </div>
 <!-- ============================================================== -->
 <!-- End content here -->

@@ -29,6 +29,11 @@ class HomeController extends Controller
 		return view("docadmin.sorucevap.cevap");   
 	}
 
+	public function deneyim()          
+	{
+		return view("docadmin.deneyim");   
+	}
+
 
 	
 

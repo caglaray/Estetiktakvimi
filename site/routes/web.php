@@ -33,6 +33,7 @@ Route::prefix('admin')->group(function() {
 	Route::post("/doktor/sil/{Kisi?}","Admin\DoctorController@destroy");
 
 
+
 });
 
 
@@ -48,6 +49,9 @@ Route::prefix('kurum')->group(function() {
 
 
 Route::prefix('doktor')->group(function() {
+
+
+	Route::get("/deneyim","Doctor\HomeController@deneyim");
 
 	Route::get ('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
 	Route::post('/login', 'Auth\DoctorLoginController@login')->name('docadmin.login.submit');
