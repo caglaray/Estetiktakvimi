@@ -6,6 +6,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('/deneme', 'HomeController@index');
 Route::get('/sayfa/doktor', 'HomeController@doktor');
 Route::get('/sayfa/liste', 'HomeController@liste');
 Route::get('/sayfa/blog', 'HomeController@blog');
