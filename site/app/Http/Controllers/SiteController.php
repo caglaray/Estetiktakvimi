@@ -6,9 +6,5 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    public function DoktorLogin()
-    {
-    	return view("docadmin.login");
 
-    }
 }

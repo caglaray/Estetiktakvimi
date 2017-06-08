@@ -1,14 +1,19 @@
 <?php
 
 
-Route::get('/', function () {
-	return view('index');
-});
 
 
 Auth::routes();
 
-Route::get('/Home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/sayfa/doktor', 'HomeController@doktor');
+Route::get('/sayfa/liste', 'HomeController@liste');
+Route::get('/sayfa/blog', 'HomeController@blog');
+
+
+
+
+
 
 
 Route::prefix('admin')->group(function() {
@@ -35,8 +40,6 @@ Route::prefix('kurum')->group(function() {
 	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
 	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
 	Route::get('/', 'CorporationController@index')->name('corporation.dashboard');
-
-
 
 });
 
@@ -71,10 +74,9 @@ Route::prefix('doktor')->group(function() {
 
 	route::get ("/sorucevap/soru","Doctor\QuestionController@questionlist");
 	route::get ("/sorucevap/cevap/{id?}","Doctor\QuestionController@questiondetail");	
-
-
-	//route::get ("/sorucevap/cevap","Doctor\HomeController@cevap");
+ 	//route::get ("/sorucevap/cevap","Doctor\HomeController@cevap");
 
 
 });
+
 
