@@ -1,0 +1,31 @@
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Doctor extends Authenticatable
+{
+    use Notifiable;
+
+    protected $guard = 'doctor';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+    'name', 'surname','username', 'password', 'email','photourl',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+    'password', 'remember_token',
+    ];
+}
