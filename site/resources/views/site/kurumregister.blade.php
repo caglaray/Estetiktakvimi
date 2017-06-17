@@ -2,6 +2,7 @@
 @section('title','Ana Sayfa')
 
 @section('content')
+
 <section>
     <div class="container">
     
@@ -16,6 +17,8 @@
         
         
       </nav>
+      
+
       
 
 
@@ -36,7 +39,7 @@
     <div class="stepwizard-row setup-panel">
 
       <div class="stepwizard-step">
-        <a href="#step-1" type="button" class="btn btn-primary">Kurum Üyelik Sayfası</a>
+        
         <p></p>
       </div>
       
@@ -44,30 +47,31 @@
     </div>
   </div>
   
-  <form role="form" action="" method="post">
+  <form role="form" action="" method="post" >
+  <input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
     <div class="row setup-content" id="step-1">
       <div class="col-xs-6 col-md-offset-3">
         <div class="col-md-12">
       
            <div class="form-group">
             <label class="control-label">Kullanıcı Adı</label>
-            <input maxlength="30" type="text" required="required" class="form-control" placeholder="Kullanıcı Adını Giriniz">
+            <input maxlength="30" type="text" required="required" class="form-control" name="username" placeholder="Kullanıcı Adını Giriniz">
           </div>
           <div class="form-group">
             <label class="control-label">Şifre</label>
-            <input maxlength="30" type="password" required="required" class="form-control" placeholder="Şifre Giriniz">
+            <input maxlength="30" type="password" required="required" class="form-control" name="password" placeholder="Şifre Giriniz">
           </div>
           <div class="form-group">
             <label class="control-label">E-Posta</label>
-            <input maxlength="50" type="text" required="required" class="form-control" placeholder="E-Posta Adresi Giriniz">
+            <input maxlength="50" type="text" required="required" class="form-control" name="email" placeholder="E-Posta Adresi Giriniz">
           </div>
           <div class="form-group">
             <label class="control-label">Kurum Adı</label>
-            <input maxlength="60" type="text" required="required" class="form-control" placeholder="Lütfen Kurum Adını Giriniz">
+            <input maxlength="60" type="text" required="required" class="form-control" name="name" placeholder="Lütfen Kurum Adını Giriniz">
           </div>
           <div class="form-group">
             <label class="control-label">Şehir</label>
-              <select name="" id="" class="form-control select2" style="width: 100%">
+              <select name="city" id="" class="form-control select2" style="width: 100%">
                 <option value="İstanbul">İstanbul</option>
                 <option value="İzmir">İzmir</option>
                 <option value="Antalya">Antalya</option>
@@ -78,11 +82,11 @@
           </div>
            <div class="form-group">
             <label class="control-label">Telefon</label>
-            <input maxlength="30" type="number" required="required" class="form-control" placeholder="Telefon Numarası Giriniz">
+            <input maxlength="30" type="number" required="required" name="telephone" class="form-control" placeholder="Telefon Numarası Giriniz">
           </div>
           <div class="form-group">
             <label class="control-label">Adres</label>
-            <textarea required="required" class="form-control" placeholder="Adresinizi Giriniz"></textarea>
+            <textarea required="required" class="form-control" name="adress" placeholder="Adresinizi Giriniz"></textarea>
           </div>
 
           
@@ -90,7 +94,7 @@
           
           <div class="form-group">
             <label class="control-label">Kurum Logo</label>
-            <input type="file" name="">
+            <input type="file" name="logo">
           </div>
           
           <button class="btn btn-success btn-lg pull-right" type="submit">Kayıt ol</button>
