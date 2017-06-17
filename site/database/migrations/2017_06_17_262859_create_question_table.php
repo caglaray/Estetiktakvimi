@@ -18,16 +18,16 @@ class CreateQuestionTable extends Migration
             $table->increments('id');
 
             $table->integer('userid')->unsigned();
-            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('userid')->references('id')->on('users');
 
-            $table->integer('doctorid')->unsigned();
-            $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
+            $table->integer('doctorid')->unsigned()->nullable();
+            $table->foreign('doctorid')->references('id')->on('doctors');
 
-            $table->integer('catid')->unsigned();
-            $table->foreign('catid')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('catid')->unsigned()->nullable();
+            $table->foreign('catid')->references('id')->on('categories');
             $table->string('title');
-            $table->text('message');
-            $table->integer('status');
+            $table->longText('message');
+            $table->integer('status')->default(0);
             $table->timestamps();
             
         });

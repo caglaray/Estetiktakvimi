@@ -14,13 +14,22 @@ class CreateArticleTable extends Migration
     public function up()
     {
         Schema::create('article', function (Blueprint $table) {
-             $table->increments('id');
+            $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->integer('doctorid')->unsigned();
-            $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
-            $table->string('status');
-            $table->text('resim');
+            $table->integer('order')->default(0);
+            $table->integer('doctorid')->unsigned()->nullable();
+            $table->foreign('doctorid')->references('id')->on('doctors');
+            $table->integer('corporationsid')->unsigned()->nullable();
+            $table->foreign('corporationsid')->references('id')->on('corporations');
+            $table->tinyInteger('status')->default(0);
+            $table->string('image');
+
+
+            $table->integer('point')->unsigned();
+            $table->foreign('point')->references('id')->on('points');
+
+
             $table->timestamps();
         });
     }

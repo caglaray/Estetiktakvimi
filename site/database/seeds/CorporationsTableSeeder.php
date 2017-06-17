@@ -14,23 +14,27 @@ class CorporationsTableSeeder extends Seeder
         	DB::table('corporations')->insert([
 
     		'name' => 'Can Çağlar',
-    		'surname' => 'Ay',
-    		'username' => 'caglaray',
+            'adress' => 'Seyrantepe mah. bilmem ne sokak no:10',
+            'logo' => '/upload/corporations/can.jpeg',
+            'telephone' => '1234567890',
+            'email' => 'can@kurum.com',
+            'city' => 'istanbul',
+    		'username' => 'cancaglaray',
     		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
-    		'email' => 'can@kurum.com',
     		
-
-    		]);
+           ]);
 
     	DB::table('corporations')->insert([
 
-    		'name' => 'Ali',
-    		'surname' => 'Arslan',
-    		'username' => 'aliarslan',
-    		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
-    		'email' => 'ali@kurum.com',
-    		
-
+    		  'name' => 'Ali ARSLAN',
+            'adress' => 'Kayışdağ mah. bilmem ne sokak no:11',
+            'logo' => '/upload/corporations/ali.jpeg',
+            'telephone' => '9876543210',
+            'email' => 'ali@kurum.com',
+            'city' => 'istanbul',
+            'username' => 'aliarslan',
+            'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
+            
     		]);
     }
 }

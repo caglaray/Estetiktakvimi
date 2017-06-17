@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="description" content="">
-    <meta name="keywords" content="coco bootstrap template, coco admin, bootstrap,admin template, bootstrap admin,">
-    <meta name="author" content="Huban Creative">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
 
 
@@ -106,7 +106,7 @@
             <a href="{{ route('logout') }}"
             class="btn btn-success md-close"
             onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">Tabi ki !</a>
+            document.getElementById('logout-form').submit();">Evet</a>
 
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -136,42 +136,11 @@
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-collapse2">
-                    <ul class="nav navbar-nav hidden-xs">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i></a>
-                            <div class="dropdown-menu grid-dropdown">
-                                <div class="row stacked">
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="notes-app" data-status="active"><i class="icon-edit"></i>Notes</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="todo-app" data-status="active"><i class="icon-check"></i>Todo List</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="calc" data-status="inactive"><i class="fa fa-calculator"></i>Calculator</a>
-                                    </div>
-                                </div>
-                                <div class="row stacked">
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="weather-widget" data-status="active"><i class="icon-cloud-3"></i>Weather</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="calendar-widget2" data-status="active"><i class="icon-calendar"></i>Calendar</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="stock-app" data-status="inactive"><i class="icon-chart-line"></i>Stocks</a>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right top-navbar">
+                   <ul class="nav navbar-nav navbar-right top-navbar">
                         <li class="dropdown iconify hide-phone">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="label label-danger absolute">0</span></a>
                             <ul class="dropdown-menu dropdown-message">
-                                <li class="dropdown-header notif-header"><i class="icon-bell-2"></i> New Notifications<a class="pull-right" href="#"><i class="fa fa-cog"></i></a></li>
+                                <li class="dropdown-header notif-header"><i class="icon-bell-2"></i>Yeni Bildirimler<a class="pull-right" href="#"><i class="fa fa-cog"></i></a></li>
                                 <li class="unread">
                                     <a href="#">
                                         <p><strong>John Doe</strong> Uploaded a photo <strong>&#34;DSC000254.jpg&#34;</strong>
@@ -225,7 +194,7 @@
                         <li class="dropdown iconify hide-phone">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="label label-danger absolute">0</span></a>
                             <ul class="dropdown-menu dropdown-message">
-                                <li class="dropdown-header notif-header"><i class="icon-mail-2"></i> New Messages</li>
+                                <li class="dropdown-header notif-header"><i class="icon-mail-2"></i> Yeni Mesajlar</li>
                                 <li class="unread">
                                     <a href="#" class="clearfix">
                                         <img src="{{ URL::asset('images/users/chat/2.jpg') }}" class="xs-avatar ava-dropdown" alt="Avatar">
@@ -252,7 +221,7 @@
                         </li>
                         <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
                         <li class="dropdown topbar-profile">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{ URL::asset('images/users/user-35.jpg') }}"></span> Hoşgeldin <strong><?php echo $name." ".$surname ?></strong> <i class="fa fa-caret-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{ URL::asset('images/users/user-35.jpg') }}"></span> Hoşgeldin <strong><?php echo $name ?></strong> <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Hesabım</a></li>
                                 <li><a href="#">Parola Değiştir</a></li>
@@ -295,44 +264,39 @@
       <!--- Divider -->
       <div id="sidebar-menu">
           <ul>
-              <li class=''><a href='/Kurum'><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
+              <li class=''><a href='/kurum'><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
               
-              <li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>Üyeler</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                  <ul>
-                      <li><a href='alerts.html'><span>Alerts</span></a></li>
-                      <li><a href='buttons.html'><span>Buttons</span></a></li>
-                      <li><a href='calendar.html'><span>Calendar</span></a></li>
-                      <li><a href='grid.html'><span>Grid</span></a></li>
-                      <li><a href='icons.html'><span>Icons</span></a></li>
-                      <li><a href='modals.html'><span>Modals</span></a></li>
-                      <li><a href='nested-list.html'><span>Nested List</span></a></li>
-                      <li><a href='notifications.html'><span>Notifications</span></a></li>
-                      <li><a href='portlets.html'><span>Portlets</span></a></li>
-                      <li><a href='progress-bars.html'><span>Progress Bars</span></a></li>
-                      <li><a href='tabs-accordions.html'><span>Tabs & Accordions</span></a></li>
-                      <li><a href='typography.html'><span>Typography</span></a></li>
-                  </ul></li>
+              
                   <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                       <ul>
-                          <li><a href='/admin/doktor/liste'><span>Doktor Listesi</span></a></li>
-                          <li><a href='/admin/doktor/ekle'><span>Doktor Ekle</span></a></li>
+                          <li><a href=''><span>Doktor Listesi</span></a></li>
+                          <li><a href=''><span>Doktor Ekle</span></a></li>
                       </ul>
                   </li>
-                  <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Kurumlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                      <ul>
-                          <li><a href='tables.html'><span>Basic Tables</span></a></li>
-                          <li><a href='datatables.html'><span>Datatables</span></a></li></ul></li>
-                          <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Kategoriler</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
-                              <li><a href='google-maps.html'><span>Ana Kategori</span></a></li><li><a href='vector-maps.html'><span>Vector Maps</span></a></li></ul></li>
-                              <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                 
+                          <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                          <ul>
+                              <li><a href=''><span>Makaleler</span></a></li>
+                              <li><a href=''><span>Videolar</span></a></li>
+                              </ul>
+                              </li>
+                            <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                                   <ul>
                                       <li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li>
                                       <li><a href='new-message.html'><span>New Message</span></a></li>
-                                  </ul></li>
-                                  <li class='has_sub'><a href='javascript:void(0);'><i class='icon-chart-line'></i><span>Haber & Bülten</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                                  </ul>
+                            </li>
+                                  
+
+                                  <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-user'></i><span>Hesap Ayarları</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                                       <ul>
-                                          <li><a href='sparkline-charts.html'><span>Makaleler</span></a></li><li><a href='morris-charts.html'><span>Videolar</span></a></li><li><a href='rickshaw-charts.html'><span>Rickshaw Charts</span></a></li>
-                                          <li><a href='other-charts.html'><span>Other Charts</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='icon-megaphone'></i><span>Sistem</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='blank.html' ><span>Ayarlar</span></a></li><li><a href='login.html'><span>Kullanıcılar</span></a></li><li><a href='register.html'><span>Banner</span></a></li><li><a href='lockscreen.html'><span>Sayfalar</span></a></li><li><a href='404.html'><span>Yorumlar</span></a></li><li><a href='500.html'><span>500 Error</span></a></li><li><a href='profile.html'><span>User Profile</span></a></li><li><a href='invoice.html'><span>Invoice</span></a></li><li><a href='gallery.html'><span>Gallery</span></a></li><li><a href='maintenance.html'><span>Maintenance</span></a></li><li class='has_sub'><a href='javascript:void(0);'><span>3 Level menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><span>Sub Item</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><span>4 Level Menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li class='has_sub'><a href='javascript:void(0);'><span>Sub Item - level 3</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><span>Sub Item - level 4</span></a></li></ul></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><span>Submenu with icons</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><i class='fa fa-camera'></i><span>Item with icon</span></a></li><li><a href='javascript:void(0);'><i class='entypo entypo-users'></i><span>Another Item</span></a></li></ul></li></ul></li></ul>                    <div class="clearfix"></div>
+                                          <li><a href='sparkline-charts.html'><span>Makaleler</span></a></li>
+                                          <li><a href='morris-charts.html'><span>Videolar</span></a></li>
+                                      </ul>
+                                  </li>
+
+                                        
+                                          </ul>                    <div class="clearfix"></div>
                                       </div>
                                       <div class="clearfix"></div>
 
