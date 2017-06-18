@@ -8,6 +8,6 @@ class ArticleModel extends Model
 {
     protected $primaryKey='id';
     protected $table ='article';
-    protected $fillable = array('title','content','doctorid','status','resim');
+    protected $fillable = array('title','content','doctorid','status','image');
     
 }

@@ -49,7 +49,7 @@ class ArticleController extends Controller
             'content' => $request->get('content'),
             'status' => "0",
             'doctorid' => $userid  ,
-            'resim' =>$request->get('resim'),
+            'image' =>$request->get('resim'),
 
             ));
 
@@ -85,7 +85,7 @@ class ArticleController extends Controller
         $Article->content   = $request->get('content');
         $Article->doctorid   = "1";
         $Article->status   = "0";
-        $Article->resim   = $request->get('resim');
+        $Article->image   = $request->get('resim');
 
 
 
