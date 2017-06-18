@@ -13,37 +13,36 @@ class DoctorsTableSeeder extends Seeder
     {
     	DB::table('doctors')->insert([
 
-    		'name' => 'Can Çağlar',
-    		'surname' => 'Ay',
     		'username' => 'caglaray',
-    		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
-    		'adress' => 'İstanbul',
-    		'email' => 'can@doktor.com',
-    		'photourl' => 'urlcan',
-    		'telephone' => '0532 532 32 32',
-    		'birthday' => '01.01.2001',
-    		'livecity' => 'İstanbul',
-
-    		]);
+            'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
+            'name' => 'Can Çağlar',
+            'surname' => 'Ay',
+            'email' => 'can@doktor.com',
+            'image' => 'urlcan',
+            'adress' => 'İstanbul',
+            'telephone' => '0532 532 32 32',
+            'birthday' => '01.01.2001',
+            'livecity' => 'İstanbul',
+            'created_at' => date("Y-m-d H:i:s") ,
+            'updated_at' => date("Y-m-d H:i:s") ,
+            ]);
 
     	DB::table('doctors')->insert([
 
-    		'name' => 'Ali',
-    		'surname' => 'Arslan',
     		'username' => 'aliarslan',
     		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
-    		'adress' => 'Ankara',
-    		'email' => 'ali@doktor.com',
-    		'photourl' => 'urlali',
-    		'telephone' => '0532 532 32 32',
-    		'birthday' => '01.01.2001',
-    		'livecity' => 'Ankara',
-    		
-    		]);
-    	
+            'name' => 'Ali',
+            'surname' => 'Arslan',
+            'email' => 'ali@doktor.com',
+            'image' => 'urlali',
+            'adress' => 'Ankara',
+            'telephone' => '0532 532 32 32',
+            'birthday' => '01.01.2001',
+            'livecity' => 'Ankara',
+            'created_at' => date("Y-m-d H:i:s") ,
+            'updated_at' => date("Y-m-d H:i:s") ,
 
-
-
+            ]);
 
     }
 }

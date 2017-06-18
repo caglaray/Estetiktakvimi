@@ -19,8 +19,9 @@ class AdminsTableSeeder extends Seeder
     		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
     		'email' => 'can@admin.com',
     		'photourl' => 'urlcan',
-
-    		]);
+            'created_at' => date("Y-m-d H:i:s") ,
+            'updated_at' => date("Y-m-d H:i:s") ,
+          ]);
 
     	DB::table('admins')->insert([
 
@@ -29,11 +30,13 @@ class AdminsTableSeeder extends Seeder
     		'username' => 'aliarslan',
     		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
     		'email' => 'ali@admin.com',
-    		'photourl' => 'urlali',
-
-    		]);
+    	 	'photourl' => 'urlali',
+            'created_at' => date("Y-m-d H:i:s") ,
+            'updated_at' => date("Y-m-d H:i:s") ,
+          ]);
 
 
 
     }
 }
+

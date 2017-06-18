@@ -17,7 +17,7 @@ class CreateDoctorsTable extends Migration
             $table->increments('id');
             $table->tinyInteger('group_id')->default(0);
             $table->string('username',20)->unique();
-            $table->string('password',30);
+            $table->string('password',100);
             $table->string('name',35);
             $table->string('surname',50);
             $table->string('email',100)->unique();
@@ -27,7 +27,7 @@ class CreateDoctorsTable extends Migration
             $table->string('telephone',30);
             $table->string('birthday',50);
             $table->string('livecity');
-            $table->Integer('point_result');->default(0);
+            $table->Integer('point_result')->default(0);
             $table->Integer('docdegrees')->unsigned()->nullable();
             $table->foreign('docdegrees')->references('id')->on('doc_degree');
 

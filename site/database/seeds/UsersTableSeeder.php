@@ -20,7 +20,10 @@ class UsersTableSeeder extends Seeder
     		'email' => 'can@site.com',
     		'address' => 'Manisa',
     		'photourl' => 'urlcan',
-    		]);
+           'created_at' => date("Y-m-d H:i:s") ,
+           'updated_at' => date("Y-m-d H:i:s") ,
+
+           ]);
 
     	DB::table('users')->insert([
 
@@ -28,10 +31,13 @@ class UsersTableSeeder extends Seeder
     		'surname' => 'Arslan',
     		'username' => 'aliarslan',
     		'password' => '$2y$10$ZgsejJWnXfGGhkoxbcgY/eT48ybOtueH4dgXgn/gfaCu2.mlBI9Y.',
-    		'email' => 'ali@site.com',
     		'address' => 'İzmir',
     		'photourl' => 'urlali',
-    		]);
+            'email' => 'ali@site.com',
+            'created_at' => date("Y-m-d H:i:s") ,
+            'updated_at' => date("Y-m-d H:i:s") ,
+            ]);
 
     }
 }
+

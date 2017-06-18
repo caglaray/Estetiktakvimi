@@ -16,13 +16,10 @@ class CreateQuestionTable extends Migration
         Schema::create('question', function (Blueprint $table) {
 
             $table->increments('id');
-
             $table->integer('userid')->unsigned();
             $table->foreign('userid')->references('id')->on('users');
-
             $table->integer('doctorid')->unsigned()->nullable();
             $table->foreign('doctorid')->references('id')->on('doctors');
-
             $table->integer('catid')->unsigned()->nullable();
             $table->foreign('catid')->references('id')->on('categories');
             $table->string('title');

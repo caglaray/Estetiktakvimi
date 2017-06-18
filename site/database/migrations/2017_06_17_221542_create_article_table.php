@@ -24,12 +24,6 @@ class CreateArticleTable extends Migration
             $table->foreign('corporationsid')->references('id')->on('corporations');
             $table->tinyInteger('status')->default(0);
             $table->string('image');
-
-
-            $table->integer('point')->unsigned();
-            $table->foreign('point')->references('id')->on('points');
-
-
             $table->timestamps();
         });
     }

@@ -11,32 +11,32 @@ class ArticleTableSeeder extends Seeder
      */
     public function run()
     {
+
+    	DB::table('article')->insert([
+
+    		'title' => 'Makale 1',
+    		'content' => 'Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.',
+            'doctorid' => '1',
+            'status' => '1',
+            'image' => 'url1',
+            'created_at' => date("Y-m-d H:i:s") ,
+            'updated_at' => date("Y-m-d H:i:s") ,
+
+
+            ]);
     	DB::table('article')->insert([
 
     		'title' => 'Makale 1',
 
     		'content' => 'Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.',
-
-    		'doctorid' => '1',
-    		'status' => '1',
-    		'resim' => 'url1',
-            
-
-
-    		]);
-    	DB::table('article')->insert([
-
-    		'title' => 'Makale 1',
-
-    		'content' => 'Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.',
-
     		'doctorid' => '2',
     		'status' => '0',
-    		'resim' => 'url2',
-            
+    		'image' => 'url2',
+          'created_at' => date("Y-m-d H:i:s") ,
+          'updated_at' => date("Y-m-d H:i:s") ,
 
 
-    		]);
+          ]);
     }
 }
 

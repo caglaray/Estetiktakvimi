@@ -19,6 +19,7 @@ class CreateServiceDocTable extends Migration
             $table->foreign('doctorid')->references('id')->on('doctors');
             $table->integer('servicesid')->unsigned();
             $table->foreign('servicesid')->references('id')->on('services');
+            $table->timestamps();
         });
     }
 

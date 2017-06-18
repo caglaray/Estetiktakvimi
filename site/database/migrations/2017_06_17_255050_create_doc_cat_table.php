@@ -19,6 +19,9 @@ class CreateDocCatTable extends Migration
             $table->foreign('doctorid')->references('id')->on('doctors');
             $table->integer('cat_id')->unsigned();
             $table->foreign('cat_id')->references('id')->on('categories');
+            $table->timestamps();
+
+
         });
     }
 
