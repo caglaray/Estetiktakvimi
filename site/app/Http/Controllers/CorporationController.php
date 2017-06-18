@@ -17,4 +17,8 @@ class CorporationController extends Controller
     {
         return view('corpadmin.home');
     }
+    public function about()        
+	{
+		return view("corpadmin.about");   
+	}
 }

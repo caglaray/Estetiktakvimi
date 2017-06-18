@@ -45,6 +45,8 @@ Route::prefix('kurum')->group(function() {
 	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
 	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
 	Route::get('/', 'CorporationController@index')->name('corporation.dashboard');
+	Route::get('/about', 'CorporationController@about');
+
 
 });
 
