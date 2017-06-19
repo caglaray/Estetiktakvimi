@@ -297,16 +297,7 @@
                                 </div>
 
                                 <!-- Footer Start -->
-                                <footer>
-                                <div class="footer-links pull-left">
-
-                                   " User ID = <?php echo $userid; ?> " 
-                                </div>
-                                <div class="footer-links pull-right">
-
-                                  Estetik Takvimi &copy; 2017
-                                </div>
-                            </footer>
+                                
                             <!-- Footer End -->			
                         </div>
                         <!-- ============================================================== -->
@@ -316,7 +307,17 @@
                     </div>
                     <!-- End right content -->
 
-                </div>
+                  </div>
+                  <footer>
+                    <div class="footer-links pull-left">
+
+                     " User ID = <?php echo $userid; ?> " 
+                   </div>
+                   <div class="footer-links pull-right">
+
+                    Estetik Takvimi &copy; 2017
+                  </div>
+                </footer>
                 <!-- End of page -->
                 <!-- the overlay modal element -->
                 <div class="md-overlay"></div>
