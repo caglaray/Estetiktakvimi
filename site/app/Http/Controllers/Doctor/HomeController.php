@@ -34,6 +34,10 @@ class HomeController extends Controller
 		return view("docadmin.deneyim");   
 	}
 
+	public function profilepage()
+	{
+		return view("docadmin.profile");
+	}
 
 	
 

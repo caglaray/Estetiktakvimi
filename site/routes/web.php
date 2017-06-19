@@ -89,6 +89,11 @@ Route::prefix('doktor')->group(function() {
  	//route::get ("/sorucevap/cevap","Doctor\HomeController@cevap");
 
 
+	Route::get ("/profil","Doctor\HomeController@profilepage");
+
+
+
+
 });
 
 

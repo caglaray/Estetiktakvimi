@@ -271,10 +271,22 @@
  <!-- ============================================================== -->
  <div class="content">
    <!-- Page Heading Start -->
+
+
+
+
+@hasSection('title')
    <div class="page-heading">
 
-      <!--  <h3>@yield('title')</h3> --> 
+       <h1><i class='fa fa-magic'></i>@yield('title')</h1> 
   </div>
+@endif
+
+
+ 
+
+
+
   <!-- Page Heading End-->              
   <div class="row">
       <div class="col-md-12 portlets">

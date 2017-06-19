@@ -1,47 +1,32 @@
 @extends('doktormaster')
-
+@section('title',' Video Liste')
 
 @section('content')
-<div class="row">
-	<div class="col-md-12">
-		<div class="widget">
-			<div class="widget-header transparent">
-				<h2><strong>videolar</strong></h2>
+<div class="col-md-12">
 
-			</div>
-			<div class="widget-content">
+	<div class="widget">
+
+		<div class="widget-content">
+
+			<div class="table-responsive">
 				@if(session('status'))
 				<div class="alert alert-success">
 					{{ session('status') }}
 				</div>
 				@endif
-				<div class="data-table-toolbar">
-					<div class="row">
-						<div class="col-md-4">
-							<form role="form">
-								<input type="text" class="form-control" placeholder="Search...">
-							</form>
-						</div>
-						<div class="col-md-8">
-							<div class="toolbar-btn-action">
-								<a class="btn btn-success" href="/doktor/video/ekle"><i class="fa fa-plus-circle"></i> Yeni Ekle</a>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<div class="table-responsive">
-					@if($videos->isEmpty())
-					<div style="margin: 20px;" class="alert alert-danger">
-						Kayıt Yok.
-					</div>
-					@else
-					<table data-sortable class="table table-hover table-striped">
+				@if($videos->isEmpty())
+				<p> Kayıt Yok</p>
+				@else
+				<div style="margin:20px;" class="text-right">
+					<a class="btn btn-success btn-sm" href="/doktor/video/ekle">Yeni Video Ekle</a>
+				</div>
+				<table data-sortable="" class="table" data-sortable-initialized="true">
 						<thead>
 
 							<tr>
 								<th>No</th>
-								<th>video Adı</th>
+								<th>Video Adı</th>
 								<th>Sıralama</th>
 								<th>Yükleme Tarih</th>
 								<th>Durum</th>
@@ -49,7 +34,7 @@
 							</tr>
 						</thead>
 
-						<tbody>
+				<tbody>
 							@foreach($videos as $video)
 							<tr>
 								<td>{!! $video->id !!}</td>
@@ -68,24 +53,21 @@
 							</tr>
 							@endforeach
 						</tbody>
-					</table>
-					@endif
-				</div>
-
-				<div class="data-table-toolbar">
-					<ul class="pagination">
-						<li class="disabled"><a href="#">&laquo;</a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">&raquo;</a></li>
-					</ul>
-				</div>
+				</table>
+				@endif
+			</div>
+			<div class="data-table-toolbar text-center">
+				<ul class="pagination">
+					<li class="disabled"><a href="#">&laquo;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
-
 </div>
 @endsection
