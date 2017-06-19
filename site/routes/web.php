@@ -46,10 +46,10 @@ Route::prefix('kurum')->group(function() {
 	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
 	Route::get('/', 'CorporationController@index')->name('corporation.dashboard');
 	Route::get('/about', 'CorporationController@about');
-	Route::get('/doktorekle', 'CorporationController@doktorekle');
-	Route::get('/doktorliste', 'CorporationController@doktorliste');
+	Route::get('/doktor-ekle', 'CorporationController@doktorekle');
+	Route::get('/doktor-liste', 'CorporationController@doktorliste');
 	Route::get('/doktor-profil', 'CorporationController@doktorprofil');
-
+	Route::get('/makale-ekle', 'CorporationController@makaleekle');
 });
 
 

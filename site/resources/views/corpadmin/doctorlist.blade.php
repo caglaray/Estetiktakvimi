@@ -40,7 +40,7 @@
 						
 						<td>
 							<div class="btn-group btn-group-xs">
-								<a data-toggle="tooltip" title="Görüntüle" href="" class="btn btn-default"><i class="fa fa-user fa-1"></i></a>
+								<a data-toggle="tooltip" title="Görüntüle" href="/kurum/doktor-profil" class="btn btn-default"><i class="fa fa-user fa-1"></i></a>
 
 								<a data-toggle="tooltip" title="Güncelle" href="" class="btn btn-default"><i class="fa fa-edit"></i></a>
 						

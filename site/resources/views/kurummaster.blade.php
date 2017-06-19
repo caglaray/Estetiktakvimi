@@ -212,7 +212,7 @@
             <!--- Profile -->
             <div class="profile-info">
                 <div class="col-xs-4">
-                  <a href="profile.html" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
+                  <a href="/kurum" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
               </div>
               <div class="col-xs-8">
                 <div class="profile-text">Estetik Takvimi</div>
@@ -235,8 +235,8 @@
               
                   <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                       <ul>
-                          <li><a href='/kurum/doktorliste'><span>Doktor Listesi</span></a></li>
-                          <li><a href='/kurum/doktorekle''><span>Doktor Ekle</span></a></li>
+                          <li><a href='/kurum/doktor-liste'><span>Doktor Listesi</span></a></li>
+                          <li><a href='/kurum/doktor-ekle''><span>Doktor Ekle</span></a></li>
                       </ul>
                   </li>
                  
