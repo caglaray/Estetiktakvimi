@@ -240,7 +240,7 @@
                   <span>Mesajlar</span>
                   <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='/doktor/sorucevap/soru'>
                   <span>Mesaj Kutusu</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class="fa fa-user"></i><span>Hesap Ayarları</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
-                  <li><a href='profil.html'><span>Profil</span></a></li>
+                  <li><a href='/doktor/profil'><span>Profil</span></a></li>
                   <li><a href='inbox.html'><span>Eğitim Bilgileri</span></a></li>
                   <li><a href='inbox.html'><span>Hizmetler</span></a></li>
                   <li><a href='inbox.html'><span>Ödüller</span></a></li>

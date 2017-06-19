@@ -66,7 +66,7 @@
 					<div class="user-profile-content">
 						<h5><strong>Hakkında</strong></h5>
 						<p>
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+							<?php echo Auth::user()->about; ?>
 						</p>
 						<br>
 						<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
@@ -74,6 +74,10 @@
 						<h5><strong>Mezun Oluduğu Okullar</strong></h5>
 						<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
+							
+						@if($okullar->isEmpty())
+							<p> Kayıt Yok</p>
+							@else
 							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
 								<thead>
 									<tr>
@@ -89,10 +93,12 @@
 								</thead>
 
 								<tbody>
+									@foreach($okullar as $okul)
 									<tr>
-										<td><strong>John Doe</strong></td>
-										<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
-
+										<td><strong>{!! $okul->name !!}</strong></td>
+										<td>{!! $okul->education !!}</td>
+										<td>{!! $okul->start !!}</td>
+										<td>{!! $okul->finish !!}</td>
 										<td>
 											<div class="btn-group btn-group-xs">
 												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
@@ -100,42 +106,12 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
-										<td><strong>John Doe</strong></td>
-										<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
+									@endforeach
 
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>John Doe</strong></td>
-										<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
-
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>John Doe</strong></td>
-										<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
-
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
-										</td>
-									</tr>
 
 								</tbody>
 							</table>
+							@endif
 						</div>
 						<br>
 
@@ -345,49 +321,50 @@
 	<div class="md-modal md-fall md-hide" id="md-education">
 		<div class="md-content"><div class="form-group">
 			<h3>Eğitim Bilgisi Ekle</h3>
-                                          <div class="form-group">
-                                               <label>Okul Adı</label>
-                                               <input type="text" class="form-control" name="school" data-bv-field="school">
-                                               </div>
-                                               <div class="form-group">
-                                               <label>Bitirdiği Derece</label>
-                                               <input type="text" class="form-control" name="degree" data-bv-field="degree">
-                                               </div>
-
-		
-	</div>
-	<div class="md-modal md-fall md-hide" id="md-account">
-		<div class="md-content">
-			<div id="basic-form">
-				<form role="form">
-					<div class="form-group">
-						<label for="corporationname">Kurum Adı</label>
-						<input type="text" class="form-control" id="" value="Kurum Adınız">
-					</div>
-					<div class="form-group">
-						<label class="control-label">Adres</label>
-						<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
-					</div>
-					<div class="form-group">
-						<label for="corporationphone">Telefon Numarası</label>
-						<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
-					</div>
-
-					<div class="form-group">
-						<input type="file" class="btn btn-default" title="Logo Değiştir">
-
-					</div>
-
-					<p style="margin-bottom: 5px;">
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
-
-				</form>
+			<div class="form-group">
+				<label>Okul Adı</label>
+				<input type="text" class="form-control" name="school" data-bv-field="school">
 			</div>
+			<div class="form-group">
+				<label>Bitirdiği Derece</label>
+				<input type="text" class="form-control" name="degree" data-bv-field="degree">
+			</div>
+
+
+		</div>
+		<div class="md-modal md-fall md-hide" id="md-account">
+			<div class="md-content">
+				<div id="basic-form">
+					<form role="form">
+						<div class="form-group">
+							<label for="corporationname">Kurum Adı</label>
+							<input type="text" class="form-control" id="" value="Kurum Adınız">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Adres</label>
+							<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+						</div>
+						<div class="form-group">
+							<label for="corporationphone">Telefon Numarası</label>
+							<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+						</div>
+
+						<div class="form-group">
+							<input type="file" class="btn btn-default" title="Logo Değiştir">
+
+						</div>
+
+						<p style="margin-bottom: 5px;">
+							<button class="btn btn-danger md-close">Kapat</button>
+							<button class="btn btn-success md-close">Kaydet</button>
+						</p>
+
+					</form>
+				</div>
+			</div>
+
 		</div>
 
-	</div>
-
-
+		/*Burayı kontrol edicez*/
+	</div></div></div>
 	@endsection

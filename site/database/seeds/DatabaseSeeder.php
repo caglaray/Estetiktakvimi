@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(CorporationsTableSeeder::class);
         $this->call(AdminsTableSeeder::class);
-        $this->call(DoctorsTableSeeder::class);
+        $this->call(DoctorsTableSeeder::class); 
+        $this->call(DoctoSchoolSeeder::class);
         $this->call(CategoriesTableSeeder::class);
         $this->call(DoctorDegreeSeeder::class);
         $this->call(PointSeeder::class);
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionAnswerSeeder::class);
         $this->call(DocToCatSeeder::class);
         $this->call(DocToServiceSeeder::class);
+      
 
 
 

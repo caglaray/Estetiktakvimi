@@ -98,7 +98,7 @@
                   <div class="btn-group dropdown page_pass hidden-xs">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Doktor musunuz?</button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#">Doktorlara özel bölüm</a></li>
+                      <li><a href="/doktor">Doktorlara özel bölüm</a></li>
                       <li><a href="#">Sağlık yöneticileri için</a></li>
                     </ul>
                   </div>

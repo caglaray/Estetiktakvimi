@@ -23,6 +23,7 @@ class DoctorsTableSeeder extends Seeder
             'telephone' => '0532 532 32 32',
             'birthday' => '01.01.2001',
             'livecity' => 'İstanbul',
+            'about' => 'Aslen memleketi Kastamonu olan Dr.Can Çağlar AY, 1970 yılında hakim olan babasının görevi sebebiyle Elazığ’da doğmuştur.Orta ve lise eğitimini İstanbul’da tamamlayan Dr.Kalaycı ; 1988-1994 yılları arasında tıp eğitimini Bursa Uludağ Tıp Fakültesinde almıştır.',
             'created_at' => date("Y-m-d H:i:s") ,
             'updated_at' => date("Y-m-d H:i:s") ,
             ]);
@@ -39,6 +40,7 @@ class DoctorsTableSeeder extends Seeder
             'telephone' => '0532 532 32 32',
             'birthday' => '01.01.2001',
             'livecity' => 'Ankara',
+            'about' => 'Aslen memleketi Kahramanmaraş olan Dr.Ali ARSLAN, 1970 yılında hakim olan babasının görevi sebebiyle Elazığ’da doğmuştur.Orta ve lise eğitimini İstanbul’da tamamlayan Dr.Kalaycı ; 1988-1994 yılları arasında tıp eğitimini Bursa Uludağ Tıp Fakültesinde almıştır.',
             'created_at' => date("Y-m-d H:i:s") ,
             'updated_at' => date("Y-m-d H:i:s") ,
 

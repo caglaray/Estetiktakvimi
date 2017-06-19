@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Doctor;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+
+
 
 class HomeController extends Controller
 {
@@ -36,7 +40,12 @@ class HomeController extends Controller
 
 	public function profilepage()
 	{
-		return view("docadmin.profile");
+
+		$userid = Auth::user()->id ;
+
+		$okullar = DB::table('doc_schools')->where('doctorid',$userid)->get();
+
+		return view("docadmin.profile", ['okullar' => $okullar] );
 	}
 
 	

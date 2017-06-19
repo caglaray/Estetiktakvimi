@@ -21,16 +21,16 @@ class DocToCatSeeder extends Seeder
          ]);    
     	DB::table('doc_cat')->insert([
 
-    		'doctorid' => '1',
-    		'cat_id' => '2',
+    	 'doctorid' => '1',
+    	 'cat_id' => '2',
          'created_at' => date("Y-m-d H:i:s") ,
          'updated_at' => date("Y-m-d H:i:s") ,
          
          ]);   
     	DB::table('doc_cat')->insert([
 
-    		'doctorid' => '1',
-    		'cat_id' => '3',
+    	 'doctorid' => '1',
+    	 'cat_id' => '3',
          'created_at' => date("Y-m-d H:i:s") ,
          'updated_at' => date("Y-m-d H:i:s") ,
          
