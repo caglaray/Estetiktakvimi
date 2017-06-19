@@ -139,7 +139,7 @@
 						</div>
 						<br>
 
-						<hr />
+						
 
 
 
@@ -179,7 +179,7 @@
 
 						</div>
 
-						<hr />
+						
 						<div class="col-sm-6">
 							<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
 							<p>UI Design</p>
