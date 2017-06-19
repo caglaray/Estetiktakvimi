@@ -1,62 +1,37 @@
 @extends('doktormaster')
-@section('title','Makale Detay')
+@section('title',' Makale Detay')
 
 @section('content')
 
 
-<row>
-	<div class="col-sm-12 portlets ui-sortable">
-		<div class="widget">
-			<div class="widget-header ">
-				<h2><i class="icon-chart-pie-1"></i> <strong>Makale Bilgileri</strong></h2>
-			</div>
-			<div class="widget-content padding">
-				
+<table class="table">
 
-				<div class="form-group">
-					<label for="input-text" class="col-sm-2 control-label">Makale Adı</label>
-					<label for="input-text" style="margin-left:13px;" class="control-label">{!! $Article->title !!}</label>
+	<tr>
+		<td width="150px"><b>Makale Başlık :</b></td>
+		<td>{!! $Article->title !!}</td>
+	</tr>
 
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Makale Resim</label>
-					<label for="input-text" style="margin-left:13px;" class="control-label">{!! $Article->image  !!}</label>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Durum</label>
-					<div class="col-sm-10">
-						<label for="input-text" style="margin-left:13px;" class="control-label">{!! $Article->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Kapalı' !!}</span></label>
-					</div>
-				</div>
+	<tr>
+		<td width="150px"><b>Makale İçerik :</b></td>
+		<td>{!! $Article->content !!}</td>
+	</tr>	
+	
+	<tr>
+		<td width="150px"><b>Makale Durum :</b></td>
+		<td><label for="input-text" style="margin-left:13px;" class="control-label">{!! $Article->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Kapalı' !!}</span></label></td>
+	</tr>
 
+	<tr>
+		<td width="150px"><b>Makale Resim :</b></td>
+		<td><img class="img-rounded" width="150px" src="{!! $Article->image !!}"></td>
+	</tr>
 
-			</br></br>
-			
-			<div class="form-group">
-				<label for="input-text" class="col-sm-2 control-label">Makale Adı</label>
-				<label for="input-text" style="margin-left:13px;" class="control-label">{!! $Article->content !!}</label>
+	
+	<tr>
+		<td colspan="2"><a  class="btn btn-primary" href="../../makale">Geri Dön</a></td>
+	</tr>
 
-			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-		</div>
-
-	</div>
-
-</div>
-
-
-</row>
+</table>
 
 
 
