@@ -36,7 +36,7 @@
 						<td>Kategorisi</td>
 						<td>E-mail</td>
 						<td><span class="label label-success">Aktif</span></td>
-						<td><button href="#" class="btn btn-default" style="margin-left: 25%;"> <i class="fa fa-calendar" aria-hidden="true"></i></td>
+						<td><button href="#" class="btn btn-default btn-xs" style="margin-left: 25%;"> <i class="fa fa-calendar" aria-hidden="true"></i></td>
 						
 						<td>
 							<div class="btn-group btn-group-xs">
@@ -56,7 +56,7 @@
 						<td>Kategorisi</td>
 						<td>E-mail</td>
 						<td><span class="label label-success">Aktif</span></td>
-						<td><button href="#" class="btn btn-default" style="margin-left: 25%;"> <i class="fa fa-calendar" aria-hidden="true"></i></td>
+						<td><a href="#" class="btn btn-default btn-xs" style="margin-left: 25%;"> <i class="fa fa-calendar" aria-hidden="true"></i></a></td>
 						
 						<td>
 							<div class="btn-group btn-group-xs">
