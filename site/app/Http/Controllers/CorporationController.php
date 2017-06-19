@@ -21,4 +21,16 @@ class CorporationController extends Controller
 	{
 		return view("corpadmin.about");   
 	}
+     public function doktorekle()        
+    {
+        return view("corpadmin.doctoradd");   
+    }
+     public function doktorliste()        
+    {
+        return view("corpadmin.doctorlist");   
+    }
+    public function doktorprofil()        
+    {
+        return view("corpadmin.doctorprofile");   
+    }
 }

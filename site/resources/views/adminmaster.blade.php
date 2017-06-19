@@ -351,9 +351,7 @@
 
                               <!-- Start right content -->
                               <div class="content-page">
-                                 <!-- ============================================================== -->
-                                 <!-- Start Content here -->
-                                 <!-- ============================================================== -->
+                                 
                                  <div class="content">
                                    <!-- Page Heading Start -->
                                    <div class="page-heading">
@@ -361,16 +359,16 @@
                                       <!--  <h3>@yield('title')</h3> --> 
                                   </div>
                                   <!-- Page Heading End-->				
-                                  <div class="row">
-                                      <div class="col-md-12 portlets">
+                                
+                                      
 
 
                                         @yield('content')
 
 
 
-                                    </div>
-                                </div>
+                                    
+                            
 
                                 <!-- Footer Start -->
                                 <footer>

@@ -233,14 +233,14 @@
               <li class=''><a href='/kurum'><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
               
               
-                  <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                  <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                       <ul>
-                          <li><a href=''><span>Doktor Listesi</span></a></li>
-                          <li><a href=''><span>Doktor Ekle</span></a></li>
+                          <li><a href='/kurum/doktorliste'><span>Doktor Listesi</span></a></li>
+                          <li><a href='/kurum/doktorekle''><span>Doktor Ekle</span></a></li>
                       </ul>
                   </li>
                  
-                          <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                          <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                           <ul>
                               <li><a href=''><span>Makaleler</span></a></li>
                               <li><a href=''><span>Videolar</span></a></li>
@@ -254,11 +254,8 @@
                             </li>
                                   
 
-                                  <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-user'></i><span>Hesap Ayarları</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                                      <ul>
-                                          <li><a href='sparkline-charts.html'><span>Makaleler</span></a></li>
-                                          <li><a href='morris-charts.html'><span>Videolar</span></a></li>
-                                      </ul>
+                                  <li class=''><a href='/kurum/about'><i class='fa fa-user'></i><span>Kurum Ayarları</span> <span class="pull-right"></span></a>
+                                      
                                   </li>
 
                                         
@@ -286,10 +283,7 @@
                                  <!-- ============================================================== -->
                                  <div class="content">
                                    <!-- Page Heading Start -->
-                                   <div class="page-heading">
-                                     
-                                      <!--  <h3>@yield('title')</h3> --> 
-                                  </div>
+                                   
                                   <!-- Page Heading End-->				
                                   <div class="row">
                                       <div class="col-md-12 portlets">
@@ -364,5 +358,8 @@
               <script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
 
               <script src="{{ URL::asset('assets/js/init.js') }}"></script>
+              <script src="{{ URL::asset('http://maps.google.com/maps/api/js?sensor=true') }}"></script>
+  <script src="{{ URL::asset('assets/libs/jquery-gmap3/gmap3.min.js') }}"></script>
+  <script src="{{ URL::asset('assets/js/pages/google-maps.js') }}"></script>
           </body>
           </html>
