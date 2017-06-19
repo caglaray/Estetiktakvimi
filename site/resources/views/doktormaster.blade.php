@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Blank | Coco - Responsive Bootstrap Admin Template</title>   
+    <title>Estetik Takvimi - Doktor Paneli</title>   
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="description" content="">
-    <meta name="keywords" content="coco bootstrap template, coco admin, bootstrap,admin template, bootstrap admin,">
-    <meta name="author" content="Huban Creative">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
 
 
@@ -50,129 +50,63 @@
         <link rel="apple-touch-icon" sizes="120x120" href="{{ URL::asset('assets/img/apple-touch-icon-120x120.png') }}"  />
         <link rel="apple-touch-icon" sizes="144x144" href="{{ URL::asset('assets/img/apple-touch-icon-144x144.png') }}"  />
         <link rel="apple-touch-icon" sizes="152x152" href="{{ URL::asset('assets/img/apple-touch-icon-152x152.png') }}"  />
-
     </head>
     <body class="fixed-left">
 
-     <?php $userid = Auth::user()->id; ?>
-     <?php $name = Auth::user()->name; ?>
-     <?php $surname = Auth::user()->surname; ?>
+        <?php $userid = Auth::user()->id; ?>
+        <?php $name = Auth::user()->name; ?>
+        <?php $surname = Auth::user()->surname; ?>
+
+        <!-- Modal Start -->
+        <!-- Modal Task Progress -->    
+
+        <!-- Modal Logout -->
+        <div class="md-modal md-just-me" id="logout-modal">
+          <div class="md-content">
+             <h3><strong>Çıkış</strong></h3>
+             <div>
+                <p class="text-center">Çıkmak istediğinize emin misiniz?</p>
+                <p class="text-center">
+                    <button class="btn btn-danger md-close">Hayır</button>
+
+                    <a href="{{ route('logout') }}"
+                    class="btn btn-success md-close"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Evet</a>
 
 
-     <!-- Modal Start -->
-     <!-- Modal Task Progress -->	
-     <div class="md-modal md-3d-flip-vertical" id="task-progress">
-      <div class="md-content">
-         <h3><strong>Task Progress</strong> Information</h3>
-         <div>
-            <p>CLEANING BUGS</p>
-            <div class="progress progress-xs for-modal">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-               <span class="sr-only">80&#37; Complete</span>
-           </div>
-       </div>
-       <p>POSTING SOME STUFF</p>
-       <div class="progress progress-xs for-modal">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-           <span class="sr-only">65&#37; Complete</span>
-       </div>
-   </div>
-   <p>BACKUP DATA FROM SERVER</p>
-   <div class="progress progress-xs for-modal">
-      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-       <span class="sr-only">95&#37; Complete</span>
-   </div>
-</div>
-<p>RE-DESIGNING WEB APPLICATION</p>
-<div class="progress progress-xs for-modal">
-  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-   <span class="sr-only">100&#37; Complete</span>
-</div>
-</div>
-<p class="text-center">
-    <button class="btn btn-danger btn-sm md-close">Close</button>
-</p>
-</div>
-</div>
-</div>
-
-<!-- Modal Logout -->
-<div class="md-modal md-just-me" id="logout-modal">
-  <div class="md-content">
-     <h3><strong>Çıkış</strong></h3>
-     <div>
-        <p class="text-center">Çıkmak istediğinize emin misiniz?</p>
-        <p class="text-center">
-            <button class="btn btn-danger md-close">Hayır</button>
-
-            <a href="{{ route('logout') }}"
-            class="btn btn-success md-close"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">Tabi ki !
-        </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
 
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
 
-    </p>
-</div>
-</div>
-</div>        <!-- Modal End -->	
-<!-- Begin page -->
-<div id="wrapper">
-
-    <!-- Top Bar Start -->
-    <div class="topbar">
-        <div class="topbar-left">
-            <div class="logo">
-                <h1><a href="#"><img src="{{ URL::asset('assets/img/logo.png') }}" alt="Logo"></a></h1>
+                </p>
             </div>
-            <button class="button-menu-mobile open-left">
-                <i class="fa fa-bars"></i>
-            </button>
         </div>
-        <!-- Button mobile view to collapse sidebar menu -->
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-collapse2">
-                    <ul class="nav navbar-nav hidden-xs">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i></a>
-                            <div class="dropdown-menu grid-dropdown">
-                                <div class="row stacked">
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="notes-app" data-status="active"><i class="icon-edit"></i>Notes</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="todo-app" data-status="active"><i class="icon-check"></i>Todo List</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="calc" data-status="inactive"><i class="fa fa-calculator"></i>Calculator</a>
-                                    </div>
-                                </div>
-                                <div class="row stacked">
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="weather-widget" data-status="active"><i class="icon-cloud-3"></i>Weather</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="calendar-widget2" data-status="active"><i class="icon-calendar"></i>Calendar</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="javascript:;" data-app="stock-app" data-status="inactive"><i class="icon-chart-line"></i>Stocks</a>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right top-navbar">
+    </div>        <!-- Modal End -->    
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="logo">
+                    <h1><a href="#"><img src="{{ URL::asset('assets/img/logo.png') }}" alt="Logo"></a></h1>
+                </div>
+                <button class="button-menu-mobile open-left">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <!-- Button mobile view to collapse sidebar menu -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-collapse2">
+                       <ul class="nav navbar-nav navbar-right top-navbar">
                         <li class="dropdown iconify hide-phone">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="label label-danger absolute">0</span></a>
                             <ul class="dropdown-menu dropdown-message">
-                                <li class="dropdown-header notif-header"><i class="icon-bell-2"></i> New Notifications<a class="pull-right" href="#"><i class="fa fa-cog"></i></a></li>
+                                <li class="dropdown-header notif-header"><i class="icon-bell-2"></i>Yeni Bildirimler<a class="pull-right" href="#"><i class="fa fa-cog"></i></a></li>
                                 <li class="unread">
                                     <a href="#">
                                         <p><strong>John Doe</strong> Uploaded a photo <strong>&#34;DSC000254.jpg&#34;</strong>
@@ -226,7 +160,7 @@
                         <li class="dropdown iconify hide-phone">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="label label-danger absolute">0</span></a>
                             <ul class="dropdown-menu dropdown-message">
-                                <li class="dropdown-header notif-header"><i class="icon-mail-2"></i> New Messages</li>
+                                <li class="dropdown-header notif-header"><i class="icon-mail-2"></i> Yeni Mesajlar</li>
                                 <li class="unread">
                                     <a href="#" class="clearfix">
                                         <img src="{{ URL::asset('images/users/chat/2.jpg') }}" class="xs-avatar ava-dropdown" alt="Avatar">
@@ -253,7 +187,7 @@
                         </li>
                         <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
                         <li class="dropdown topbar-profile">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{ URL::asset('images/users/user-35.jpg') }}"></span> Hoşgeldin <strong><?php echo $name." ".$surname ?></strong> <i class="fa fa-caret-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{ URL::asset('images/users/user-35.jpg') }}"></span> Hoşgeldin <strong><?php echo $name ?></strong> <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Hesabım</a></li>
                                 <li><a href="#">Parola Değiştir</a></li>
@@ -262,7 +196,7 @@
                                 <li><a class="md-trigger" data-modal="logout-modal"><i class="icon-logout-1"></i> Çıkış Yap</a></li>
                             </ul>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -294,12 +228,10 @@
       <hr class="divider" />
       <div class="clearfix"></div>
       <!--- Divider -->
-      <div id="sidebar-menu">
+          <div id="sidebar-menu">
           <ul><li class=''><a href='/doktor'><i class='icon-home-3'></i><span>Anasayfa</span> <span class="pull-right"></span></a></li>
-              <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Makale & Video </span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+              <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                   <ul>
-                      <li><a href='/doktor/makale/ekle'><span>Makale Paylaş</span></a></li>
-                      <li><a href='/doktor/video/ekle'><span>Video Paylaş</span></a></li>
                       <li><a href='/doktor/makale'><span>Makaleler</span></a></li>
                       <li><a href='/doktor/video'><span>Videolar</span></a></li>
                   </ul>
@@ -317,7 +249,7 @@
 
               <div class="clearfix"></div>
           </div>
-          <div class="clearfix"></div>
+      <div class="clearfix"></div>
 
 
 
@@ -327,37 +259,46 @@
 
 
 
-          <div class="clearfix"></div><br><br><br>
-      </div>
-
+      <div class="clearfix"></div><br><br><br>
   </div>
 
-  <!-- Start right content -->
-  <div class="content-page">
-     <!-- ============================================================== -->
-     <!-- Start Content here -->
-     <!-- ============================================================== -->
-     <div class="content">
+</div>
 
-      <div class="row">
-          <div class="col-md-12 portlets">
+<!-- Start right content -->
+<div class="content-page">
+ <!-- ============================================================== -->
+ <!-- Start Content here -->
+ <!-- ============================================================== -->
+ <div class="content">
+   <!-- Page Heading Start -->
+   <div class="page-heading">
+
+      <!--  <h3>@yield('title')</h3> --> 
+  </div>
+  <!-- Page Heading End-->              
+  <div class="row">
+      <div class="col-md-12 portlets">
 
 
-            @yield('content')
+        @yield('content')
 
 
 
-        </div>
     </div>
+</div>
 
-    <!-- Footer Start -->
-    <footer>
+<!-- Footer Start -->
+<footer>
+    <div class="footer-links pull-left">
 
-        <div class="footer-links pull-right">
-           Estetik Takvimi &copy; 2017
-       </div>
-   </footer>
-   <!-- Footer End -->			
+       " User ID = <?php echo $userid; ?> " 
+   </div>
+   <div class="footer-links pull-right">
+
+      Estetik Takvimi &copy; 2017
+  </div>
+</footer>
+<!-- Footer End -->         
 </div>
 <!-- ============================================================== -->
 <!-- End content here -->
@@ -404,7 +345,9 @@
 <script src="{{ URL::asset('assets/libs/summernote/summernote.js') }}"></script>
 <script src="{{ URL::asset('assets/js/pages/forms.js') }}"></script>
 
+<!-- Demo Specific JS Libraries -->
 <script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
+
 <script src="{{ URL::asset('assets/js/init.js') }}"></script>
 </body>
 </html>

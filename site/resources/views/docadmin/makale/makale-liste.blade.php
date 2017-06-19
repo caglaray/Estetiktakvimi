@@ -24,7 +24,7 @@
 						</div>
 						<div class="col-md-8">
 							<div class="toolbar-btn-action">
-								<a class="btn btn-success" href="/Doktor/Makale/Ekle"><i class="fa fa-plus-circle"></i> Yeni Ekle</a>
+								<a class="btn btn-success" href="/doktor/makale/ekle"><i class="fa fa-plus-circle"></i> Yeni Ekle</a>
 
 							</div>
 						</div>
