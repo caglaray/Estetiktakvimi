@@ -54,7 +54,7 @@
 							<tr>
 								<td>{!! $article->id !!}</td>
 								<td><strong>{!! $article->title !!}</strong></td>
-								<td>{!! str_limit($article->content, $limit = 40, $end = '...')  !!}</td>
+								<td>  {{{ str_limit($article->content, $limit = 25, $end = '...')}}} </td>
 								<td>{!! $article->created_at !!}</td>
 								<td><span class="label label-success">Aktif</span></td>
 								<td>
