@@ -27,7 +27,7 @@ class RedirectIfAuthenticated
 
         case 'corporation':
         if (Auth::guard($guard)->check()) {
-          return redirect()->route('corporation.dashboard');
+          return redirect()->route('corporation.anasayfa');
         }
         break;
 
