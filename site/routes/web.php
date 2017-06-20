@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function() {
 	Route::get ("/doktor/sil/{Kisi?}","Admin\DoctorController@silinecek");
 	Route::post("/doktor/sil/{Kisi?}","Admin\DoctorController@destroy");
 
-
+	
 
 });
 
@@ -44,12 +44,14 @@ Route::prefix('kurum')->group(function() {
 
 	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
 	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
-	Route::get('/', 'CorporationController@index')->name('corporation.dashboard');
-	Route::get('/about', 'CorporationController@about');
-	Route::get('/doktor-ekle', 'CorporationController@doktorekle');
+	Route::get('/', 'CorporationController@index')->name('corporation.anasayfa');
+	Route::get('/about', 'CorporationController@about')->name('corporation.hakkimizda');
+	Route::get('/doktor-ekle', 'CorporationController@doktorekle')->name('corporation.doktorekle');
 	Route::get('/doktor-liste', 'CorporationController@doktorliste');
 	Route::get('/doktor-profil', 'CorporationController@doktorprofil');
-	Route::get('/makale-ekle', 'CorporationController@makaleekle');
+	Route::get('/makale-ekle', 'Kurum\ArticleController@makaleekle');
+	Route::get('/makaleler', 'Kurum\ArticleController@makaleler');
+
 });
 
 

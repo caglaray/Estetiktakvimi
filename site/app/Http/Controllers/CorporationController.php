@@ -33,4 +33,5 @@ class CorporationController extends Controller
     {
         return view("corpadmin.doctorprofile");   
     }
+   
 }

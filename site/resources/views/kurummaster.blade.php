@@ -80,7 +80,6 @@
               </form>
 
 
-
             </p>
           </div>
         </div>
@@ -212,7 +211,7 @@
           <!--- Profile -->
           <div class="profile-info">
             <div class="col-xs-4">
-              <a href="profile.html" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
+              <a href="{{ route('corporation.anasayfa') }}" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
             </div>
             <div class="col-xs-8">
               <div class="profile-text">Estetik Takvimi</div>
@@ -236,13 +235,13 @@
               <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                 <ul>
                   <li><a href='/kurum/doktor-liste'><span>Doktor Listesi</span></a></li>
-                  <li><a href='/kurum/doktor-ekle''><span>Doktor Ekle</span></a></li>
+                  <li><a href="{{ route('corporation.doktorekle') }}"><span>Doktor Ekle</span></a></li>
                 </ul>
               </li>
               
               <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                 <ul>
-                  <li><a href=''><span>Makaleler</span></a></li>
+                  <li><a href='/kurum/makaleler'><span>Makaleler</span></a></li>
                   <li><a href=''><span>Videolar</span></a></li>
                 </ul>
               </li>
@@ -369,10 +368,8 @@
 <script src="{{ URL::asset('assets/libs/bootstrap-inputmask/inputmask.js') }}"></script>
 <script src="{{ URL::asset('assets/libs/summernote/summernote.js') }}"></script>
 <script src="{{ URL::asset('assets/js/pages/forms.js') }}"></script>
-
-<!-- Demo Specific JS Libraries -->
 <script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
-
 <script src="{{ URL::asset('assets/js/init.js') }}"></script>
+
 </body>
 </html>

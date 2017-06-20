@@ -1,4 +1,4 @@
-@extends('doktormaster')
+@extends('kurummaster')
 
 
 @section('content')
