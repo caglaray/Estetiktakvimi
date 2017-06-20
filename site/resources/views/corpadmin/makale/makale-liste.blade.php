@@ -18,9 +18,9 @@
 				<div class="data-table-toolbar">
 					<div class="row">
 						<div class="col-md-4">
-							<form role="form">
+							<!--<form role="form">
 								<input type="text" class="form-control" placeholder="Search...">
-							</form>
+							</form>-->
 						</div>
 						<div class="col-md-8">
 							<div class="toolbar-btn-action">
