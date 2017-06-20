@@ -8,7 +8,8 @@
 		<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="img-square profile-avatar" alt="User avatar">
 	</div>
 	<div class="col-sm-12 profile-actions text-right">
-		
+		<input type="file" class="btn btn-success btn-sm" title="Değiştir">
+		<button type="button" class="btn btn-primary btn-sm " title="Kaydet"><i class="fa fa-save"></i> Kaydet</button>
 
 	</div>
 </div>
@@ -25,7 +26,15 @@
 
 			<h5>Doktor Ünvanı</h5>
 			<ul class="list-group">
-				
+
+				<li class="list-group-item">
+					<span class="badge" title="Cevapladığı Soru Sayısı">101</span>
+					Takip Eden
+				</li>
+				<li class="list-group-item">
+					<span class="badge" title="Cevapladığı Soru Sayısı">2</span>
+					Cevap Bekleyen Soru
+				</li>
 				<li class="list-group-item">
 					<span class="badge" title="Cevapladığı Soru Sayısı">10</span>
 					Cevapladığı Soru
@@ -52,7 +61,7 @@
 			<ul class="nav nav-tabs nav-justified">
 				<li class="active"><a href="#aboutus" data-toggle="tab"><i class="fa fa-pencil"></i> Hakkında</a></li>
 				<li><a href="#services" data-toggle="tab"><i class="fa fa-user"></i> Hizmet & Kategori</a></li>
-				<li><a href="#settings" data-toggle="tab"><i class="fa fa-laptop"></i> Hesap Ayarları</a></li>
+				<li><a href="#settings" data-toggle="tab"><i class="fa fa-laptop"></i> Profil Ayarları</a></li>
 				<li><a href="#information" data-toggle="tab"><i class="fa fa-envelope"></i> Kullanıcı Bilgileri</a></li>
 			</ul>
 			<!-- End nav tab -->
@@ -75,7 +84,7 @@
 						<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
 							
-						@if($okullar->isEmpty())
+							@if($okullar->isEmpty())
 							<p> Kayıt Yok</p>
 							@else
 							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
@@ -114,13 +123,212 @@
 							@endif
 						</div>
 						<br>
-
+						<hr>
 						
+						<h5><strong>Deneyimler</strong></h5>
+						<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Kurum Adı</th>
+										<th data-sortable="false"></th>
+										<th data-sortable="false">İşe Başlama Tarihi</th>
+										<th data-sortable="false">İşten Ayrılma Tarihi</th>
+
+
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td><strong>John Doe</strong></td>
+										<td></td><td>1985</td><td>1992</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+
+						<h5><strong>Yayınlar</strong></h5>
+						<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Yayın Adı</th>
+										
+										<th data-sortable="false">Yayınlanma Tarihi</th>
+										
+
+
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td><strong>John Doe</strong></td>
+										<td>1985</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
 
 
 
 
-						<!-- End div .row -->
+						<h5><strong>Ödüller</strong></h5>
+						<div class="text-right"><button data-modal="md-winner" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Ödül Adı</th>
+										
+										<th data-sortable="false">Kazandığı Tarih</th>
+										
+
+
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td><strong>John Doe</strong></td>
+										<td>1985</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+
+
+						<h5><strong>Sertifikalar</strong></h5>
+						<div class="text-right"><button data-modal="md-certificate" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Resim</th>
+										
+										
+										
+
+
+										<th data-sortable="false"></th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td>
+											<div class="column">
+												<div class="inner" style="height: 80px; width: 80px;">
+
+													<div class="img-wrap">
+														<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
+													</div>
+
+												</div>
+											</div>
+										</td>
+										<td>
+											
+										</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+
+
+
+						<h5><strong>Fotoğraflar</strong></h5>
+						<div class="text-right"><button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+										<th data-sortable="false">Resim</th>
+										<th data-sortable="false"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="column">
+												<div class="inner" style="height: 80px; width: 80px;">
+
+													<div class="img-wrap">
+														<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
+													</div>
+
+												</div>
+											</div>
+										</td>
+										<td>
+
+										</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<br>
+
+						<hr>
+
+
+
+						<!-- ------------------------------End div .row -->
 					</div><!-- End div .user-profile-content -->
 				</div><!-- End div .tab-pane -->
 				<!-- End Tab aboutus -->
@@ -155,7 +363,7 @@
 
 						</div>
 
-						
+
 						<div class="col-sm-6">
 							<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
 							<p>UI Design</p>
@@ -203,13 +411,13 @@
 								</address>
 								<address>
 									<strong>Adres</strong><br>
-									<abbr title="Adres">Kurum Adresi</abbr>
+									<abbr title="Adres">Doktor Adresi</abbr>
 								</address>
 								<address>
 									<strong>Telefon</strong><br>
 									<abbr title="Telefon">+62 857 123 4567</abbr>
 								</address>
-								
+
 
 							</div>
 
@@ -221,15 +429,15 @@
 
 							<div class="col-sm-6">
 								<address>
-									<strong>Kategorisi Adı</strong><br>
-									<abbr title="Kurum Adı">Kurum Adı</abbr>
+									<strong>Bildiği Diller</strong><br>
+									<abbr title="Dil">İngilizce</abbr>
 								</address>
 								<address>
 									<strong>E-mail</strong><br>
 									<a href="#">first.last@example.com</a>
 								</address>
 								<address>
-									<strong>Logo</strong><br>
+									<strong>Profil Resmi</strong><br>
 									<div class="column">
 										<div class="inner">
 
@@ -240,8 +448,8 @@
 										</div>
 									</div>
 								</address>
-								
-								
+
+
 
 
 							</div>
@@ -287,7 +495,7 @@
 										<label for="exampleInputPassword1">Şifreyi Tekrar Yazını</label>
 										<input type="password" class="form-control" required=""  placeholder="Tekrar Yazın">
 									</div>
-									
+
 									<button type="submit" class="btn btn-success">Kaydet</button>
 								</form>
 							</div>
@@ -301,70 +509,208 @@
 	</div>
 
 
-	<div class="md-modal md-fall md-hide" id="md-fall">
-		<div class="md-content">
-			<h3>Hakkımızda</h3>
-			<div>
 
-				<div class="form-group">
-					<label>Hakkımızda</label>
-					<textarea class="form-control" name="" style="height: 140px; resize: none;" maxlength="250"></textarea>
+					<div class="md-modal md-fall md-hide" id="md-fall">
+						<div class="md-content">
+							<h3>Hakkımızda</h3>
+							<div>
+
+								<div class="form-group">
+									<label>Hakkımızda</label>
+									<textarea class="form-control" name="" style="height: 140px; resize: none;" maxlength="250"></textarea>
+								</div>
+								<p>
+									<button class="btn btn-danger md-close">Kapat</button>
+									<button class="btn btn-success md-close">Kaydet</button>
+								</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="md-modal md-fall md-hide" id="md-education">
+						<div class="md-content">
+							<div class="form-group">
+								<h3>Eğitim Bilgisi Ekle</h3>
+								<div>
+									<div class="form-group">
+										<label>Okul Adı</label>
+										<input type="text" class="form-control" name="school" data-bv-field="school">
+									</div>
+
+									<div class="form-group">
+										<label>Başlangıç Tarihi </label>
+										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+									</div>
+									<div class="form-group">
+										<label>Bitiş Tarihi </label>
+										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
+									</div>
+									<p>
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
+					<div class="md-modal md-fall md-hide" id="md-experience">
+						<div class="md-content">
+							<div class="form-group">
+							<h3>Deneyim Ekle</h3>
+								<div>
+									<div class="form-group">
+										<label>Yayın Adı</label>
+										<input type="text" class="form-control" name="school" data-bv-field="school">
+									</div>
+
+									<div class="form-group">
+										<label>Yayınlanma Tarihi </label>
+										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+									</div>
+
+									<p>
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="md-modal md-fall md-hide" id="md-winner">
+						<div class="md-content">
+							<div class="form-group">
+								<h3>Ödül Ekle</h3>
+								<div>
+									<div class="form-group">
+										<label>Ödül Adı</label>
+										<input type="text" class="form-control" name="school" data-bv-field="school">
+									</div>
+
+									<div class="form-group">
+										<label>Kazanma Tarihi </label>
+										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+									</div>
+
+									<p>
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="md-modal md-fall md-hide" id="md-certificate">
+						<div class="md-content">
+							<div class="form-group">
+								<h3>Sertifika Ekle</h3>
+								<div>
+									<div class="form-group">
+										<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+
+									</div>
+
+
+
+									<p>
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="md-modal md-fall md-hide" id="md-image">
+						<div class="md-content">
+							<div class="form-group">
+								<h3>Resim Ekle</h3>
+								<div>
+									<div class="form-group">
+										<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+
+									</div>
+
+
+
+									<p>
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="md-modal md-fall md-hide" id="md-publish">
+						<div class="md-content">
+							<div class="form-group">
+								<h3>Deneyim Ekle</h3>
+								<div>
+									<div class="form-group">
+										<label>Kurum Adı</label>
+										<input type="text" class="form-control" name="school" data-bv-field="school">
+									</div>
+									<div class="form-group">
+										<label>Derecesi</label>
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Başlangıç Tarihi </label>
+										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+									</div>
+									<div class="form-group">
+										<label>Bitiş Tarihi </label>
+										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
+									</div>
+									<p>
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="md-modal md-fall md-hide" id="md-account">
+						<div class="md-content">
+							<div id="basic-form">
+								<form role="form">
+									<div class="form-group">
+										<label for="corporationname">Kurum Adı</label>
+										<input type="text" class="form-control" id="" value="Kurum Adınız">
+									</div>
+									<div class="form-group">
+										<label class="control-label">Adres</label>
+										<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+									</div>
+									<div class="form-group">
+										<label for="corporationphone">Telefon Numarası</label>
+										<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+									</div>
+
+									<div class="form-group">
+										<input type="file" class="btn btn-default" title="Logo Değiştir">
+
+									</div>
+
+									<p style="margin-bottom: 5px;">
+										<button class="btn btn-danger md-close">Kapat</button>
+										<button class="btn btn-success md-close">Kaydet</button>
+									</p>
+
+								</form>
+							</div>
+						</div>
+
+					</div>
 				</div>
-				<p>
-					<button class="btn btn-danger md-close">Kapat</button>
-					<button class="btn btn-success md-close">Kaydet</button>
-				</p>
-
-			</div>
-		</div>
-	</div>
-	<div class="md-modal md-fall md-hide" id="md-education">
-		<div class="md-content"><div class="form-group">
-			<h3>Eğitim Bilgisi Ekle</h3>
-			<div class="form-group">
-				<label>Okul Adı</label>
-				<input type="text" class="form-control" name="school" data-bv-field="school">
-			</div>
-			<div class="form-group">
-				<label>Bitirdiği Derece</label>
-				<input type="text" class="form-control" name="degree" data-bv-field="degree">
-			</div>
 
 
-		</div>
-		<div class="md-modal md-fall md-hide" id="md-account">
-			<div class="md-content">
-				<div id="basic-form">
-					<form role="form">
-						<div class="form-group">
-							<label for="corporationname">Kurum Adı</label>
-							<input type="text" class="form-control" id="" value="Kurum Adınız">
-						</div>
-						<div class="form-group">
-							<label class="control-label">Adres</label>
-							<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
-						</div>
-						<div class="form-group">
-							<label for="corporationphone">Telefon Numarası</label>
-							<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
-						</div>
-
-						<div class="form-group">
-							<input type="file" class="btn btn-default" title="Logo Değiştir">
-
-						</div>
-
-						<p style="margin-bottom: 5px;">
-							<button class="btn btn-danger md-close">Kapat</button>
-							<button class="btn btn-success md-close">Kaydet</button>
-						</p>
-
-					</form>
+					</div>
 				</div>
-			</div>
 
-		</div>
 
-		/*Burayı kontrol edicez*/
-	</div></div></div>
-	@endsection
+				@endsection

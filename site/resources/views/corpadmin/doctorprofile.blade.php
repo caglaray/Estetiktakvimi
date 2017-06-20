@@ -936,6 +936,6 @@
 	</div>
 
 </div>
-
+</div>
 
 @endsection
