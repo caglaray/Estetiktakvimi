@@ -16,10 +16,47 @@ Route::post('kurum/register', 'Kurum\RegisterController@CorporationRegister');
 
 
 
+//Kurum İşlemleri
+Route::prefix('kurum')->group(function() {
+
+	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
+	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
+	Route::get('/', 'CorporationController@index')->name('corporation.anasayfa');
+	Route::get('/about', 'CorporationController@about')->name('corporation.hakkimizda');
+	Route::get('/doktor-ekle', 'CorporationController@doktorekle')->name('corporation.doktorekle');
+	Route::get('/doktor-liste', 'CorporationController@doktorliste');
+	Route::get('/doktor-profil', 'CorporationController@doktorprofil');
+	
+
+	//Makale İşlemleri
+	Route::get('/makale', 'Kurum\ArticleController@makaleler')->name('corporation.makaleler');
+	Route::get('/makale/ekle', 'Kurum\ArticleController@makaleekle')->name('corporation.makaleekle');
+	Route::post("/makale/ekle","Kurum\ArticleController@store");
+	Route::get ("/makale/detay/{id?}","Kurum\ArticleController@show");
+	Route::get ("/makale/guncelle/{Makaleid?}","Kurum\ArticleController@edit");
+	Route::post("/makale/guncelle/{Makaleid?}","Kurum\ArticleController@update");
+	Route::get ("/makale/sil/{Makaleid?}","Kurum\ArticleController@silinecek");
+	Route::post("/makale/sil/{Makaleid?}","Kurum\ArticleController@destroy");
+
+	//Video İşlemleri
+	route::get ("/video","Kurum\VideoController@videoliste")->name('corporation.videolar');
+
+	route::get ("/video/ekle", "Kurum\VideoController@videoekle");
+
+	route::post("/video/ekle", "Kurum\VideoController@store");
+	Route::get ("/video/detay/{videoid?}","Kurum\VideoController@show");
+
+	Route::get ("/video/guncelle/{videoid?}","Kurum\VideoController@edit");
+	Route::post("/video/guncelle/{videoid?}","Kurum\VideoController@update");
+
+	Route::get ("/video/sil/{videoid?}","Kurum\VideoController@sil");
+	Route::post("/video/sil/{videoid?}","Kurum\VideoController@destroy");
+
+});
 
 
 
-
+//Admin İşlemleri
 Route::prefix('admin')->group(function() {
 	
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -40,23 +77,9 @@ Route::prefix('admin')->group(function() {
 });
 
 
-Route::prefix('kurum')->group(function() {
-
-	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
-	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
-	Route::get('/', 'CorporationController@index')->name('corporation.anasayfa');
-	Route::get('/about', 'CorporationController@about')->name('corporation.hakkimizda');
-	Route::get('/doktor-ekle', 'CorporationController@doktorekle')->name('corporation.doktorekle');
-	Route::get('/doktor-liste', 'CorporationController@doktorliste');
-	Route::get('/doktor-profil', 'CorporationController@doktorprofil');
-	Route::get('/makale-ekle', 'Kurum\ArticleController@makaleekle');
-	Route::get('/makaleler', 'Kurum\ArticleController@makaleler');
-
-});
 
 
-
-
+//Doktor İşlemleri
 Route::prefix('doktor')->group(function() {
 
 

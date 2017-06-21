@@ -241,8 +241,8 @@
               
               <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                 <ul>
-                  <li><a href='/kurum/makaleler'><span>Makaleler</span></a></li>
-                  <li><a href=''><span>Videolar</span></a></li>
+                  <li><a href="{{ route('corporation.makaleler') }}"><span>Makaleler</span></a></li>
+                  <li><a href="{{ route('corporation.videolar') }}"><span>Videolar</span></a></li>
                 </ul>
               </li>
               <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Doctor;
+namespace App\Http\Controllers\Kurum;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -13,30 +13,23 @@ class VideoController extends Controller
 	
 	public function __construct()
 	{
-		$this->middleware('auth:doctor');
+		$this->middleware('auth:corporation');
 	}
-
 	
-	public function deneme()
-	{
-		$videos = VideoModel::all();
-		return view('docadmin.deneme');
-	}
-
-
+	
 
 
 	public function videoliste()
 	{
 		$userid = Auth::user()->id ;
-		$videos = VideoModel::all()->where('doctorid',$userid);
-		return view('docadmin.video.video-liste',compact('videos'));
+		$videos = VideoModel::all()->where('corporationsid',$userid);
+		return view('corpadmin.video.video-liste',compact('videos'));
 	}
 
 
 	public function videoekle()
 	{
-		return view('docadmin.video.video-ekle');
+		return view('corpadmin.video.video-ekle');
 	}
 
 	public function store(Request $request)
@@ -63,11 +56,11 @@ class VideoController extends Controller
 
 
 		$video = new VideoModel(array(
-
+			$userid = Auth::user()->id,
 			'name' => $request->get('baslik'),
 			'url' => $request->get('url'),
 			'order' => "1",
-			'doctorid' => $userid,
+			'corporationsid' => $userid,
 			'status' => $idurum,
 			
 
@@ -76,39 +69,39 @@ class VideoController extends Controller
 		$video->save();
 
 
-		return redirect('doktor/video')->with('status' , $video->name.' isimli Video Eklendi.');    
+		return redirect('kurum/video')->with('status' , $video->name.' isimli Video Eklendi.');    
 
 	}
 
 	public function show($videoid)
 	{
 		$video = VideoModel::whereid($videoid)->firstorFail();
-		return view('docadmin.video.video-detay',compact('video'));
+		return view('corpadmin.video.video-detay',compact('video'));
 	}
 
 	public function edit($videoid)
 	{
 		$video = VideoModel::whereid($videoid)->firstorFail();
-		return view('docadmin.video.video-guncelle', compact('video'));
+		return view('corpadmin.video.video-guncelle', compact('video'));
 	}
 
 
 	public function update($videoid , Request $request)
 	{
-
+		$userid = Auth::user()->id ;
 
 		$Video = VideoModel::whereid("$videoid")->firstorFail();
-		$userid = Auth::user()->id ;
+
 		$Video->name      = $request->get('baslik');
 		$Video->url   = $request->get('url');
 		$Video->order   = "1";
-		$Video->doctorid   = $userid;
-		$Video->status   = "1";
+		$Video->corporationsid   =  $userid ;
+		$Video->status   = "0";
 		
 
 		$Video->save();
 
-		return redirect('doktor/video/')->with('status' , $Video->name.' isimli Video Güncellendi.');
+		return redirect('kurum/video/')->with('status' , $Video->name.' isimli Video Güncellendi.');
 
 	}
 
@@ -116,14 +109,14 @@ class VideoController extends Controller
 	{
 
 		$video = VideoModel::whereid($videoid)->firstorFail();
-		return view('docadmin.video.video-sil', compact('video'));
+		return view('corpadmin.video.video-sil', compact('video'));
 
 	}
 	public function destroy($videoid)
 	{
 		$video = VideoModel::whereid($videoid)->firstorFail();
 		$video->delete();
-		return redirect('doktor/video/')->with('status' , $video->name.' isimli Video Silindi.');
+		return redirect('kurum/video/')->with('status' , $video->name.' isimli Video Silindi.');
 	}
 
 

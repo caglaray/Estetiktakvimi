@@ -47,7 +47,7 @@ class ArticleController extends Controller
 
             'title' => $request->get('title'),
             'content' => $request->get('content'),
-            'status' => "0",
+            
             'doctorid' => $userid  ,
             'image' =>$request->get('resim'),
 
@@ -80,10 +80,10 @@ class ArticleController extends Controller
 
 
         $Article = ArticleModel::whereid("$Makaleid")->firstorFail();
-
+    $userid = Auth::user()->id ;
         $Article->title      = $request->get('title');
         $Article->content   = $request->get('content');
-        $Article->doctorid   = "1";
+        $Article->doctorid   = $userid;
         $Article->status   = "0";
         $Article->image   = $request->get('resim');
 

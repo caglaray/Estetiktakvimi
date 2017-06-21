@@ -1,18 +1,10 @@
 @extends('kurummaster')
-
+@section('title',' Makale Ekle')
 
 @section('content')
 
 <div class="widget">
-	<div class="widget-header transparent">
-		<h2><strong>Makale </strong> Paylaş</h2>
-		<div class="additional-btn">
-			<a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
-			<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
-			<a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
 
-		</div>
-	</div>
 	<div class="widget-content padding">
 		<form class="form-horizontal" method="post" role="form">
 			<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />   

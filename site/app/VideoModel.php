@@ -8,6 +8,6 @@ class VideoModel extends Model
 {
 	protected $primaryKey='id';
 	protected $table ='video';
-	protected $fillable = ['name','url','order','doctorid','status'];
+	protected $fillable = array('name','url','order','doctorid','corporationsid','status');
 
 }
