@@ -16,9 +16,9 @@ class CreateServiceDocTable extends Migration
         Schema::create('service_doc', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('doctorid')->unsigned();
-            $table->foreign('doctorid')->references('id')->on('doctors');
+            $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
             $table->integer('servicesid')->unsigned();
-            $table->foreign('servicesid')->references('id')->on('services');
+            $table->foreign('servicesid')->references('id')->on('services')->onDelete('cascade');
             $table->timestamps();
         });
     }

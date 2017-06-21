@@ -45,7 +45,10 @@ class HomeController extends Controller
 
 		$okullar = DB::table('doc_schools')->where('doctorid',$userid)->get();
 
-		return view("docadmin.profile", ['okullar' => $okullar] );
+		$services = DB::table('services')->get();
+		$categories = DB::table('categories')->get();
+
+		return view("docadmin.profile", compact('okullar' , 'services' ,'categories') );
 	}
 
 	

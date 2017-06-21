@@ -24,8 +24,7 @@ Route::prefix('kurum')->group(function() {
 	Route::get('/', 'CorporationController@index')->name('corporation.anasayfa');
 	Route::get('/about', 'CorporationController@about')->name('corporation.hakkimizda');
 	Route::get('/doktor-ekle', 'CorporationController@doktorekle')->name('corporation.doktorekle');
-	Route::get('/doktor-liste', 'CorporationController@doktorliste');
-	Route::get('/doktor-profil', 'CorporationController@doktorprofil');
+
 	
 
 	//Makale İşlemleri
@@ -51,6 +50,20 @@ Route::prefix('kurum')->group(function() {
 
 	Route::get ("/video/sil/{videoid?}","Kurum\VideoController@sil");
 	Route::post("/video/sil/{videoid?}","Kurum\VideoController@destroy");
+
+
+	//Corporation Adding,Update,Delete Doctor
+
+	Route::get ("/doktor/liste","Kurum\DoctorController@DoktorListe");
+	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle");
+	Route::post("/doktor/ekle","Kurum\DoctorController@store");
+
+	Route::get ("/doktor/detay/{Kisi?}","CorporationController@doktorprofil");
+	
+	Route::get ("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@edit");
+	Route::post("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@update");
+	Route::get ("/doktor/sil/{Kisi?}","Kurum\DoctorController@silinecek");
+	Route::post("/doktor/sil/{Kisi?}","Kurum\DoctorController@destroy");
 
 });
 

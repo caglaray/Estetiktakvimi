@@ -234,7 +234,7 @@
               
               <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                 <ul>
-                  <li><a href='/kurum/doktor-liste'><span>Doktor Listesi</span></a></li>
+                  <li><a href="/kurum/doktor/liste"><span>Doktor Listesi</span></a></li>
                   <li><a href="{{ route('corporation.doktorekle') }}"><span>Doktor Ekle</span></a></li>
                 </ul>
               </li>

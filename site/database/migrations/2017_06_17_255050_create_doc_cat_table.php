@@ -16,7 +16,7 @@ class CreateDocCatTable extends Migration
         Schema::create('doc_cat', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('doctorid')->unsigned();
-            $table->foreign('doctorid')->references('id')->on('doctors');
+            $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
             $table->integer('cat_id')->unsigned();
             $table->foreign('cat_id')->references('id')->on('categories');
             $table->timestamps();

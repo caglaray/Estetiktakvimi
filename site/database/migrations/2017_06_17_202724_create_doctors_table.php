@@ -27,7 +27,7 @@ class CreateDoctorsTable extends Migration
             $table->string('telephone',30);
             $table->string('birthday',50);
             $table->string('livecity');
-            $table->text('about');
+            $table->text('about')->nullable();
             $table->Integer('point_result')->default(0);
             $table->Integer('docdegrees')->unsigned()->nullable();
             $table->foreign('docdegrees')->references('id')->on('doc_degree');

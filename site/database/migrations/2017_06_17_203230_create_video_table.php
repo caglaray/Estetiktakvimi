@@ -20,9 +20,9 @@ class CreateVideoTable extends Migration
             $table->text('url');
             $table->integer('order')->default(0);
             $table->integer('doctorid')->unsigned()->nullable();
-            $table->foreign('doctorid')->references('id')->on('doctors');
+            $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
             $table->integer('corporationsid')->unsigned()->nullable();
-            $table->foreign('corporationsid')->references('id')->on('corporations');
+            $table->foreign('corporationsid')->references('id')->on('corporations')->onDelete('cascade');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
 

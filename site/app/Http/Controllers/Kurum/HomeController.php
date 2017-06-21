@@ -19,6 +19,16 @@ class HomeController extends Controller
 		$this->middleware('auth:corporation');
 	}
 
+	public function doclist()
+	{
+
+		$userid = Auth::user()->id ;
+
+		$doktorlar = DB::table('corp_doc')->where('corpid',$userid)->get();
+
+		return view("corpadmin.doktor.liste", ['doc_id' => $doktorlar] );
+	}
+
 	
 
 

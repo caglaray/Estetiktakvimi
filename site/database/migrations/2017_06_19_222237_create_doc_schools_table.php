@@ -16,7 +16,7 @@ class CreateDocSchoolsTable extends Migration
       Schema::create('doc_schools', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('doctorid')->unsigned();
-        $table->foreign('doctorid')->references('id')->on('doctors');
+        $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
         $table->string('name',100);
         $table->string('education',100);
         $table->string('start',10);

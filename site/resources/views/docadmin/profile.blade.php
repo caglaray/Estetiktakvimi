@@ -339,10 +339,9 @@
 
 						<div class="col-sm-6">
 							<h5><strong>Hizmetler</strong></h5>
-							<p>UI Design</p>
-							<p>Clean and Modern Web Design</p>
-							<p>PHP and MySQL Programming</p>
-							<p>Vector Design</p>
+							@foreach($services as $servis)
+							<p>{!! $servis->name !!}</p>
+							@endforeach
 						</div>
 
 						<div class="col-sm-6">
@@ -350,11 +349,9 @@
 							<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
 							<div class="col-sm-12">
 								<select multiple="" class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								@foreach($services as $servis)
+									<option>{!! $servis->name !!}</option>
+									@endforeach
 								</select>
 								<br>
 								<button class="btn btn-success btn-sm" type="button">Kaydet</button>
@@ -366,21 +363,18 @@
 
 						<div class="col-sm-6">
 							<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
-							<p>UI Design</p>
-							<p>Clean and Modern Web Design</p>
-							<p>PHP and MySQL Programming</p>
-							<p>Vector Design</p>
+								@foreach($categories as $kategori)
+							<p>{!! $kategori->name !!}</p>
+							@endforeach
 						</div>
 						<div class="col-sm-6">
 							<h5><strong>Kategori Ekle</strong> </h5>
 							<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
 							<div class="col-sm-12">
 								<select multiple="" class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+									@foreach($categories as $kategori)
+									<option>{!! $kategori->name !!}</option>
+									@endforeach
 								</select>
 								<br>
 								<button class="btn btn-success btn-sm" type="button">Kaydet</button>
@@ -510,207 +504,207 @@
 
 
 
-					<div class="md-modal md-fall md-hide" id="md-fall">
-						<div class="md-content">
-							<h3>Hakkımızda</h3>
-							<div>
+	<div class="md-modal md-fall md-hide" id="md-fall">
+		<div class="md-content">
+			<h3>Hakkımızda</h3>
+			<div>
 
-								<div class="form-group">
-									<label>Hakkımızda</label>
-									<textarea class="form-control" name="" style="height: 140px; resize: none;" maxlength="250"></textarea>
-								</div>
-								<p>
-									<button class="btn btn-danger md-close">Kapat</button>
-									<button class="btn btn-success md-close">Kaydet</button>
-								</p>
-
-							</div>
-						</div>
-					</div>
-					<div class="md-modal md-fall md-hide" id="md-education">
-						<div class="md-content">
-							<div class="form-group">
-								<h3>Eğitim Bilgisi Ekle</h3>
-								<div>
-									<div class="form-group">
-										<label>Okul Adı</label>
-										<input type="text" class="form-control" name="school" data-bv-field="school">
-									</div>
-
-									<div class="form-group">
-										<label>Başlangıç Tarihi </label>
-										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-									</div>
-									<div class="form-group">
-										<label>Bitiş Tarihi </label>
-										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
-									</div>
-									<p>
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
-					<div class="md-modal md-fall md-hide" id="md-experience">
-						<div class="md-content">
-							<div class="form-group">
-							<h3>Deneyim Ekle</h3>
-								<div>
-									<div class="form-group">
-										<label>Yayın Adı</label>
-										<input type="text" class="form-control" name="school" data-bv-field="school">
-									</div>
-
-									<div class="form-group">
-										<label>Yayınlanma Tarihi </label>
-										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-									</div>
-
-									<p>
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="md-modal md-fall md-hide" id="md-winner">
-						<div class="md-content">
-							<div class="form-group">
-								<h3>Ödül Ekle</h3>
-								<div>
-									<div class="form-group">
-										<label>Ödül Adı</label>
-										<input type="text" class="form-control" name="school" data-bv-field="school">
-									</div>
-
-									<div class="form-group">
-										<label>Kazanma Tarihi </label>
-										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-									</div>
-
-									<p>
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="md-modal md-fall md-hide" id="md-certificate">
-						<div class="md-content">
-							<div class="form-group">
-								<h3>Sertifika Ekle</h3>
-								<div>
-									<div class="form-group">
-										<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
-
-									</div>
-
-
-
-									<p>
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="md-modal md-fall md-hide" id="md-image">
-						<div class="md-content">
-							<div class="form-group">
-								<h3>Resim Ekle</h3>
-								<div>
-									<div class="form-group">
-										<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
-
-									</div>
-
-
-
-									<p>
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="md-modal md-fall md-hide" id="md-publish">
-						<div class="md-content">
-							<div class="form-group">
-								<h3>Deneyim Ekle</h3>
-								<div>
-									<div class="form-group">
-										<label>Kurum Adı</label>
-										<input type="text" class="form-control" name="school" data-bv-field="school">
-									</div>
-									<div class="form-group">
-										<label>Derecesi</label>
-										<select class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label>Başlangıç Tarihi </label>
-										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-									</div>
-									<div class="form-group">
-										<label>Bitiş Tarihi </label>
-										<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
-									</div>
-									<p>
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="md-modal md-fall md-hide" id="md-account">
-						<div class="md-content">
-							<div id="basic-form">
-								<form role="form">
-									<div class="form-group">
-										<label for="corporationname">Kurum Adı</label>
-										<input type="text" class="form-control" id="" value="Kurum Adınız">
-									</div>
-									<div class="form-group">
-										<label class="control-label">Adres</label>
-										<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
-									</div>
-									<div class="form-group">
-										<label for="corporationphone">Telefon Numarası</label>
-										<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
-									</div>
-
-									<div class="form-group">
-										<input type="file" class="btn btn-default" title="Logo Değiştir">
-
-									</div>
-
-									<p style="margin-bottom: 5px;">
-										<button class="btn btn-danger md-close">Kapat</button>
-										<button class="btn btn-success md-close">Kaydet</button>
-									</p>
-
-								</form>
-							</div>
-						</div>
-
-					</div>
+				<div class="form-group">
+					<label>Hakkımızda</label>
+					<textarea class="form-control" name="" style="height: 140px; resize: none;" maxlength="250"></textarea>
 				</div>
+				<p>
+					<button class="btn btn-danger md-close">Kapat</button>
+					<button class="btn btn-success md-close">Kaydet</button>
+				</p>
 
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-fall md-hide" id="md-education">
+		<div class="md-content">
+			<div class="form-group">
+				<h3>Eğitim Bilgisi Ekle</h3>
+				<div>
+					<div class="form-group">
+						<label>Okul Adı</label>
+						<input type="text" class="form-control" name="school" data-bv-field="school">
+					</div>
+
+					<div class="form-group">
+						<label>Başlangıç Tarihi </label>
+						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+					</div>
+					<div class="form-group">
+						<label>Bitiş Tarihi </label>
+						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
+					</div>
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
+	<div class="md-modal md-fall md-hide" id="md-experience">
+		<div class="md-content">
+			<div class="form-group">
+				<h3>Deneyim Ekle</h3>
+				<div>
+					<div class="form-group">
+						<label>Yayın Adı</label>
+						<input type="text" class="form-control" name="school" data-bv-field="school">
+					</div>
+
+					<div class="form-group">
+						<label>Yayınlanma Tarihi </label>
+						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+					</div>
+
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-fall md-hide" id="md-winner">
+		<div class="md-content">
+			<div class="form-group">
+				<h3>Ödül Ekle</h3>
+				<div>
+					<div class="form-group">
+						<label>Ödül Adı</label>
+						<input type="text" class="form-control" name="school" data-bv-field="school">
+					</div>
+
+					<div class="form-group">
+						<label>Kazanma Tarihi </label>
+						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+					</div>
+
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-fall md-hide" id="md-certificate">
+		<div class="md-content">
+			<div class="form-group">
+				<h3>Sertifika Ekle</h3>
+				<div>
+					<div class="form-group">
+						<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
 
 					</div>
+
+
+
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-fall md-hide" id="md-image">
+		<div class="md-content">
+			<div class="form-group">
+				<h3>Resim Ekle</h3>
+				<div>
+					<div class="form-group">
+						<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+
+					</div>
 
 
-				@endsection
+
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-fall md-hide" id="md-publish">
+		<div class="md-content">
+			<div class="form-group">
+				<h3>Deneyim Ekle</h3>
+				<div>
+					<div class="form-group">
+						<label>Kurum Adı</label>
+						<input type="text" class="form-control" name="school" data-bv-field="school">
+					</div>
+					<div class="form-group">
+						<label>Derecesi</label>
+						<select class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Başlangıç Tarihi </label>
+						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+					</div>
+					<div class="form-group">
+						<label>Bitiş Tarihi </label>
+						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
+					</div>
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-fall md-hide" id="md-account">
+		<div class="md-content">
+			<div id="basic-form">
+				<form role="form">
+					<div class="form-group">
+						<label for="corporationname">Kurum Adı</label>
+						<input type="text" class="form-control" id="" value="Kurum Adınız">
+					</div>
+					<div class="form-group">
+						<label class="control-label">Adres</label>
+						<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+					</div>
+					<div class="form-group">
+						<label for="corporationphone">Telefon Numarası</label>
+						<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+					</div>
+
+					<div class="form-group">
+						<input type="file" class="btn btn-default" title="Logo Değiştir">
+
+					</div>
+
+					<p style="margin-bottom: 5px;">
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close">Kaydet</button>
+					</p>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+</div>
+</div>
+
+
+@endsection
