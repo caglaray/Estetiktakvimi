@@ -67,7 +67,7 @@ Route::prefix('kurum')->group(function() {
 
 });
 
-
+//
 
 //Admin İşlemleri
 Route::prefix('admin')->group(function() {
