@@ -80,7 +80,7 @@
 					<p>
 						
 						{!! $doctor->about !!}
-						{!! $doctor->sname !!}
+						
 					</p>
 					<br>
 					<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button>

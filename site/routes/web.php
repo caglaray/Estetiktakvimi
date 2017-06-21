@@ -59,7 +59,7 @@ Route::prefix('kurum')->group(function() {
 	Route::post("/doktor/ekle","Kurum\DoctorController@store");
 
 	Route::get ("/doktor/detay/{Kisi?}","CorporationController@doktorprofil");
-	
+	//
 	Route::get ("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@edit");
 	Route::post("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@update");
 	Route::get ("/doktor/sil/{Kisi?}","Kurum\DoctorController@silinecek");

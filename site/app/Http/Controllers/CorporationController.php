@@ -34,7 +34,7 @@ public function doktorliste()
 public function doktorprofil()   
 
 {
-
+    $services = DB::table('services')->get();
     $userid = Auth::user()->id ;
     $doctors = DB::table('corp_doc')
     ->join('doctors', 'corp_doc.docid', '=', 'doctors.id')
@@ -42,11 +42,11 @@ public function doktorprofil()
     ->select('doctors.*','doc_schools.*')
     ->where('corp_doc.corpid',$userid)->get();
     
-    $services = DB::table('services')->get();
+    
     $categories = DB::table('categories')->get();
    // $schools = DB::table('doc_schools')
     //->where('doctorid','2')->get();
-   
+  
 
    // ->where('doctorid',$doctors->id)->get();
 //'2' $değişken olarak yukardaki sorgudan gelmesi gerek
@@ -54,7 +54,7 @@ public function doktorprofil()
 
     
 
-    return view("corpadmin.doctorprofile", compact('doctors' , 'services','categories','schools') )->with('doctors.id');
+    return view("corpadmin.doctorprofile", compact('doctors') )->with('doctors.id');
 
 }
 
