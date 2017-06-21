@@ -80,18 +80,19 @@
 					<p>
 						
 						{!! $doctor->about !!}
+						{!! $doctor->sname !!}
 					</p>
 					<br>
 					<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button>
 					</div>
 					<hr />
-					<h5><strong>Mezun Oluduğu Okullar</strong></h5>
+					<h5><strong>Mezun Oluduğu Okullar  </strong></h5>
 					<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 					<div class="table-responsive">
 						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
 							<thead>
 								<tr>
-
+ 
 									<th data-sortable="false">Okul Adı</th>
 									<th data-sortable="false">Eğitim Bilgisi</th>
 									<th data-sortable="false">Başlangıç Tarihi</th>
@@ -104,12 +105,12 @@
 							</thead>
 
 							<tbody>
-								@foreach($schools as $school)
+								@foreach($doctors as $doctor)
 								<tr>
-									<td><strong>  {!! $school->name !!}</strong></td>
-									<td>{!! $school->name !!}</td>
-									<td>{!! $school->start !!}</td>
-									<td>{!! $school->finish !!}</td>
+									<td><strong>  {!! $doctor->sname !!}</strong></td>
+									<td>{!! $doctor->education !!}</td>
+									<td>{!! $doctor->start !!}</td>
+									<td>{!! $doctor->finish !!}</td>
 
 									<td>
 										<div class="btn-group btn-group-xs">
@@ -119,39 +120,7 @@
 									</td>
 								</tr>
 								@endforeach
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>Yogyakarta, Indonesia</td><td>1985</td><td>1992</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
+								
 
 							</tbody>
 						</table>
@@ -176,6 +145,7 @@
 							</thead>
 
 							<tbody>
+
 								<tr>
 									<td><strong>John Doe</strong></td>
 									<td></td><td>1985</td><td>1992</td>
@@ -187,6 +157,8 @@
 										</div>
 									</td>
 								</tr>
+
+
 								<tr>
 									<td><strong>John Doe</strong></td>
 									<td></td><td>1985</td><td>1992</td>

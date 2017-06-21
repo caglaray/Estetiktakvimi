@@ -13,7 +13,7 @@ class DoctoSchoolSeeder extends Seeder
     {
         	DB::table('doc_schools')->insert([
     		'doctorid' => '1',
-    		'name' => 'İstanbul Ticaret üniversitesi',
+    		'sname' => 'İstanbul Ticaret üniversitesi',
     		'education' => 'Bilgisayar Mühendisliği',
     		'start' => '2010',
     		'finish' => '2019',
@@ -23,7 +23,7 @@ class DoctoSchoolSeeder extends Seeder
 
     	DB::table('doc_schools')->insert([
     		'doctorid' => '1',
-    		'name' => 'İstanbul Ticaret üniversitesi',
+    		'sname' => 'İstanbul Ticaret üniversitesi',
     		'education' => 'Endüstri Mühendisliği',
     		'start' => '2019',
     		'finish' => '2022',
@@ -33,7 +33,7 @@ class DoctoSchoolSeeder extends Seeder
 
     	DB::table('doc_schools')->insert([
     		'doctorid' => '1',
-    		'name' => 'İstanbul Ticaret üniversitesi',
+    		'sname' => 'İstanbul Ticaret üniversitesi',
     		'education' => 'Mekatronik Mühendisliği',
     		'start' => '2022',
     		'finish' => '2026',
@@ -43,7 +43,7 @@ class DoctoSchoolSeeder extends Seeder
 
     	DB::table('doc_schools')->insert([
     		'doctorid' => '2',
-    		'name' => 'İstanbul Ticaret üniversitesi',
+    		'sname' => 'İstanbul Ticaret üniversitesi',
     		'education' => 'Bilgisayar Mühendisliği',
     		'start' => '2008',
     		'finish' => '2010',
@@ -53,7 +53,7 @@ class DoctoSchoolSeeder extends Seeder
 
     	DB::table('doc_schools')->insert([
     		'doctorid' => '2',
-    		'name' => 'İstanbul Ticaret üniversitesi',
+    		'sname' => 'İstanbul Ticaret üniversitesi',
     		'education' => 'Enüdstri Mühendisliği',
     		'start' => '2010',
     		'finish' => '2014',

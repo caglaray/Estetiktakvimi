@@ -31,25 +31,30 @@ public function doktorliste()
 {
     return view("corpadmin.doctorlist");   
 }
-public function doktorprofil($id)   
+public function doktorprofil()   
 
 {
 
     $userid = Auth::user()->id ;
     $doctors = DB::table('corp_doc')
     ->join('doctors', 'corp_doc.docid', '=', 'doctors.id')
-    ->select('doctors.*')
+    ->join('doc_schools', 'doctorid', '=', 'doctors.id')
+    ->select('doctors.*','doc_schools.*')
     ->where('corp_doc.corpid',$userid)->get();
     
     $services = DB::table('services')->get();
     $categories = DB::table('categories')->get();
-    $schools = DB::table('doc_schools')->where('doctorid','2')->get();
+   // $schools = DB::table('doc_schools')
+    //->where('doctorid','2')->get();
+   
+
+   // ->where('doctorid',$doctors->id)->get();
 //'2' $değişken olarak yukardaki sorgudan gelmesi gerek
-    //$schools = DB::table('doc_schools')->get();
+    $schools = DB::table('doc_schools')->get();
 
     
 
-    return view("corpadmin.doctorprofile", compact('doctors' , 'services','categories','schools') )->with('doctorid', $id);
+    return view("corpadmin.doctorprofile", compact('doctors' , 'services','categories','schools') )->with('doctors.id');
 
 }
 
