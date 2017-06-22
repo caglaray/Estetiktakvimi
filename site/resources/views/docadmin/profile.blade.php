@@ -84,7 +84,7 @@
 						<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
 							
-							@if($okullar->isEmpty())
+							@if($schools->isEmpty())
 							<p> Kayıt Yok</p>
 							@else
 							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
@@ -102,12 +102,12 @@
 								</thead>
 
 								<tbody>
-									@foreach($okullar as $okul)
+									@foreach($schools as $school)
 									<tr>
-										<td><strong>{!! $okul->name !!}</strong></td>
-										<td>{!! $okul->education !!}</td>
-										<td>{!! $okul->start !!}</td>
-										<td>{!! $okul->finish !!}</td>
+										<td><strong>{!! $school->name !!}</strong></td>
+										<td>{!! $school->education !!}</td>
+										<td>{!! $school->start !!}</td>
+										<td>{!! $school->finish !!}</td>
 										<td>
 											<div class="btn-group btn-group-xs">
 												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
@@ -339,8 +339,8 @@
 
 						<div class="col-sm-6">
 							<h5><strong>Hizmetler</strong></h5>
-							@foreach($services as $servis)
-							<p>{!! $servis->name !!}</p>
+							@foreach($doctorservices as $service)
+							<p>{!! $service->name !!}</p>
 							@endforeach
 						</div>
 
@@ -349,8 +349,8 @@
 							<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
 							<div class="col-sm-12">
 								<select multiple="" class="form-control">
-								@foreach($services as $servis)
-									<option>{!! $servis->name !!}</option>
+									@foreach($services as $service)
+									<option>{!! $service->name !!}</option>
 									@endforeach
 								</select>
 								<br>
@@ -363,8 +363,8 @@
 
 						<div class="col-sm-6">
 							<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
-								@foreach($categories as $kategori)
-							<p>{!! $kategori->name !!}</p>
+							@foreach($doctorcategories as $categories1)
+							<p>{!! $categories1->name !!}</p>
 							@endforeach
 						</div>
 						<div class="col-sm-6">
@@ -372,8 +372,8 @@
 							<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
 							<div class="col-sm-12">
 								<select multiple="" class="form-control">
-									@foreach($categories as $kategori)
-									<option>{!! $kategori->name !!}</option>
+									@foreach($categories as $categories2)
+									<option>{!! $categories2->name !!}</option>
 									@endforeach
 								</select>
 								<br>
@@ -397,25 +397,29 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="widget-content padding">
+							@foreach($doctors as $doctor)
+							@endforeach
+
 							<h5><strong>Hesap Ayarları</strong></h5>                            
 							<div class="col-sm-6">
 								<address>
 									<strong>Doktor Adı</strong><br>
-									<abbr title="Kurum Adı">Doktro Adı</abbr>
+									<abbr title="Kurum Adı">{!! $doctor->name !!}</abbr>
 								</address>
 								<address>
 									<strong>Adres</strong><br>
-									<abbr title="Adres">Doktor Adresi</abbr>
+									<abbr title="Adres">{!! $doctor->adress !!}</abbr>
 								</address>
 								<address>
 									<strong>Telefon</strong><br>
-									<abbr title="Telefon">+62 857 123 4567</abbr>
+									<abbr title="Telefon">{!! $doctor->telephone !!}</abbr>
 								</address>
 
 
 							</div>
 
 						</div>
+
 						<!-- End div .scroll-user-widget -->
 					</div>
 					<div class="col-sm-6">
@@ -428,7 +432,7 @@
 								</address>
 								<address>
 									<strong>E-mail</strong><br>
-									<a href="#">first.last@example.com</a>
+									<a href="#">{!! $doctor->email !!}</a>
 								</address>
 								<address>
 									<strong>Profil Resmi</strong><br>
@@ -442,7 +446,6 @@
 										</div>
 									</div>
 								</address>
-
 
 
 

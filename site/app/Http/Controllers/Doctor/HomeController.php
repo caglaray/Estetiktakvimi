@@ -42,13 +42,27 @@ class HomeController extends Controller
 	{
 
 		$userid = Auth::user()->id ;
-
-		$okullar = DB::table('doc_schools')->where('doctorid',$userid)->get();
-
+		$doctors = DB::table('doctors')->where('id',$userid)->get();
+		$schools = DB::table('doc_schools')->where('doctorid',$userid)->get();
 		$services = DB::table('services')->get();
 		$categories = DB::table('categories')->get();
 
-		return view("docadmin.profile", compact('okullar' , 'services' ,'categories') );
+
+		$doctorservices = DB::table('service_doc')
+		->join('services', 'service_doc.servicesid', '=', 'services.id')
+		->where('doctorid' , $userid)
+		->get();
+
+		$doctorcategories = DB::table('doc_cat')
+		->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
+		->where('doctorid' , $userid)
+		->get();
+
+
+
+		return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools') );
+
+
 	}
 
 	

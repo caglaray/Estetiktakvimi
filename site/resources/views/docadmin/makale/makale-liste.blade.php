@@ -42,7 +42,7 @@
 							<td><strong>{!! $article->title !!}</strong></td>
 							<td>  {{{ str_limit($article->content, $limit = 25, $end = '...')}}} </td>
 							<td>{!! $article->created_at !!}</td>
-							<td><span class="label label-success">Aktif</span></td>
+							<td><label for="input-text"  class="control-label">{!! $article->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Onay Bekliyor' !!}</span></label></td>
 							<td>
 								<div class="btn-group btn-group-xs">
 									<a data-toggle="tooltip" href="{!! action('Doctor\ArticleController@show' , $article->id) !!}" title="Görüntüle" class="btn btn-default"><i class="fa fa-user"></i></a>

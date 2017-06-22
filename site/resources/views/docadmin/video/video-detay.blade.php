@@ -18,7 +18,7 @@
 	
 	<tr>
 		<td width="150px"><b>Video Durum :</b></td>
-		<td><label for="input-text" style="margin-left:13px;" class="control-label">{!! $video->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Kapalı' !!}</span></label></td>
+		<td><label for="input-text" style="margin-left:13px;" class="control-label">{!! $video->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Onay Bekliyor' !!}</span></label></td>
 	</tr>
 
 	
