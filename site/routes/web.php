@@ -17,6 +17,7 @@ Route::post('kurum/register', 'Kurum\RegisterController@CorporationRegister');
 
 
 //Kurum İşlemleri
+
 Route::prefix('kurum')->group(function() {
 
 	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
@@ -25,7 +26,7 @@ Route::prefix('kurum')->group(function() {
 
 	Route::get('/', 'Kurum\CorporationController@index')->name('corporation.anasayfa');
 	Route::get('/about', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
-	Route::get('/doktor-ekle', 'Kurum\CorporationController@doktorekle')->name('corporation.doktorekle');
+	
 
 	
 
@@ -41,26 +42,28 @@ Route::prefix('kurum')->group(function() {
 
 	//Video İşlemleri
 	route::get ("/video","Kurum\VideoController@videoliste")->name('corporation.videolar');
-
 	route::get ("/video/ekle", "Kurum\VideoController@videoekle");
-
 	route::post("/video/ekle", "Kurum\VideoController@store");
 	Route::get ("/video/detay/{videoid?}","Kurum\VideoController@show");
-
 	Route::get ("/video/guncelle/{videoid?}","Kurum\VideoController@edit");
 	Route::post("/video/guncelle/{videoid?}","Kurum\VideoController@update");
-
 	Route::get ("/video/sil/{videoid?}","Kurum\VideoController@sil");
 	Route::post("/video/sil/{videoid?}","Kurum\VideoController@destroy");
 
-
 	//Corporation Adding,Update,Delete Doctor
 
+
 	Route::get ("/doktor/liste","Kurum\DoctorController@DoktorListe");
-	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle");
-	Route::post("/doktor/ekle","Kurum\DoctorController@store");
+
 
 	Route::get ("/doktor/detay/{DoktorID?}","Kurum\CorporationController@doktorprofil");
+
+
+	Route::get('/doktor-ekle', 'Kurum\CorporationController@doktorekle')->name('corporation.doktorekle');
+	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle");
+	Route::post("/doktor/ekle","Kurum\DoctorController@store");
+	
+
 	
 	Route::get ("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@edit");
 	Route::post("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@update");

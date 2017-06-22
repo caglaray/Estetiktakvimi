@@ -37,14 +37,14 @@
 
 					<tr>
 						<td>{!! $doctor->id !!}</td>
-						<td><a href="{!! action('CorporationController@doktorprofil' , $doctor->id) !!}"> {!! $doctor->username !!}</a></td>
+						<td><a href="{!! action('Kurum\CorporationController@doktorprofil' , $doctor->id) !!}"> {!! $doctor->username !!}</a></td>
 						<td>{!! $doctor->name !!}</td>
 						<td>{!! $doctor->surname !!}</td>
 						<td><a href="mailto:#">{!! $doctor->email !!}</a></td>
 						<td><span class="label label-success">Aktif</span></td>
 						<td>
 							<div class="btn-group btn-group-xs">
-								<a data-toggle="tooltip" title="Görüntüle" href="{!! action('CorporationController@doktorprofil' , $doctor->id) !!}" class="btn btn-default"><i class="fa fa-user fa-1"></i></a>
+								<a data-toggle="tooltip" title="Görüntüle" href="{!! action('Kurum\CorporationController@doktorprofil' , $doctor->id) !!}" class="btn btn-default"><i class="fa fa-user fa-1"></i></a>
 
 								<a data-toggle="tooltip" title="Güncelle" href="{!! action('Kurum\DoctorController@edit' , $doctor->id) !!}" class="btn btn-default"><i class="fa fa-edit"></i></a>
 						

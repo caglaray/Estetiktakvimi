@@ -17,7 +17,7 @@ class CreateDocSchoolsTable extends Migration
         $table->increments('id');
         $table->integer('doctorid')->unsigned();
         $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
-        $table->string('sname',100);
+        $table->string('name',100);
         $table->string('education',100);
         $table->string('start',10);
         $table->string('finish',10);

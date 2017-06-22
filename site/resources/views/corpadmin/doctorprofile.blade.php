@@ -24,7 +24,7 @@
 		<div class="text-center user-profile-2">
 			<br><h4> <b>	
 			@foreach($doctors as $doctor)
-			{!! $doctor->name !!}
+			{!! $doctor->name !!} {!! $doctor->surname !!} 
 			@endforeach
 		</b></h4>
 
@@ -81,8 +81,8 @@
 					<h5><strong>Hakkında</strong></h5>
 					<p>
 						@foreach($doctors as $doctor)
-			{!! $doctor->about !!}
-			@endforeach
+						{!! $doctor->about !!}
+						@endforeach
 						
 						
 					</p>
@@ -96,7 +96,7 @@
 						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
 							<thead>
 								<tr>
- 
+
 									<th data-sortable="false">Okul Adı</th>
 									<th data-sortable="false">Eğitim Bilgisi</th>
 									<th data-sortable="false">Başlangıç Tarihi</th>
@@ -111,7 +111,7 @@
 							<tbody>
 								@foreach($schools as $school)
 								<tr>
-									<td><strong>  {!! $school->sname !!}</strong></td>
+									<td><strong>  {!! $school->name !!}</strong></td>
 									<td>{!! $school->education !!}</td>
 									<td>{!! $school->start !!}</td>
 									<td>{!! $school->finish !!}</td>
@@ -564,10 +564,9 @@
 
 									<div class="col-sm-6">
 										<h5><strong>Hizmetler</strong></h5>
-										<p>UI Design</p>
-										<p>Clean and Modern Web Design</p>
-										<p>PHP and MySQL Programming</p>
-										<p>Vector Design</p>
+										@foreach($doctorservices as $service)
+										<p>{!! $service->name !!}</p>
+										@endforeach
 									</div>
 
 									<div class="col-sm-6">
@@ -575,11 +574,9 @@
 										<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
 										<div class="col-sm-12">
 											<select multiple="" class="form-control">
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-												<option>4</option>
-												<option>5</option>
+												@foreach($services as $service)
+												<option>{!! $service->name !!}</option>
+												@endforeach
 											</select>
 											<br>
 											<button class="btn btn-success btn-sm" type="button">Kaydet</button>
@@ -591,21 +588,18 @@
 
 									<div class="col-sm-6">
 										<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
-										<p>UI Design</p>
-										<p>Clean and Modern Web Design</p>
-										<p>PHP and MySQL Programming</p>
-										<p>Vector Design</p>
+										@foreach($doctorcategories as $categories1)
+										<p>{!! $categories1->name !!}</p>
+										@endforeach
 									</div>
 									<div class="col-sm-6">
 										<h5><strong>Kategori Ekle</strong> </h5>
 										<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
 										<div class="col-sm-12">
 											<select multiple="" class="form-control">
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-												<option>4</option>
-												<option>5</option>
+												@foreach($categories as $categories2)
+												<option>{!! $categories2->name !!}</option>
+												@endforeach
 											</select>
 											<br>
 											<button class="btn btn-success btn-sm" type="button">Kaydet</button>
@@ -627,20 +621,23 @@
 
 								</div>
 								<div class="col-sm-6">
+									
+@foreach($doctors as $doctor)
 									<div class="widget-content padding">
+
 										<h5><strong>Hesap Ayarları</strong></h5>                            
 										<div class="col-sm-6">
 											<address>
 												<strong>Doktor Adı</strong><br>
-												<abbr title="Doktor Adı">Doktro Adı</abbr>
+												<abbr title="Doktor Adı">{!! $doctor->name !!}</abbr>
 											</address>
 											<address>
 												<strong>Adres</strong><br>
-												<abbr title="Adres">Doktor Adresi</abbr>
+												<abbr title="Adres">{!! $doctor->adress !!}</abbr>
 											</address>
 											<address>
 												<strong>Telefon</strong><br>
-												<abbr title="Telefon">+62 857 123 4567</abbr>
+												<abbr title="Telefon">{!! $doctor->telephone !!}</abbr>
 											</address>
 
 
@@ -648,6 +645,7 @@
 
 									</div>
 									<!-- End div .scroll-user-widget -->
+									@endforeach
 								</div>
 								<div class="col-sm-6">
 									<div class="widget-content padding">
@@ -659,7 +657,7 @@
 											</address>
 											<address>
 												<strong>E-mail</strong><br>
-												<a href="#">first.last@example.com</a>
+												<a href="#">{!! $doctor->email !!}</a>
 											</address>
 											<address>
 												<strong>Profil Resmi</strong><br>

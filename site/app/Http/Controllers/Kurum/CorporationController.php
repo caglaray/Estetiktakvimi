@@ -19,36 +19,49 @@ class CorporationController extends Controller
   {
     return view('corpadmin.home');
   }
+
+
+
   public function about()        
   {
     return view("corpadmin.about");   
   }
+
+
+
   public function doktorekle()        
   {
     return view("corpadmin.doctoradd");   
   }
-  public function doktorliste()        
-  {
-    return view("corpadmin.doctorlist");   
-  }
+
+
+
   public function doktorprofil($DoktorID)   
   {
 
     $userid = Auth::user()->id ;
-
     $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
-
     $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
-
 
     
     $services = DB::table('services')->get();
+
+    $doctorservices = DB::table('service_doc')
+    ->join('services', 'service_doc.servicesid', '=', 'services.id')
+    ->where('doctorid' , $DoktorID)
+    ->get();
+
+
+
+  
     $categories = DB::table('categories')->get();
 
+    $doctorcategories = DB::table('doc_cat')
+    ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
+    ->where('doctorid' , $DoktorID)
+    ->get();
 
-    
-
-    return view("corpadmin.doctorprofile", compact('doctors','services','categories','schools'));
+    return view("corpadmin.doctorprofile", compact('doctors','services','doctorservices','categories','doctorcategories','schools'));
 
   }
 
