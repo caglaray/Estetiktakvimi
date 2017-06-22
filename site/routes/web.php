@@ -30,7 +30,7 @@ Route::prefix('kurum')->group(function() {
 
 	
 
-	//Makale İşlemleri
+	//Atticle
 	Route::get('/makale', 'Kurum\ArticleController@makaleler')->name('corporation.makaleler');
 	Route::get('/makale/ekle', 'Kurum\ArticleController@makaleekle')->name('corporation.makaleekle');
 	Route::post("/makale/ekle","Kurum\ArticleController@store");
@@ -40,7 +40,7 @@ Route::prefix('kurum')->group(function() {
 	Route::get ("/makale/sil/{Makaleid?}","Kurum\ArticleController@silinecek");
 	Route::post("/makale/sil/{Makaleid?}","Kurum\ArticleController@destroy");
 
-	//Video İşlemleri
+	//Video
 	route::get ("/video","Kurum\VideoController@videoliste")->name('corporation.videolar');
 	route::get ("/video/ekle", "Kurum\VideoController@videoekle");
 	route::post("/video/ekle", "Kurum\VideoController@store");
@@ -59,8 +59,8 @@ Route::prefix('kurum')->group(function() {
 	Route::get ("/doktor/detay/{DoktorID?}","Kurum\CorporationController@doktorprofil");
 
 
-	Route::get('/doktor-ekle', 'Kurum\CorporationController@doktorekle')->name('corporation.doktorekle');
-	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle");
+
+	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle")->name('corporation.doktorekle');
 	Route::post("/doktor/ekle","Kurum\DoctorController@store");
 	
 
@@ -74,7 +74,7 @@ Route::prefix('kurum')->group(function() {
 
 
 
-//Admin İşlemleri
+//Admin 
 Route::prefix('admin')->group(function() {
 	
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

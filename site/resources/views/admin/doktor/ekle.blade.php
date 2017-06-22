@@ -60,7 +60,7 @@
 			</div>
 			<div class="form-group">
 				<label>Fotoğraf URL</label>
-				<input type="text" class="form-control" name="photourl" id="photourl">
+				<input type="text" class="form-control" name="image" id="photourl">
 			</div>
 			<div class="form-group">
 				<label>Doğum Tarihi</label>

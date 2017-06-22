@@ -51,7 +51,7 @@ class DoctorController extends Controller
             'password' => $request->get('password'),
             'email' => $request->get('email'),
             'adress' => $request->get('adress'),
-            'photourl' => $request->get('photourl'),
+            'image' => $request->get('image'),
             'telephone' => $request->get('telephone'),
             'birthday' => $request->get('birthday'),
             'livecity' => $request->get('livecity'),

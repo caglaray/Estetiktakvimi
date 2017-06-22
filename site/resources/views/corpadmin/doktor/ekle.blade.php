@@ -1,8 +1,5 @@
 @extends('kurummaster')
-@section('title','Doktor Ekle')
-
 @section('content')
-
 
 
 
@@ -21,22 +18,18 @@
 				{{ session('status') }}
 			</div>
 			@endif
-
-			<div class="form-group">
-				<label>Kullanıcı Adı</label>
-				<input type="text" class="form-control"  name="username"  id="username">
-			</div>
 			<div class="form-group">
 				<label>Adı</label>
-				<input type="text" class="form-control" name="name" id="name">
+				<input type="text" class="form-control" name="name" placeholder="Adı" id="name">
 			</div>
 			<div class="form-group">
 				<label>Soyadı</label>
-				<input type="text" class="form-control" name="surname" id="surname">
+				<input type="text" class="form-control" name="surname" placeholder="Soyadı" id="surname">
 			</div>
+			
 			<div class="form-group">
-				<label>Mail Adresi</label>
-				<input type="text" class="form-control" name="email" id="email">
+				<label>Kullanıcı Adı</label>
+				<input type="text" class="form-control"  name="username" placeholder="Kullanıcı Adı"  id="username">
 			</div>
 			<div class="form-group">
 				<div class="row">
@@ -46,46 +39,51 @@
 					</div>
 					<div class="col-sm-6">
 						<label>Şifre Tekrar</label>
-						<input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+						<input type="password" class="form-control" name="confirmPassword"  id="confirmPassword">
 					</div>
 				</div>
+			</div>
+			<div class="form-group">
+				<label>Mail Adresi</label>
+				<input type="text" class="form-control" name="email" placeholder="Mail Adresi" " id="email">
 			</div>
 			<div class="form-group">
 				<label>Telefon</label>
-				<input type="text" class="form-control" name="telephone" id="telephone">
+				<input type="number" class="form-control" name="telephone" placeholder="Telefon Numarası" id="telephone">
 			</div>
 			<div class="form-group">
 				<label>Adres</label>
-				<input type="text" class="form-control" name="adress" id="adress">
+				<input type="text" class="form-control" name="adress" placeholder="Adresi" " id="adress">
 			</div>
 			<div class="form-group">
-				<label>Fotoğraf URL</label>
-				<input type="text" class="form-control" name="photourl" id="photourl">
+				<label>Resim Ekle</label><br>
+				<input type="file" class="btn btn-default" name="image" title="Resim Seç" style="left: -218.156px; top: 4px;">
 			</div>
 			<div class="form-group">
 				<label>Doğum Tarihi</label>
-				<input type="text" class="form-control" name="birthday" id="birthday">
+				<input type="text" class="form-control" name="birthday" data-mask="99:99:99" placeholder="Gün:Ay:Yıl">
 			</div>
 			<div class="form-group">
-				<label>Yaşadığınız Şehir</label>
-				<input type="text" class="form-control" name="livecity" id="livecity">
+
+				<label>Yaşadığı Şehir</label>
+				<select name="livecity"  class="form-control">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+
+				</select>
 			</div>
 
 
 
-			<div class="form-group">
-				<label class="control-label" id="captchaOperation">Doğrulama : 30 + 1 = </label>
-				<div class="row">
-					<div class="col-sm-4">
-						<input type="text" class="form-control" name="captcha" data-bv-field="captcha">
-					</div>
-				</div>
-			</div>
-
+			
 			<button type="submit" class="btn btn-primary">Kaydet</button>
-			<input type="hidden" value="">
+			
 		</form>
 	</div>
 </div>
+
 
 @endsection

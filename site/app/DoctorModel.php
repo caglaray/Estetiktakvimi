@@ -8,7 +8,7 @@ class DoctorModel extends Model
 {
 	protected $table = 'doctors';
 
-	protected $fillable = ['name','surname','username','password','email','adress','photourl','telephone','birthday','livecity'];
+	protected $fillable = ['name','surname','username','password','email','adress','image','telephone','birthday','livecity'];
 
 
 	public function Article(){
