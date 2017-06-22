@@ -22,8 +22,10 @@
 	<div class="col-sm-3">
 		<!-- Begin user profile -->
 		<div class="text-center user-profile-2">
-			<br><h4> <b>	@foreach($doctors as $doctor)
+			<br><h4> <b>	
+			@foreach($doctors as $doctor)
 			{!! $doctor->name !!}
+			@endforeach
 		</b></h4>
 
 		<h5>Doktor Ünvanı</h5>
@@ -78,8 +80,10 @@
 				<div class="user-profile-content">
 					<h5><strong>Hakkında</strong></h5>
 					<p>
+						@foreach($doctors as $doctor)
+			{!! $doctor->about !!}
+			@endforeach
 						
-						{!! $doctor->about !!}
 						
 					</p>
 					<br>
@@ -105,12 +109,12 @@
 							</thead>
 
 							<tbody>
-								@foreach($doctors as $doctor)
+								@foreach($schools as $school)
 								<tr>
-									<td><strong>  {!! $doctor->sname !!}</strong></td>
-									<td>{!! $doctor->education !!}</td>
-									<td>{!! $doctor->start !!}</td>
-									<td>{!! $doctor->finish !!}</td>
+									<td><strong>  {!! $school->sname !!}</strong></td>
+									<td>{!! $school->education !!}</td>
+									<td>{!! $school->start !!}</td>
+									<td>{!! $school->finish !!}</td>
 
 									<td>
 										<div class="btn-group btn-group-xs">
@@ -921,5 +925,5 @@
 	
 </div>
 </div>
-@endforeach
+
 @endsection

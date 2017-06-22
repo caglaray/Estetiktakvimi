@@ -21,9 +21,11 @@ Route::prefix('kurum')->group(function() {
 
 	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
 	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
-	Route::get('/', 'CorporationController@index')->name('corporation.anasayfa');
-	Route::get('/about', 'CorporationController@about')->name('corporation.hakkimizda');
-	Route::get('/doktor-ekle', 'CorporationController@doktorekle')->name('corporation.doktorekle');
+	
+
+	Route::get('/', 'Kurum\CorporationController@index')->name('corporation.anasayfa');
+	Route::get('/about', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
+	Route::get('/doktor-ekle', 'Kurum\CorporationController@doktorekle')->name('corporation.doktorekle');
 
 	
 
@@ -58,8 +60,8 @@ Route::prefix('kurum')->group(function() {
 	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle");
 	Route::post("/doktor/ekle","Kurum\DoctorController@store");
 
-	Route::get ("/doktor/detay/{Kisi?}","CorporationController@doktorprofil");
-	//
+	Route::get ("/doktor/detay/{DoktorID?}","Kurum\CorporationController@doktorprofil");
+	
 	Route::get ("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@edit");
 	Route::post("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@update");
 	Route::get ("/doktor/sil/{Kisi?}","Kurum\DoctorController@silinecek");
@@ -67,7 +69,7 @@ Route::prefix('kurum')->group(function() {
 
 });
 
-//
+
 
 //Admin İşlemleri
 Route::prefix('admin')->group(function() {
@@ -135,4 +137,3 @@ Route::prefix('doktor')->group(function() {
 });
 
 
-al bende sildim
