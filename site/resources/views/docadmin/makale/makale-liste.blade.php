@@ -27,7 +27,7 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Video Adı</th>
+							<th>Makale Adı</th>
 							<th>Makale Detay</th>
 							<th>Tarih</th>
 							<th>Durum</th>
@@ -39,8 +39,8 @@
 						@foreach($articles as $article)
 						<tr>
 							<td>{!! $article->id !!}</td>
-							<td><strong>{!! $article->title !!}</strong></td>
-							<td>  {{{ str_limit($article->content, $limit = 25, $end = '...')}}} </td>
+							<td><strong>{{{ str_limit($article->title, $limit = 25, $end = '...')}}} </strong></td>
+							<td>  {{{ str_limit($article->content, $limit = 30, $end = '...')}}} </td>
 							<td>{!! $article->created_at !!}</td>
 							<td><label for="input-text"  class="control-label">{!! $article->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Onay Bekliyor' !!}</span></label></td>
 							<td>

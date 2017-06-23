@@ -27,9 +27,15 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionAnswerSeeder::class);
         $this->call(DocToCatSeeder::class);
         $this->call(DocToServiceSeeder::class);
-      
+        
 
-
+        $this->call(ExperiencesSeeder::class);
+        $this->call(BroadSeeder::class);
+        $this->call(AwardsSeeder::class);
+        $this->call(CertificateSeeder::class);
+        $this->call(DoctorImagesSeeder::class);
+        $this->call(CorpServicesSeeder::class);
+        
 
 
 
