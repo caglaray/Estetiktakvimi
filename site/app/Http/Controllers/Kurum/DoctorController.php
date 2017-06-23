@@ -59,62 +59,72 @@ class DoctorController extends Controller
 
         $Doctor->save();
 
-    
+        $kurumid = Auth::user()->id ;
+
+        $Lastid = $Doctor->id;
+
+        
+
+
+
+        
         //$Doctor-save() Başarılıysa doktor/liste, Başarısız ise doktor/ekle sayfasına gönderdim
         if ( $Doctor->save()==1) {
-
-            return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
-        }
-        else
-            return redirect('kurum/doktor/ekle');
-    }
-
-
-    public function show($Kisi)
-    {
-        $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-        return view('corpadmin.doktor.detay',compact('Doctor'));
-    }
-
-    public function edit($Kisi)
-    {
-        $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-        return view('corpadmin.doktor.guncelle', compact('Doctor'));
-    }
-
-    public function update($Kisi , DoctorEkleRequestForm $request)
-    {
-
-        $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-
-        $Doctor->name      = $request->get('name');
-        $Doctor->surname   = $request->get('surname');
-        $Doctor->username  = $request->get('username');
-        $Doctor->password  = $request->get('password');
-        $Doctor->email     = $request->get('email');
-        $Doctor->adress    = $request->get('adress');
-        $Doctor->photourl  = $request->get('photourl');
-        $Doctor->telephone = $request->get('telephone');
-        $Doctor->birthday  = $request->get('birthday');
-        $Doctor->birthday  = $request->get('birthday');
-        $Doctor->livecity  = $request->get('livecity');
-
-        $Doctor->save();
-        return redirect(action('Kurum\DoctorController@DoktorListe',$Kisi))->with('status',$Doctor->username.' adlı Kullanıcının Kaydı Güncellendi.');
+           DB::table('corp_doc')->insert(
+            ['docid' => $Lastid , 'corpid' => $kurumid]
+            );
+           return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
+       }
+       else
+        return redirect('kurum/doktor/ekle');
+}
 
 
-    }
+public function show($Kisi)
+{
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+    return view('corpadmin.doktor.detay',compact('Doctor'));
+}
 
-    public function silinecek($Kisi)
-    {
-        $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-        return view('corpadmin.doktor.sil', compact('Doctor'));
-    }
+public function edit($Kisi)
+{
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+    return view('corpadmin.doktor.guncelle', compact('Doctor'));
+}
 
-    public function destroy($Kisi)
-    {
-        $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-        $Doctor->delete();
-        return redirect('kurum/doktor/liste')->with('status' , $Doctor->name.' isimli Doktor Silindi.');
-    }
+public function update($Kisi , DoctorEkleRequestForm $request)
+{
+
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+
+    $Doctor->name      = $request->get('name');
+    $Doctor->surname   = $request->get('surname');
+    $Doctor->username  = $request->get('username');
+    $Doctor->password  = $request->get('password');
+    $Doctor->email     = $request->get('email');
+    $Doctor->adress    = $request->get('adress');
+    $Doctor->photourl  = $request->get('photourl');
+    $Doctor->telephone = $request->get('telephone');
+    $Doctor->birthday  = $request->get('birthday');
+    $Doctor->birthday  = $request->get('birthday');
+    $Doctor->livecity  = $request->get('livecity');
+
+    $Doctor->save();
+    return redirect(action('Kurum\DoctorController@DoktorListe',$Kisi))->with('status',$Doctor->username.' adlı Kullanıcının Kaydı Güncellendi.');
+
+
+}
+
+public function silinecek($Kisi)
+{
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+    return view('corpadmin.doktor.sil', compact('Doctor'));
+}
+
+public function destroy($Kisi)
+{
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+    $Doctor->delete();
+    return redirect('kurum/doktor/liste')->with('status' , $Doctor->name.' isimli Doktor Silindi.');
+}
 }
