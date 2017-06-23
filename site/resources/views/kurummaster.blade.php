@@ -12,6 +12,8 @@
 
 
   <link href="{{ URL::asset('assets/libs/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css') }}"    rel="stylesheet" />
+  
+  <link href="{{ URL::asset('assets/dist/sweetalert.css') }}"    rel="stylesheet" />
 
   <link href="{{ URL::asset('assets/libs/bootstrap/css/bootstrap.min.css') }}"    rel="stylesheet" />
   <link href="{{ URL::asset('assets/libs/font-awesome/css/font-awesome.min.css') }}"    rel="stylesheet" />
@@ -235,101 +237,110 @@
               <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                 <ul>
                   <li><a href="/kurum/doktor/liste"><span>Doktor Listesi</span></a></li>
-                  <li><a href="{{ route('corporation.doktorekle') }}"><span>Doktor Ekle</span></a></li>
-                </ul>
-              </li>
-              
-              <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                <ul>
-                  <li><a href="{{ route('corporation.makaleler') }}"><span>Makaleler</span></a></li>
-                  <li><a href="{{ route('corporation.videolar') }}"><span>Videolar</span></a></li>
-                </ul>
-              </li>
-              <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                <ul>
-                  <li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li>
-                  <li><a href='new-message.html'><span>New Message</span></a></li>
-                </ul>
-              </li>
-              
+                  <li><a href=" 
+                   @if(Auth::user()->adding<=Auth::user()->doc_capacity)
+                   {{ route('corporation.doktorekle') }}
+                   @else 
+                   @endif" >
+                   <!-- <a class="btn btn-danger autohidebut" href="javascript:;" onclick="autohidenotify('error')">Autohide in 3 seconds</a>-->
 
-              <li class=''><a href='/kurum/about'><i class='fa fa-user'></i><span>Kurum Ayarları</span> <span class="pull-right"></span></a>
+                   <span>Doktor Ekle</span></a>
+                   
+                 </li>
+               </ul>
+             </li>
+             
+             <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+              <ul>
+                <li><a href="{{ route('corporation.makaleler') }}"><span>Makaleler</span></a></li>
+                <li><a href="{{ route('corporation.videolar') }}"><span>Videolar</span></a></li>
+              </ul>
+            </li>
+            <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+              <ul>
+                <li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li>
+                <li><a href='new-message.html'><span>New Message</span></a></li>
+              </ul>
+            </li>
+            
 
-              </li>
+            <li class=''><a href='/kurum/about'><i class='fa fa-user'></i><span>Kurum Ayarları</span> <span class="pull-right"></span></a>
 
-              
-            </ul>                  
-            <div class="clearfix"></div>
-          </div>
+            </li>
+
+            
+          </ul>                  
           <div class="clearfix"></div>
-
-
-
-
-
-
-
-
-
-          <div class="clearfix"></div><br><br><br>
         </div>
+        <div class="clearfix"></div>
 
+
+
+
+
+
+
+
+
+        <div class="clearfix"></div><br><br><br>
       </div>
 
-      <!-- Start right content -->
-      <div class="content-page">
-       <!-- ============================================================== -->
-       <!-- Start Content here -->
-       <!-- ============================================================== -->
-       <div class="content">
-         <!-- Page Heading Start -->
-
-
-
-
-         @hasSection('title')
-         <div class="page-heading">
-
-           <h1><i class='fa fa-magic'></i>@yield('title')</h1> 
-         </div>
-         @endif
-
-
-
-
-
-
-         <!-- Page Heading End-->              
-         <div class="row">
-          <div class="col-md-12 portlets">
-
-
-            @yield('content')
-
-
-
-          </div>
-        </div>
-
-        <!-- Footer Start -->
-        <footer>
-          <div class="footer-links pull-left">
-
-           " User ID = <?php echo $userid; ?> " 
-         </div>
-         <div class="footer-links pull-right">
-
-          Estetik Takvimi &copy; 2017
-        </div>
-      </footer>
-      <!-- Footer End -->         
     </div>
-    <!-- ============================================================== -->
-    <!-- End content here -->
-    <!-- ============================================================== -->
 
+    <!-- Start right content -->
+    <div class="content-page">
+     <!-- ============================================================== -->
+     <!-- Start Content here -->
+     <!-- ============================================================== -->
+     <div class="content">
+       <!-- Page Heading Start -->
+
+
+
+
+       @hasSection('title')
+       <div class="page-heading">
+
+         <h1><i class='fa fa-magic'></i>@yield('title')</h1> 
+       </div>
+       @endif
+
+
+
+
+
+
+       <!-- Page Heading End-->              
+       <div class="row">
+        <div class="col-md-12 portlets">
+
+
+          @yield('content')
+
+
+
+        </div>
+      </div>
+
+      <!-- Footer Start -->
+      <footer>
+        <div class="footer-links pull-left">
+
+         " User ID = <?php echo $userid; ?> " 
+       </div>
+       <div class="footer-links pull-right">
+
+        Estetik Takvimi &copy; 2017
+      </div>
+    </footer>
+    <!-- Footer End -->         
   </div>
-  <!-- End right content -->
+  <!-- ============================================================== -->
+  <!-- End content here -->
+  <!-- ============================================================== -->
+
+</div>
+<!-- End right content -->
 
 </div>
 <!-- End of page -->
@@ -370,6 +381,12 @@
 <script src="{{ URL::asset('assets/js/pages/forms.js') }}"></script>
 <script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
 <script src="{{ URL::asset('assets/js/init.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-notifyjs/notify.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-notifyjs/styles/metro/notify-metro.js') }}"></script>
+<script src="{{ URL::asset('assets/dist/sweetalert.min.js') }}"></script>
+
+
+
 
 </body>
 </html>

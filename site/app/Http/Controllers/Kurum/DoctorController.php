@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DoctorModel;
 use App\Http\Requests\DoctorEkleRequestForm;
-
-
+use Alert;
 
 class DoctorController extends Controller
 {
@@ -60,8 +59,14 @@ class DoctorController extends Controller
 
         $Doctor->save();
 
-        return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
+    
+        //$Doctor-save() Başarılıysa doktor/liste, Başarısız ise doktor/ekle sayfasına gönderdim
+        if ( $Doctor->save()==1) {
 
+            return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
+        }
+        else
+            return redirect('kurum/doktor/ekle');
     }
 
 

@@ -5,7 +5,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('anasayfa');
 Route::get('/deneme', 'HomeController@index');
 Route::get('/sayfa/doktor', 'HomeController@doktor');
 Route::get('/sayfa/liste', 'HomeController@liste');

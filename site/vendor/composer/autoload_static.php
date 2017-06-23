@@ -15,6 +15,7 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -29,6 +30,10 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+        ),
+        'U' => 
+        array (
+            'UxWeb\\SweetAlert\\' => 17,
         ),
         'T' => 
         array (
@@ -109,6 +114,10 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'UxWeb\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -336,6 +345,7 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_24_142850_create_categories_table.php',
         'CreateCertificateTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_22_134100_create_certificate_table.php',
         'CreateCorpDocTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_21_114920_create_corp_doc_table.php',
+        'CreateCorpSerTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_22_230236_create_corp_ser_table.php',
         'CreateCorporationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_21_202723_create_corporations_table.php',
         'CreateDocCatTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_255050_create_doc_cat_table.php',
         'CreateDocDegreeTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_14_064222_create_doc_degree_table.php',
@@ -3225,6 +3235,12 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
+        'UxWeb\\SweetAlert\\ConvertMessagesIntoSweatAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/ConvertMessagesIntoSweatAlert.php',
+        'UxWeb\\SweetAlert\\LaravelSessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/LaravelSessionStore.php',
+        'UxWeb\\SweetAlert\\SessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SessionStore.php',
+        'UxWeb\\SweetAlert\\SweetAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlert.php',
+        'UxWeb\\SweetAlert\\SweetAlertNotifier' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertNotifier.php',
+        'UxWeb\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertServiceProvider.php',
         'VideoTableSeeder' => __DIR__ . '/../..' . '/database/seeds/VideoTableSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',

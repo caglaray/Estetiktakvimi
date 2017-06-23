@@ -24,7 +24,13 @@ class CorporationController extends Controller
 
   public function about()        
   {
-    return view("corpadmin.about");   
+    $userid = Auth::user()->id ;
+    $corporationservices = DB::table('corp_ser')
+    ->join('services', 'corp_ser.servicesid', '=', 'services.id')
+    ->where('corpid' , $userid)
+    ->get();
+    $services = DB::table('services')->get();
+    return view("corpadmin.about", compact('corporationservices','services'));   
   }
 
 
@@ -53,7 +59,7 @@ class CorporationController extends Controller
 
 
 
-  
+
     $categories = DB::table('categories')->get();
 
     $doctorcategories = DB::table('doc_cat')

@@ -18,6 +18,7 @@ class CreateCorporationsTable extends Migration
             $table->tinyInteger('group_id')->default(0);
             $table->string('name',100);
             $table->text('adress');
+            $table->text('about')->nullable();
             $table->string('logo');
             $table->string('telephone',30);
             $table->string('email',100)->unique();
