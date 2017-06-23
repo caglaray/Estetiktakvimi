@@ -297,44 +297,58 @@
           <ul>
               <li class=''><a href='/Admin'><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
               
-              <li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>Üyeler</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+              <!--<li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                   <ul>
-                      <li><a href='alerts.html'><span>Alerts</span></a></li>
-                      <li><a href='buttons.html'><span>Buttons</span></a></li>
-                      <li><a href='calendar.html'><span>Calendar</span></a></li>
-                      <li><a href='grid.html'><span>Grid</span></a></li>
-                      <li><a href='icons.html'><span>Icons</span></a></li>
-                      <li><a href='modals.html'><span>Modals</span></a></li>
-                      <li><a href='nested-list.html'><span>Nested List</span></a></li>
-                      <li><a href='notifications.html'><span>Notifications</span></a></li>
-                      <li><a href='portlets.html'><span>Portlets</span></a></li>
-                      <li><a href='progress-bars.html'><span>Progress Bars</span></a></li>
-                      <li><a href='tabs-accordions.html'><span>Tabs & Accordions</span></a></li>
-                      <li><a href='typography.html'><span>Typography</span></a></li>
-                  </ul></li>
+                      <li><a href='alerts.html'><span>Makaleler</span></a></li>
+                      <li><a href='buttons.html'><span>Videolar</span></a></li>
+                     
+                  </ul></li>-->
                   <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Doktorlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                       <ul>
-                          <li><a href='/admin/doktor/liste'><span>Doktor Listesi</span></a></li>
-                          <li><a href='/admin/doktor/ekle'><span>Doktor Ekle</span></a></li>
+                          <li><a href="{{ route('admin.doktorliste') }}"><span>Doktor Listesi</span></a></li>
+                          <li><a href="{{ route('admin.doktorekle') }}"><span>Doktor Ekle</span></a></li>
                       </ul>
                   </li>
                   <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Kurumlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                       <ul>
-                          <li><a href='tables.html'><span>Basic Tables</span></a></li>
-                          <li><a href='datatables.html'><span>Datatables</span></a></li></ul></li>
-                          <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Kategoriler</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
-                              <li><a href='google-maps.html'><span>Ana Kategori</span></a></li><li><a href='vector-maps.html'><span>Vector Maps</span></a></li></ul></li>
-                              <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                                  <ul>
-                                      <li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li>
-                                      <li><a href='new-message.html'><span>New Message</span></a></li>
-                                  </ul></li>
-                                  <li class='has_sub'><a href='javascript:void(0);'><i class='icon-chart-line'></i><span>Haber & Bülten</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                                      <ul>
-                                          <li><a href='sparkline-charts.html'><span>Makaleler</span></a></li><li><a href='morris-charts.html'><span>Videolar</span></a></li><li><a href='rickshaw-charts.html'><span>Rickshaw Charts</span></a></li>
-                                          <li><a href='other-charts.html'><span>Other Charts</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='icon-megaphone'></i><span>Sistem</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='blank.html' ><span>Ayarlar</span></a></li><li><a href='login.html'><span>Kullanıcılar</span></a></li><li><a href='register.html'><span>Banner</span></a></li><li><a href='lockscreen.html'><span>Sayfalar</span></a></li><li><a href='404.html'><span>Yorumlar</span></a></li><li><a href='500.html'><span>500 Error</span></a></li><li><a href='profile.html'><span>User Profile</span></a></li><li><a href='invoice.html'><span>Invoice</span></a></li><li><a href='gallery.html'><span>Gallery</span></a></li><li><a href='maintenance.html'><span>Maintenance</span></a></li><li class='has_sub'><a href='javascript:void(0);'><span>3 Level menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><span>Sub Item</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><span>4 Level Menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li class='has_sub'><a href='javascript:void(0);'><span>Sub Item - level 3</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><span>Sub Item - level 4</span></a></li></ul></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><span>Submenu with icons</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><i class='fa fa-camera'></i><span>Item with icon</span></a></li><li><a href='javascript:void(0);'><i class='entypo entypo-users'></i><span>Another Item</span></a></li></ul></li></ul></li></ul>                    <div class="clearfix"></div>
-                                      </div>
-                                      <div class="clearfix"></div>
+                          <li><a href="{{ route('admin.kurumliste') }}"><span>Kurum Listesi</span></a></li>
+                          <li><a href="{{ route('admin.kurumekle') }}"><span>Kurum Ekle</span></a></li></ul></li>
+                          <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Kategoriler & Hizmetler</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
+                              <li><a href='google-maps.html'><span>Kategoriler</span></a></li>
+                              <li><a href='vector-maps.html'><span>Hizmetler</span></a></li>
+                          </ul>
+                      </li>
+                      <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                          <ul>
+                              <li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li>
+                              <li><a href='new-message.html'><span>New Message</span></a></li>
+                          </ul></li>
+                          <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                              <ul>
+                                  <li><a href='alerts.html'><span>Makaleler</span></a></li>
+                                  <li><a href='buttons.html'><span>Videolar</span></a></li>
+                                  <li><a href='buttons.html'><span>Kampanyalar</span></a></li>
+                                  <li><a href='buttons.html'><span>Haberler</span></a></li>
+                              </ul>
+                          </li>
+                          <li class='has_sub'><a href='javascript:void(0);'><i class="fa fa-gear"></i><span>Sistem</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                              <ul>
+                              <li><a href='blank.html' ><span>Ayarlar</span></a></li>
+                                  <li><a href='login.html'><span>Sipariş İşlemleri</span></a></li>
+                                  
+                                  <li><a href='lockscreen.html'><span>Sayfalar</span></a></li>
+                                  <li><a href='404.html'><span>Yorumlar</span></a></li>
+                                  <li><a href='500.html'><span>Liste-1</span></a></li>
+                                  <li><a href='profile.html'><span>Liste-2</span></a></li>
+                                  <li><a href='invoice.html'><span>Liste-3</span></a></li>
+                                  <li><a href='gallery.html'><span>Liste-4</span></a></li>
+                                  
+                              </ul>
+                          </li>
+                      </ul>                    
+                      <div class="clearfix"></div>
+                  </div>
+                  <div class="clearfix"></div>
 
 
 
@@ -344,93 +358,90 @@
 
 
 
-                                      <div class="clearfix"></div><br><br><br>
-                                  </div>
+                  <div class="clearfix"></div><br><br><br>
+              </div>
 
-                              </div>
+          </div>
 
-                              <!-- Start right content -->
-                              <div class="content-page">
-                                 
-                                 <div class="content">
-                                   <!-- Page Heading Start -->
-                                   <div class="page-heading">
-                                      <h1><i class='fa fa-magic'></i> @yield('title')</h1>
-                                      <!--  <h3>@yield('title')</h3> --> 
-                                  </div>
-                                  <!-- Page Heading End-->				
-                                
-                                      
+          <!-- Start right content -->
+          <div class="content-page">
 
-
-                                        @yield('content')
+             <div class="content">
+               <!-- Page Heading Start -->
+              
+              <!-- Page Heading End-->				
 
 
 
-                                    
-                            
 
-                                <!-- Footer Start -->
-                                <footer>
-                                <div class="footer-links pull-left">
-
-                                   " User ID = <?php echo $userid; ?> " 
-                                </div>
-                                <div class="footer-links pull-right">
-
-                                  Estetik Takvimi &copy; 2017
-                                </div>
-                            </footer>
-                            <!-- Footer End -->			
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- End content here -->
-                        <!-- ============================================================== -->
-
-                    </div>
-                    <!-- End right content -->
-
-                </div>
-                <!-- End of page -->
-                <!-- the overlay modal element -->
-                <div class="md-overlay"></div>
-                <!-- End of eoverlay modal -->
-                <script>
-                  var resizefunc = [];
-              </script>
-              <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+              @yield('content')
 
 
-              <script src="{{ URL::asset('assets/libs/jquery/jquery-1.11.1.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap/js/bootstrap.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jqueryui/jquery-ui-1.10.4.custom.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-ui-touch/jquery.ui.touch-punch.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-detectmobile/detect.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-animate-numbers/jquery.animateNumbers.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/ios7-switch/ios7.switch.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/fastclick/fastclick.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-blockui/jquery.blockUI.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-bootbox/bootbox.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-sparkline/jquery-sparkline.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/nifty-modal/js/classie.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/nifty-modal/js/modalEffects.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/sortable/sortable.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-fileinput/bootstrap.file-input.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-select2/select2.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/magnific-popup/jquery.magnific-popup.min.js') }}"></script> 
-              <script src="{{ URL::asset('assets/libs/pace/pace.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/jquery-icheck/icheck.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/bootstrap-inputmask/inputmask.js') }}"></script>
-              <script src="{{ URL::asset('assets/libs/summernote/summernote.js') }}"></script>
-              <script src="{{ URL::asset('assets/js/pages/forms.js') }}"></script>
 
-              <!-- Demo Specific JS Libraries -->
-              <script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
 
-              <script src="{{ URL::asset('assets/js/init.js') }}"></script>
-          </body>
-          </html>
+
+
+              <!-- Footer Start -->
+              <footer>
+                <div class="footer-links pull-left">
+
+                   " User ID = <?php echo $userid; ?> " 
+               </div>
+               <div class="footer-links pull-right">
+
+                  Estetik Takvimi &copy; 2017
+              </div>
+          </footer>
+          <!-- Footer End -->			
+      </div>
+      <!-- ============================================================== -->
+      <!-- End content here -->
+      <!-- ============================================================== -->
+
+  </div>
+  <!-- End right content -->
+
+</div>
+<!-- End of page -->
+<!-- the overlay modal element -->
+<div class="md-overlay"></div>
+<!-- End of eoverlay modal -->
+<script>
+  var resizefunc = [];
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+<script src="{{ URL::asset('assets/libs/jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jqueryui/jquery-ui-1.10.4.custom.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-ui-touch/jquery.ui.touch-punch.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-detectmobile/detect.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-animate-numbers/jquery.animateNumbers.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/ios7-switch/ios7.switch.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/fastclick/fastclick.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-blockui/jquery.blockUI.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-bootbox/bootbox.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-sparkline/jquery-sparkline.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/nifty-modal/js/classie.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/nifty-modal/js/modalEffects.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/sortable/sortable.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-fileinput/bootstrap.file-input.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-select2/select2.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/magnific-popup/jquery.magnific-popup.min.js') }}"></script> 
+<script src="{{ URL::asset('assets/libs/pace/pace.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-icheck/icheck.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-inputmask/inputmask.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/summernote/summernote.js') }}"></script>
+<script src="{{ URL::asset('assets/js/pages/forms.js') }}"></script>
+
+<!-- Demo Specific JS Libraries -->
+<script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
+
+<script src="{{ URL::asset('assets/js/init.js') }}"></script>
+</body>
+</html>

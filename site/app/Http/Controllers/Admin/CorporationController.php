@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CorporationModel;
+use Alert;
+
+
 
 class CorporationController extends Controller
 {
@@ -12,11 +15,14 @@ class CorporationController extends Controller
 	{
 		$this->middleware('auth:admin');
 	}
-	public function kurumliste()       
+	public function kurumliste()
 	{
-        $corporation = CorporationModel::all();
-        return view('admin.kurum.liste' , compact('corporation'));
-    }
+
+		$corporations = CorporationModel::all();
+		return view('admin.kurum.liste' , compact('corporations'));       
+
+	}
+
 	public function KurumEkle()       
 	{
 		return view("admin.kurum.ekle");
@@ -24,7 +30,7 @@ class CorporationController extends Controller
 	public function store(Request $request)
 	{
 
-		$Corporation = new CorporationModel(array(
+		$corporation = new CorporationModel(array(
 
 			'name' => $request->get('name'),
 			'password' =>bcrypt($request->get('password')) ,
@@ -46,5 +52,29 @@ class CorporationController extends Controller
 
 	}
 	
-    
+
+	public function show($Kisi)
+	{
+		$corporation = CorporationModel::whereid($Kisi)->firstorFail();
+		return view('admin.kurum.detay',compact('corporation'));
+	}
+	public function edit($Kisi)
+	{
+		$corporation = CorporationModel::whereid($Kisi)->firstorFail();
+		return view('admin.kurum.guncelle', compact('corporation'));
+	}
+
+	public function silinecek($Kisi)
+	{
+		$corporation = CorporationModel::whereid($Kisi)->firstorFail();
+		return view('admin.doktor.sil', compact('corporation'));
+	}
+
+	public function destroy($Kisi)
+	{
+		$corporation = CorporationModel::whereid($Kisi)->firstorFail();
+		$corporation->delete();
+		return redirect('kurum/liste')->with('status' , $corporation->name.' isimli Kurum Silindi.');
+	}
+
 }

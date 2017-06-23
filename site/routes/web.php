@@ -85,14 +85,19 @@ Route::prefix('admin')->group(function() {
 
 	//Kurum İşlemleri
 	Route::get('/kurum/liste', 'Admin\CorporationController@kurumliste')->name('admin.kurumliste');
+	Route::get ("/kurum/detay/{Kisi?}","Admin\CorporationController@show");
+	Route::get ("/kurum/sil/{Kisi?}","Admin\CorporationController@silinecek");
+	Route::post("/kurum/sil/{Kisi?}","Admin\CorporationController@destroy");
+	Route::get ("/kurum/guncelle/{Kisi?}","Admin\CorporationController@edit");
+	Route::post("/kurum/guncelle/{Kisi?}","Admin\CorporationController@update");
 	Route::get('/kurum/ekle', 'Admin\CorporationController@KurumEkle')->name('admin.kurumekle');
 	Route::post("/kurum/ekle","Admin\CorporationController@store");
 	
 
 
 //Doktor İşlemleri
-	Route::get ("/doktor/liste","Admin\DoctorController@DoktorListe");
-	Route::get ("/doktor/ekle","Admin\DoctorController@DoktorEkle");
+	Route::get ("/doktor/liste","Admin\DoctorController@DoktorListe")->name('admin.doktorliste');
+	Route::get ("/doktor/ekle","Admin\DoctorController@DoktorEkle")->name('admin.doktorekle'); 
 	Route::post("/doktor/ekle","Admin\DoctorController@store");
 	Route::get ("/doktor/detay/{Kisi?}","Admin\DoctorController@show");
 	Route::get ("/doktor/guncelle/{Kisi?}","Admin\DoctorController@edit");
