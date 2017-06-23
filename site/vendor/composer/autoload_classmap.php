@@ -80,6 +80,7 @@ return array(
     'CreateExpDocTable' => $baseDir . '/database/migrations/2017_06_22_130029_create_exp_doc_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePointsTable' => $baseDir . '/database/migrations/2017_06_15_051439_create_points_table.php',
+    'CreateProductsTable' => $baseDir . '/database/migrations/2017_06_23_155623_create_products_table.php',
     'CreateQuestionTable' => $baseDir . '/database/migrations/2017_06_17_262859_create_question_table.php',
     'CreateQuestionsAnswersTable' => $baseDir . '/database/migrations/2017_06_17_271006_create_questions_answers_table.php',
     'CreateServiceDocTable' => $baseDir . '/database/migrations/2017_06_17_254257_create_service_doc_table.php',

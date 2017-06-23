@@ -81,6 +81,16 @@ Route::prefix('admin')->group(function() {
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
+
+
+	//Kurum İşlemleri
+	Route::get('/kurum/liste', 'Admin\CorporationController@kurumliste')->name('admin.kurumliste');
+	Route::get('/kurum/ekle', 'Admin\CorporationController@KurumEkle')->name('admin.kurumekle');
+	Route::post("/kurum/ekle","Admin\CorporationController@store");
+	
+
+
+//Doktor İşlemleri
 	Route::get ("/doktor/liste","Admin\DoctorController@DoktorListe");
 	Route::get ("/doktor/ekle","Admin\DoctorController@DoktorEkle");
 	Route::post("/doktor/ekle","Admin\DoctorController@store");

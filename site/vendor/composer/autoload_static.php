@@ -355,6 +355,7 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'CreateExpDocTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_22_130029_create_exp_doc_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePointsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_15_051439_create_points_table.php',
+        'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_23_155623_create_products_table.php',
         'CreateQuestionTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_262859_create_question_table.php',
         'CreateQuestionsAnswersTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_271006_create_questions_answers_table.php',
         'CreateServiceDocTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_254257_create_service_doc_table.php',

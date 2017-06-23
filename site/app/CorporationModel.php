@@ -8,7 +8,7 @@ class CorporationModel extends Model
 {
   protected $table = 'corporations';
 
-	protected $fillable = ['name','adress','logo','telephone','email','city','username','password',];
+	protected $fillable = ['name','adress','about','logo','telephone','email','city','username','password',];
 
 
 }

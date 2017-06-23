@@ -210,10 +210,7 @@
 						<div class="col-sm-6">
 							<div id="basic-form">
 								<form role="form">
-									<div class="form-group">
-										<label>Kullanıcı Adı</label>
-										<input type="text" class="form-control"  placeholder="Kullanıcı adınız" required="" value="Kullanıcı Adınız">
-									</div>
+									
 									<div class="form-group">
 										<label>Şifre</label>
 										<input type="password" class="form-control" required="" placeholder="Yeni Şifre">
