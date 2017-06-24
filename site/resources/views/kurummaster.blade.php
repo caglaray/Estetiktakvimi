@@ -264,7 +264,7 @@
             </li>
             
 
-            <li class=''><a href='/kurum/about'><i class='fa fa-user'></i><span>Kurum Ayarları</span> <span class="pull-right"></span></a>
+            <li class=''><a href="{{route('corporation.hakkimizda')}}"><i class='fa fa-user'></i><span>Kurum Ayarları</span> <span class="pull-right"></span></a>
 
             </li>
 

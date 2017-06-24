@@ -25,7 +25,7 @@ Route::prefix('kurum')->group(function() {
 	
 
 	Route::get('/', 'Kurum\CorporationController@index')->name('corporation.anasayfa');
-	Route::get('/about', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
+	Route::get('/profil', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
 	
 
 	
@@ -95,7 +95,7 @@ Route::prefix('admin')->group(function() {
 	
 
 
-//Doktor İşlemleri
+	//Doktor İşlemleri
 	Route::get ("/doktor/liste","Admin\DoctorController@DoktorListe")->name('admin.doktorliste');
 	Route::get ("/doktor/ekle","Admin\DoctorController@DoktorEkle")->name('admin.doktorekle'); 
 	Route::post("/doktor/ekle","Admin\DoctorController@store");
@@ -112,7 +112,7 @@ Route::prefix('admin')->group(function() {
 
 
 
-//Doktor İşlemleri
+	//Doctor Panel
 Route::prefix('doktor')->group(function() {
 
 
