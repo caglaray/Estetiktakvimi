@@ -564,7 +564,7 @@
 	<div class="md-modal md-fall md-hide" id="md-experience">
 		<div class="md-content">
 			
-			<form action=""  method="post"  >
+			<form action="{{action('Kurum\HomeController@doclist')}}"  method="post"  >
 				<div class="form-group">
 					<h3>Yayın Ekle</h3>
 					<div>
@@ -580,7 +580,8 @@
 
 						<p>
 							<button class="btn btn-danger md-close">Kapat</button>
-							<button class="btn btn-success md-close">Kaydet</button>
+							<button type="submit" class="btn btn-success md-close">Kaydet</button>
+
 
 						</p>
 					</div>
