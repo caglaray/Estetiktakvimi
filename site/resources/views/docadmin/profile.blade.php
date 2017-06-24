@@ -143,9 +143,11 @@
 								</thead>
 
 								<tbody>
+									@foreach($experiences as $exp)
 									<tr>
-										<td><strong>John Doe</strong></td>
-										<td></td><td>1985</td><td>1992</td>
+										<td><strong>{!! $exp->company_name !!}</strong></td><td></td>
+										<td>{!! $exp->start !!}</td>
+										<td>{!! $exp->finish !!}</td>
 
 										<td>
 											<div class="btn-group btn-group-xs">
@@ -154,6 +156,7 @@
 											</div>
 										</td>
 									</tr>
+									@endforeach
 								</tbody>
 							</table>
 						</div>
@@ -178,9 +181,10 @@
 								</thead>
 
 								<tbody>
+									@foreach($broads as $br)
 									<tr>
-										<td><strong>John Doe</strong></td>
-										<td>1985</td>
+										<td><strong>{!! $br->broad_name !!}</strong></td>
+										<td>{!! $br->start !!}</td>
 
 										<td>
 											<div class="btn-group btn-group-xs">
@@ -189,6 +193,7 @@
 											</div>
 										</td>
 									</tr>
+									@endforeach
 								</tbody>
 							</table>
 						</div>
@@ -216,9 +221,10 @@
 								</thead>
 
 								<tbody>
+									@foreach($awards as $aw)
 									<tr>
-										<td><strong>John Doe</strong></td>
-										<td>1985</td>
+										<td><strong>{!! $aw->awards_name !!}</strong></td>
+										<td>{!! $aw->start !!}</td>
 
 										<td>
 											<div class="btn-group btn-group-xs">
@@ -227,6 +233,7 @@
 											</div>
 										</td>
 									</tr>
+									@endforeach
 								</tbody>
 							</table>
 						</div>
@@ -252,13 +259,15 @@
 								</thead>
 
 								<tbody>
+									@foreach($certificates as $cer)
+
 									<tr>
 										<td>
 											<div class="column">
 												<div class="inner" style="height: 80px; width: 80px;">
 
 													<div class="img-wrap">
-														<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
+														<img src="{!! $cer->image !!}"  class="mfp-fade">
 													</div>
 
 												</div>
@@ -275,6 +284,7 @@
 											</div>
 										</td>
 									</tr>
+									@endforeach
 								</tbody>
 							</table>
 						</div>
@@ -295,12 +305,13 @@
 								</thead>
 								<tbody>
 									<tr>
+										@foreach($images as $img)
 										<td>
 											<div class="column">
 												<div class="inner" style="height: 80px; width: 80px;">
 
 													<div class="img-wrap">
-														<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
+														<img src="{!! $img->images !!}"  class="mfp-fade">
 													</div>
 
 												</div>
@@ -317,7 +328,7 @@
 											</div>
 										</td>
 									</tr>
-
+									@endforeach
 
 								</tbody>
 							</table>
@@ -552,24 +563,28 @@
 	</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
 	<div class="md-modal md-fall md-hide" id="md-experience">
 		<div class="md-content">
-			<div class="form-group">
-				<h3>Deneyim Ekle</h3>
-				<div>
-					<div class="form-group">
-						<label>Yayın Adı</label>
-						<input type="text" class="form-control" name="school" data-bv-field="school">
-					</div>
+			
+			<form action=""  method="post"  >
+				<div class="form-group">
+					<h3>Yayın Ekle</h3>
+					<div>
+						<div class="form-group">
+							<label>Yayın Adı</label>
+							<input type="text" class="form-control" name="school" data-bv-field="school">
+						</div>
 
-					<div class="form-group">
-						<label>Yayınlanma Tarihi </label>
-						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-					</div>
+						<div class="form-group">
+							<label>Yayınlanma Tarihi </label>
+							<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+						</div>
 
-					<p>
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
-				</div>
+						<p>
+							<button class="btn btn-danger md-close">Kapat</button>
+							<button class="btn btn-success md-close">Kaydet</button>
+
+						</p>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

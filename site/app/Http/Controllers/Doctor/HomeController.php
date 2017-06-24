@@ -46,24 +46,37 @@ class HomeController extends Controller
 		$schools = DB::table('doc_schools')->where('doctorid',$userid)->get();
 		$services = DB::table('services')->get();
 		$categories = DB::table('categories')->get();
-
-
 		$doctorservices = DB::table('service_doc')
 		->join('services', 'service_doc.servicesid', '=', 'services.id')
 		->where('doctorid' , $userid)
 		->get();
-
 		$doctorcategories = DB::table('doc_cat')
 		->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
 		->where('doctorid' , $userid)
 		->get();
 
+		$experiences = DB::table('exp_doc')->where('doctorid',$userid)->get();
+
+		$awards = DB::table('awards_doc')->where('doctorid',$userid)->get();
+
+		$broads = DB::table('broad_doc')->where('doctorid',$userid)->get();
+
+		$certificates = DB::table('certificate')->where('doctorid',$userid)->get();
+
+		$images = DB::table('doc_images')->where('doctorid',$userid)->get();
 
 
-		return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools') );
+		return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images') );
 
 
 	}
+
+	public function yayinekle()
+	{
+
+	
+		return view("docadmin.home");   
+	} 
 
 	
 

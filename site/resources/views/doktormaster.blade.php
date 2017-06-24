@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+E<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -241,10 +241,7 @@
                   <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='/doktor/sorucevap/soru'>
                   <span>Mesaj Kutusu</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class="fa fa-user"></i><span>Hesap Ayarları</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
                   <li><a href='/doktor/profil'><span>Profil</span></a></li>
-                  <li><a href='inbox.html'><span>Eğitim Bilgileri</span></a></li>
-                  <li><a href='inbox.html'><span>Hizmetler</span></a></li>
-                  <li><a href='inbox.html'><span>Ödüller</span></a></li>
-                  <li><a href='inbox.html'><span>İletişim Bilgileri</span></a></li>  
+                 
               </ul></li></ul>        
 
               <div class="clearfix"></div>
