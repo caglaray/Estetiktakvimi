@@ -71,7 +71,9 @@
 						<div class="user-profile-content">
 							<h5><strong>Hakkımızda</strong></h5>
 							<p>
-								{{ Auth::user()->about }}
+								@foreach($about as $abouts)
+								{!! $abouts->about !!}
+								@endforeach
 							</p>
 							<br>
 							<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
@@ -237,16 +239,27 @@
 				<div class="md-content">
 					<h3>Hakkımızda</h3>
 					<div>
-						<form>
+
+
+
+						<form class="form-horizontal" method="post" role="form">
+							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />   
 							<div class="form-group">
 								<label>Hakkımızda</label>
-								<textarea class="form-control" name="" style="height: 140px; resize: none;" maxlength="250"></textarea>
+								
+					<textarea class="summernote" name="about" maxlength="250" rows="8" cols="12">@foreach($about as $abouts)
+								{!! $abouts->about !!}
+								@endforeach</textarea>
+				
+			
 							</div>
 							<p>
-								<button class="btn btn-danger md-close">Kapat</button>
-								<button type="submit" class="btn btn-success md-close">Kaydet</button>
+								<button class="btn btn-danger md-close" name="hakkimizdaekle" value="kapat">Kapat</button>
+								<button type="submit" class="btn btn-success md-close" name="hakkimizdaekle" value="kaydet">Kaydet</button>
 							</p>
 						</form>
+
+
 					</div>
 				</div>
 			</div>

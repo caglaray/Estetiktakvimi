@@ -22,11 +22,9 @@ Route::prefix('kurum')->group(function() {
 
 	Route::get('/login', 'Auth\CorporationLoginController@showLoginForm')->name('corporation.login');
 	Route::post('/login', 'Auth\CorporationLoginController@login')->name('corporation.login.submit');
-	
-
 	Route::get('/', 'Kurum\CorporationController@index')->name('corporation.anasayfa');
 	Route::get('/profil', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
-	
+	Route::post('/profil', 'Kurum\CorporationController@about');
 
 	
 
@@ -51,20 +49,10 @@ Route::prefix('kurum')->group(function() {
 	Route::post("/video/sil/{videoid?}","Kurum\VideoController@destroy");
 
 	//Corporation Adding,Update,Delete Doctor
-
-
 	Route::get ("/doktor/liste","Kurum\DoctorController@DoktorListe");
-
-
 	Route::get ("/doktor/detay/{DoktorID?}","Kurum\CorporationController@doktorprofil");
-
-
-
 	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle")->name('corporation.doktorekle');
 	Route::post("/doktor/ekle","Kurum\DoctorController@store");
-	
-
-	
 	Route::get ("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@edit");
 	Route::post("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@update");
 	Route::get ("/doktor/sil/{Kisi?}","Kurum\DoctorController@silinecek");
