@@ -70,11 +70,9 @@
 					<div class="tab-pane animated active fadeInRight" id="aboutus">
 						<div class="user-profile-content">
 							<h5><strong>Hakkımızda</strong></h5>
-							<p>
-								@foreach($about as $abouts)
-								{!! $abouts->about !!}
-								@endforeach
-							</p>
+							
+							<input type="text" class="form-control" placeholder="@foreach($about as $abouts){!! $abouts->about !!}@endforeach" disabled="" style="height: 80px;">	
+							
 							<br>
 							<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
 							<hr />
@@ -89,26 +87,48 @@
 
 							<div class="col-sm-6">
 								<h5><strong>Hizmetler</strong></h5>
+								<table data-sortable="" class="table" data-sortable-initialized="true">
+									<thead>
+										<tr>
 
-								@foreach($corporationservices as $service)
-								<p>{!! $service->name !!}</p>
-								@endforeach
+											<th>Hizmetler</th>
+
+
+											<th data-sortable="false">Sil</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										@foreach($corporationservices as $service)
+										<tr>													
+											<td>{!! $service->name !!}</td>							
+											<td>
+												<div class="btn-group btn-group-xs">								
+													<a data-toggle="tooltip" href="#" title="Sil" class="btn btn-danger"><i class="icon-cancel-3"></i></a>
+												</div>
+											</td>
+										</tr>
+										@endforeach
+									</tbody>
+								</table>
 							</div>
 
 							<div class="col-sm-6">
 								<h5><strong>Hizmet Ekle</strong> </h5>
 								<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
-								<div class="col-sm-12">
-									<select multiple="" class="form-control">
-										@foreach($services as $service)
-										<option>{!! $service->name !!}</option>
-										@endforeach	
+								<form class="form-horizontal" method="post" role="form">
+									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />  
+									<div class="col-sm-12">
+										<select multiple="" name="hizmet" value="" class="form-control">
+											@foreach($services as $service)
+											<option value="{!! $service->id !!}" name="hizmet" >{!! $service->name !!}</option>
+											@endforeach	
 
-									</select>
-									<br>
-									<button class="btn btn-success btn-sm" type="button">Kaydet</button>
-								</div>
-
+										</select>
+										<br>
+										<button class="btn btn-success btn-sm" name="kaydet" value="hizmetekle" type="submit">Kaydet</button>
+									</div>
+								</form>
 
 							</div>
 
@@ -247,15 +267,13 @@
 							<div class="form-group">
 								<label>Hakkımızda</label>
 								
-					<textarea class="summernote" name="about" maxlength="250" rows="8" cols="12">@foreach($about as $abouts)
-								{!! $abouts->about !!}
-								@endforeach</textarea>
-				
-			
+								<textarea  name="about" maxlength="250" style="resize: none; height: 180px; width: 500px;">@if($abouts!=NULL){!! $abouts->about !!}@else @endif</textarea>
+
+
 							</div>
 							<p>
-								<button class="btn btn-danger md-close" name="hakkimizdaekle" value="kapat">Kapat</button>
-								<button type="submit" class="btn btn-success md-close" name="hakkimizdaekle" value="kaydet">Kaydet</button>
+								<button type="button" class="btn btn-danger md-close" name="hakkimizdaekle" value="kapat">Kapat</button>
+								<button type="submit" class="btn btn-success md-close" name="kaydet" value="hakkmizdaekle">Kaydet</button>
 							</p>
 						</form>
 
@@ -266,28 +284,29 @@
 			<div class="md-modal md-fall md-hide" id="md-account">
 				<div class="md-content">
 					<div id="basic-form">
-
+						<form class="form-horizontal" method="post" role="form">
+							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />   
 						<div class="form-group">
 							<label for="corporationname">Kurum Adı</label>
-							<input type="text" class="form-control" id="" value="Kurum Adınız">
+							<input type="text" class="form-control" name="name" id="" value="<?php echo Auth::user()->name; ?>">
 						</div>
 						<div class="form-group">
 							<label class="control-label">Adres</label>
-							<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+							<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="adress" placeholder=""><?php echo Auth::user()->adress; ?></textarea>
 						</div>
 						<div class="form-group">
 							<label for="corporationphone">Telefon Numarası</label>
-							<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+							<input type="phone" class="form-control" id="" name="telephone" placeholder="Telefon Numarası Girin" value="<?php echo Auth::user()->telephone; ?>">
 						</div>
 
 						<div class="form-group">
-							<input type="file" class="btn btn-default" title="Logo Değiştir">
+							<input type="file" class="btn btn-default" title="Logo Değiştir" name="logo" placeholder="">
 
 						</div>
 
 						<p style="margin-bottom: 5px;">
-							<button class="btn btn-danger md-close">Kapat</button>
-							<button class="btn btn-success md-close">Kaydet</button>
+							<button type="button" class="btn btn-danger md-close" name="Kapat" value="kapat">Kapat</button>
+								<button type="submit" class="btn btn-success md-close" name="kaydet" value="hesapayarlari">Kaydet</button>
 						</p>
 
 						
