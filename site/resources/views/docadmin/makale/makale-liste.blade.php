@@ -16,6 +16,9 @@
 				@endif
 
 				@if($articles->isEmpty())
+				<div style="margin:20px;" class="text-right">
+					<a class="btn btn-success btn-sm" href="/doktor/makale/ekle">Yeni Makale Ekle</a>
+				</div>
 				<div style="margin: 20px;" class="alert alert-danger">
 						Kayıt Yok.
 					</div>

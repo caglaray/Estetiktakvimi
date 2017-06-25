@@ -6,17 +6,18 @@ namespace App\Http\Controllers\Doctor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\VideoModel;
+use Illuminate\Support\Facades\DB;
 
 
 class VideoController extends Controller
 {
-	
+
 	public function __construct()
 	{
 		$this->middleware('auth:doctor');
 	}
 
-	
+
 	public function deneme()
 	{
 		$videos = VideoModel::all();
@@ -36,7 +37,11 @@ class VideoController extends Controller
 
 	public function videoekle()
 	{
-		return view('docadmin.video.video-ekle');
+		$userid = Auth::user()->id ;
+		$videosayi = DB::table('video')->where('doctorid',$userid)->count();
+
+
+		return view('docadmin.video.video-ekle', compact('videosayi'));
 	}
 
 	public function store(Request $request)
@@ -59,7 +64,7 @@ class VideoController extends Controller
 			$idurum=9;
 		}
 
-		
+
 
 
 		$video = new VideoModel(array(
@@ -69,14 +74,14 @@ class VideoController extends Controller
 			'order' => "1",
 			'doctorid' => $userid,
 			'status' => $idurum,
-			
+
 
 			));
 
 		$video->save();
 
 
-		return redirect('doktor/video')->with('status' , $video->name.' isimli Video Eklendi.');    
+		return redirect('doktor/video')->with('status' , $video->name.' isimli Video Eklendi.');
 
 	}
 
@@ -104,7 +109,7 @@ class VideoController extends Controller
 		$Video->order   = "1";
 		$Video->doctorid   = $userid;
 		$Video->status   = "1";
-		
+
 
 		$Video->save();
 

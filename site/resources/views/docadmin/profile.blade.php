@@ -46,7 +46,7 @@
 			<div class="user-button">
 				<div class="row">
 					<p class="help-block"></p>
-					
+
 
 
 				</div>
@@ -83,7 +83,7 @@
 						<h5><strong>Mezun Oluduğu Okullar</strong></h5>
 						<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
-							
+
 							@if($schools->isEmpty())
 							<p> Kayıt Yok</p>
 							@else
@@ -124,7 +124,7 @@
 						</div>
 						<br>
 						<hr>
-						
+
 						<h5><strong>Deneyimler</strong></h5>
 						<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
@@ -171,9 +171,9 @@
 									<tr>
 
 										<th data-sortable="false">Yayın Adı</th>
-										
+
 										<th data-sortable="false">Yayınlanma Tarihi</th>
-										
+
 
 
 										<th data-sortable="false">Seçenekler</th>
@@ -211,9 +211,9 @@
 									<tr>
 
 										<th data-sortable="false">Ödül Adı</th>
-										
+
 										<th data-sortable="false">Kazandığı Tarih</th>
-										
+
 
 
 										<th data-sortable="false">Seçenekler</th>
@@ -249,9 +249,9 @@
 									<tr>
 
 										<th data-sortable="false">Resim</th>
-										
-										
-										
+
+
+
 
 
 										<th data-sortable="false"></th>
@@ -274,7 +274,7 @@
 											</div>
 										</td>
 										<td>
-											
+
 										</td>
 
 										<td>
@@ -411,7 +411,7 @@
 							@foreach($doctors as $doctor)
 							@endforeach
 
-							<h5><strong>Hesap Ayarları</strong></h5>                            
+							<h5><strong>Hesap Ayarları</strong></h5>
 							<div class="col-sm-6">
 								<address>
 									<strong>Doktor Adı</strong><br>
@@ -487,7 +487,7 @@
 
 
 							</div>
-						</div>	
+						</div>
 						<div class="col-sm-6">
 							<div id="basic-form">
 								<form role="form">
@@ -520,19 +520,24 @@
 
 	<div class="md-modal md-fall md-hide" id="md-fall">
 		<div class="md-content">
-			<h3>Hakkımızda</h3>
-			<div>
+			<form role="form" style="margin:20px" method="post">
+<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<h3>Hakkımızda</h3>
+				<div>
 
-				<div class="form-group">
-					<label>Hakkımızda</label>
-					<textarea class="form-control" name="" style="height: 140px; resize: none;" maxlength="250"></textarea>
+					<div class="form-group">
+						<label>Hakkımızda</label>
+						<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="250">{!! $doctor->about !!}
+						</textarea>
+					</div>
+					<p>
+						<button class="btn btn-danger md-close">Kapat</button>
+						<button class="btn btn-success md-close" type="submit" name="kaydet" value="hakkmizdaekle">Kaydet</button>
+					</p>
+
 				</div>
-				<p>
-					<button class="btn btn-danger md-close">Kapat</button>
-					<button class="btn btn-success md-close">Kaydet</button>
-				</p>
 
-			</div>
+			</form>
 		</div>
 	</div>
 	<div class="md-modal md-fall md-hide" id="md-education">
@@ -563,8 +568,8 @@
 	</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
 	<div class="md-modal md-fall md-hide" id="md-experience">
 		<div class="md-content">
-			
-			<form action="{{action('Kurum\HomeController@doclist')}}"  method="post"  >
+
+			<form action=""  method="post"  >
 				<div class="form-group">
 					<h3>Yayın Ekle</h3>
 					<div>

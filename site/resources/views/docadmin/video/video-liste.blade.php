@@ -16,7 +16,12 @@
 				@endif
 
 				@if($videos->isEmpty())
-				<p> Kayıt Yok</p>
+				<div style="margin:20px;" class="text-right">
+					<a class="btn btn-success btn-sm" href="/doktor/video/ekle">Yeni Video Ekle</a>
+				</div>
+				<div style="margin: 20px;" class="alert alert-danger">
+						Kayıt Yok.
+					</div>
 				@else
 				<div style="margin:20px;" class="text-right">
 					<a class="btn btn-success btn-sm" href="/doktor/video/ekle">Yeni Video Ekle</a>

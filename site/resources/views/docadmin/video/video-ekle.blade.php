@@ -5,10 +5,15 @@
 @section('content')
 <div class="widget">
 
-	
+
 	<div class="widget-content padding">
+		@if ($videosayi == 20)
+    <div class="alert alert-danger nomargin">
+			<p>Üzgünüz Maksimum 20 Video Ekleyebilirsiniz.</p>
+		</div>
+@else
 		<form method="post" class="form-horizontal" role="form">
-			<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />  
+			<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 			<div class="form-group">
 				<label for="input-text" class="col-sm-2 control-label">Video Başlığı</label>
 				<div class="col-sm-10">
@@ -27,13 +32,14 @@
 					<select class="form-control selectpicker" name="durum">
 						<option>Açık</option>
 						<option>Kapalı</option>
-						
+
 					</select>
 				</div>
 			</div>
 			<div class="col-sm-12"> <input type="submit" value="Paylaş" class="btn btn-default" style="float: right; margin-right: 10px;margin-bottom: 15px;"></div>
 		</form>
+		@endif
 	</div>
-	
+
 </div>
 @endsection

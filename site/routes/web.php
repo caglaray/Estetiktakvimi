@@ -28,7 +28,7 @@ Route::prefix('kurum')->group(function() {
 	Route::get('/profil', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
 	Route::post('/profil', 'Kurum\CorporationController@about');
 
-	
+
 
 	//Atticle
 	Route::get('/makale', 'Kurum\ArticleController@makaleler')->name('corporation.makaleler');
@@ -64,9 +64,9 @@ Route::prefix('kurum')->group(function() {
 
 
 
-//Admin 
+//Admin
 Route::prefix('admin')->group(function() {
-	
+
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
@@ -82,12 +82,12 @@ Route::prefix('admin')->group(function() {
 	Route::post("/kurum/guncelle/{Kisi?}","Admin\CorporationController@update");
 	Route::get('/kurum/ekle', 'Admin\CorporationController@KurumEkle')->name('admin.kurumekle');
 	Route::post("/kurum/ekle","Admin\CorporationController@store");
-	
+
 
 
 	//Doktor İşlemleri
 	Route::get ("/doktor/liste","Admin\DoctorController@DoktorListe")->name('admin.doktorliste');
-	Route::get ("/doktor/ekle","Admin\DoctorController@DoktorEkle")->name('admin.doktorekle'); 
+	Route::get ("/doktor/ekle","Admin\DoctorController@DoktorEkle")->name('admin.doktorekle');
 	Route::post("/doktor/ekle","Admin\DoctorController@store");
 	Route::get ("/doktor/detay/{Kisi?}","Admin\DoctorController@show");
 	Route::get ("/doktor/guncelle/{Kisi?}","Admin\DoctorController@edit");
@@ -95,7 +95,7 @@ Route::prefix('admin')->group(function() {
 	Route::get ("/doktor/sil/{Kisi?}","Admin\DoctorController@silinecek");
 	Route::post("/doktor/sil/{Kisi?}","Admin\DoctorController@destroy");
 
-	
+
 
 });
 
@@ -133,15 +133,14 @@ Route::prefix('doktor')->group(function() {
 	Route::post("/video/sil/{videoid?}","Doctor\VideoController@destroy");
 
 	route::get ("/sorucevap/soru","Doctor\QuestionController@questionlist");
-	route::get ("/sorucevap/cevap/{id?}","Doctor\QuestionController@questiondetail");	
+	route::get ("/sorucevap/cevap/{id?}","Doctor\QuestionController@questiondetail");
  	//route::get ("/sorucevap/cevap","Doctor\HomeController@cevap");
 
 
-	Route::get ("/profil","Doctor\HomeController@profilepage");
+	Route::get ("/profil","Doctor\ProfileController@profilepage");
+	Route::post ("/profil","Doctor\ProfileController@profileupdate");
 
 
 
 
 });
-
-
