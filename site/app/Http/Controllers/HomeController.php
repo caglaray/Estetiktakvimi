@@ -63,6 +63,12 @@ class HomeController extends Controller
         return view('site.blog');
     }
     
+      public function sorusor()
+    {
+        return view('site.sorusor');
+    }
+    
+
     public function kurumregister()
     {
         return view('site.kurumregister');
