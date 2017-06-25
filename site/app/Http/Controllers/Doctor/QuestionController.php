@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Doctor;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\QuestionModel;
 
 
@@ -22,7 +21,7 @@ class QuestionController extends Controller
 		$questions = QuestionModel::all()->where('doctorid',$doctorid);;
 
 		return view('docadmin.sorucevap.sorular',compact('questions'));
-		
+
 	}
 
 
@@ -42,7 +41,7 @@ class QuestionController extends Controller
 
 
 
-		
+
 	}
 
 

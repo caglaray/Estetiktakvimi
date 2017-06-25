@@ -73,8 +73,9 @@
 				<!-- Tab aboutus -->
 				<div class="tab-pane animated active fadeInRight" id="aboutus">
 					<div class="user-profile-content">
+
 						<h5><strong>Hakkında</strong></h5>
-						<p>
+						<p style="word-wrap: break-word;">
 							<?php echo Auth::user()->about; ?>
 						</p>
 						<br>
@@ -108,11 +109,13 @@
 										<td>{!! $school->education !!}</td>
 										<td>{!! $school->start !!}</td>
 										<td>{!! $school->finish !!}</td>
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
+										<td class="">
+											<form role="form" method="post">
+												<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+												<div class="btn-group btn-group-xs">
+													<button type="submit" class="btn btn-danger fa fa-close" name="egitimsil" value="{{$school->id}}"></button>
+												</div>
+											</form>
 										</td>
 									</tr>
 									@endforeach
@@ -149,11 +152,13 @@
 										<td>{!! $exp->start !!}</td>
 										<td>{!! $exp->finish !!}</td>
 
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
+										<td class="">
+											<form role="form" method="post">
+												<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+												<div class="btn-group btn-group-xs">
+													<button type="submit" class="btn btn-danger fa fa-close" name="deneyimsil" value="{{$exp->id}}"></button>
+												</div>
+											</form>
 										</td>
 									</tr>
 									@endforeach
@@ -521,14 +526,21 @@
 	<div class="md-modal md-fall md-hide" id="md-fall">
 		<div class="md-content">
 			<form role="form" style="margin:20px" method="post">
-<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 				<h3>Hakkımızda</h3>
 				<div>
 
 					<div class="form-group">
 						<label>Hakkımızda</label>
-						<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="250">{!! $doctor->about !!}
-						</textarea>
+
+						@if( $doctor->group_id == 1 )
+						<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="1000">{!! $doctor->about !!}</textarea>
+						@else
+						<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="250">{!! $doctor->about !!}</textarea>
+
+						@endif
+
+
 					</div>
 					<p>
 						<button class="btn btn-danger md-close">Kapat</button>
@@ -542,50 +554,63 @@
 	</div>
 	<div class="md-modal md-fall md-hide" id="md-education">
 		<div class="md-content">
-			<div class="form-group">
-				<h3>Eğitim Bilgisi Ekle</h3>
-				<div>
-					<div class="form-group">
-						<label>Okul Adı</label>
-						<input type="text" class="form-control" name="school" data-bv-field="school">
+			<form role="form" style="margin:20px" method="post">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<h3>Eğitim Bilgisi Ekle</h3>
+					<div>
+						<div class="form-group">
+							<label>Okul Adı</label>
+							<input type="text" class="form-control"  name="schoolname" data-bv-field="school">
+						</div>
+						<div class="form-group">
+							<label>Eğitim Bilgisi</label>
+							<input type="text" class="form-control" name="schooltype" data-bv-field="school">
+						</div>
+						<div class="form-group">
+							<label>Başlangıç Tarihi </label>
+							<input type="text" class="form-control" name="schoolstart" data-bv-field="school" placeholder="1995">
+						</div>
+						<div class="form-group">
+							<label>Bitiş Tarihi </label>
+							<input type="text" class="form-control" name="schoolfinish" data-bv-field="school" placeholder="2001">
+						</div>
+						<p>
+							<a class="btn btn-danger md-close">Kapat</a>
+							<button class="btn btn-success md-close" type="submit" name="kaydet" value="egitimekle">Kaydet</button>
+						</p>
 					</div>
-
-					<div class="form-group">
-						<label>Başlangıç Tarihi </label>
-						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-					</div>
-					<div class="form-group">
-						<label>Bitiş Tarihi </label>
-						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
-					</div>
-					<p>
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
 	<div class="md-modal md-fall md-hide" id="md-experience">
 		<div class="md-content">
-
-			<form action=""  method="post"  >
+			<form role="form" style="margin:20px" method="post">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 				<div class="form-group">
-					<h3>Yayın Ekle</h3>
+					<h3>Deneyim Ekle</h3>
 					<div>
+
 						<div class="form-group">
-							<label>Yayın Adı</label>
-							<input type="text" class="form-control" name="school" data-bv-field="school">
+							<label>Deneyim Adı</label>
+							<input type="text" class="form-control" name="expname" data-bv-field="school">
 						</div>
 
 						<div class="form-group">
-							<label>Yayınlanma Tarihi </label>
-							<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+							<label>Deneyim Başlangıç Tarihi </label>
+							<input type="text" class="form-control" name="expstart" data-bv-field="school" placeholder="1995">
 						</div>
+
+						<div class="form-group">
+							<label>Deneyim Bitiş Tarihi </label>
+							<input type="text" class="form-control" name="expfinish" data-bv-field="school" placeholder="2000">
+						</div>
+
 
 						<p>
-							<button class="btn btn-danger md-close">Kapat</button>
-							<button type="submit" class="btn btn-success md-close">Kaydet</button>
+							<a class="btn btn-danger md-close">Kapat</a>
+							<button class="btn btn-success md-close" type="submit" name="kaydet" value="deneyimekle">Kaydet</button>
 
 
 						</p>

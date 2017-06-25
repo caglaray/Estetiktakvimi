@@ -308,6 +308,7 @@ class ComposerStaticInit185838f41ba93787b86d71a64ece3fbe
         'App\\Http\\Controllers\\Doctor\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/ArticleController.php',
         'App\\Http\\Controllers\\Doctor\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/Controller.php',
         'App\\Http\\Controllers\\Doctor\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/HomeController.php',
+        'App\\Http\\Controllers\\Doctor\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/ProfileController.php',
         'App\\Http\\Controllers\\Doctor\\QuestionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/QuestionController.php',
         'App\\Http\\Controllers\\Doctor\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/VideoController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',

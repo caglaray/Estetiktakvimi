@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Controllers\\Doctor\\ArticleController' => $baseDir . '/app/Http/Controllers/Doctor/ArticleController.php',
     'App\\Http\\Controllers\\Doctor\\Controller' => $baseDir . '/app/Http/Controllers/Doctor/Controller.php',
     'App\\Http\\Controllers\\Doctor\\HomeController' => $baseDir . '/app/Http/Controllers/Doctor/HomeController.php',
+    'App\\Http\\Controllers\\Doctor\\ProfileController' => $baseDir . '/app/Http/Controllers/Doctor/ProfileController.php',
     'App\\Http\\Controllers\\Doctor\\QuestionController' => $baseDir . '/app/Http/Controllers/Doctor/QuestionController.php',
     'App\\Http\\Controllers\\Doctor\\VideoController' => $baseDir . '/app/Http/Controllers/Doctor/VideoController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
