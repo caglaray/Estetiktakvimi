@@ -29,14 +29,28 @@ class CorporationController extends Controller
   {
    $userid = Auth::user()->id ;
 
-   switch($request->hakkimizdaekle) {
 
-    case 'kaydet': 
+
+   switch($request->kaydet) {
+
+    case 'hakkmizdaekle': 
 
     DB::table('corporations')->whereid($userid)->update(
       ['about' => $request->get('about')]
       );
 
+    break;
+
+    case 'hizmetekle': 
+    DB::table('corp_ser')->whereid($userid)->insert(
+      ['corpid' => $userid , 'servicesid' =>$request->get('hizmet') ]
+      );
+    break;
+
+    case 'hesapayarlari': 
+ DB::table('corporations')->whereid($userid)->update(
+      ['name' => $request->get('name'),'adress' => $request->get('adress'),'telephone' => $request->get('telephone'),'logo' => $request->get('logo')]
+      );
     break;
 
     case 'kapat': 
@@ -92,5 +106,12 @@ public function doktorprofil($DoktorID)
   return view("corpadmin.doctorprofile", compact('doctors','services','doctorservices','categories','doctorcategories','schools'));
 
 }
+public function silinecek($hizmetid)
+  {
+DB::table('corp_ser')->whereid($hizmetid)->delete(
+      ['id' => $hizmetid ]);
+    return view('corpadmin.about');
+
+  }
 
 }
