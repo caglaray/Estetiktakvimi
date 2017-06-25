@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+
+
 
 class ProfileController extends Controller
 {
@@ -35,18 +38,22 @@ class ProfileController extends Controller
     ->where('doctorid' , $userid)
     ->get();
 
-    $experiences = DB::table('exp_doc')->where('doctorid',$userid)->get();
+    $experiences = DB::table('exp_doc')->where('doctorid',$userid)->orderBy('start')->get();
 
-    $awards = DB::table('awards_doc')->where('doctorid',$userid)->get();
+    $awards = DB::table('awards_doc')->where('doctorid',$userid)->orderBy('start')->get();
 
-    $broads = DB::table('broad_doc')->where('doctorid',$userid)->get();
+    $broads = DB::table('broad_doc')->where('doctorid',$userid)->orderBy('start')->get();
 
     $certificates = DB::table('certificate')->where('doctorid',$userid)->get();
 
     $images = DB::table('doc_images')->where('doctorid',$userid)->get();
 
+    $imagecount = DB::table('doc_images')->where('doctorid',$userid)->count();
 
-    return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images') );
+
+
+
+    return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images','imagecount') );
 
 
   }
@@ -55,12 +62,16 @@ class ProfileController extends Controller
   public function profileupdate(request $request)
   {
     $userid = Auth::user()->id ;
+
     switch($request->kaydet) {
+
       case 'hakkmizdaekle':
       DB::table('doctors')->whereid($userid)->update(
         ['about' => $request->get('about')]
       );
       break;
+
+
       case 'egitimekle':
       DB::table('doc_schools')->insert(
         [
@@ -73,8 +84,8 @@ class ProfileController extends Controller
       );
       break;
 
-      case 'deneyimekle':
 
+      case 'deneyimekle':
       DB::table('exp_doc')->insert(
         [
           'doctorid' => $userid,
@@ -86,16 +97,86 @@ class ProfileController extends Controller
       break;
 
 
+      case 'yayinekle':
+      DB::table('broad_doc')->insert(
+        [
+          'doctorid' => $userid,
+          'broad_name' => $request->get('expname'),
+          'start'=>$request->get('expstart')
+        ]
+      );
+      break;
+
+
+      case 'odulekle':
+      DB::table('awards_doc')->insert(
+        [
+          'doctorid' => $userid,
+          'awards_name' => $request->get('odulname'),
+          'start'=>$request->get('odulstart')
+        ]
+      );
+      break;
+
+
+      case 'sertifikaekle':
+
+      $file = Input::file('sertifikaresim');
+      $file->move('images/certificates' , $userid.$file->getClientOriginalName());
+      DB::table('certificate')->insert(
+        [
+          'doctorid' => $userid,
+          'image' => $userid.$file->getClientOriginalName()
+
+        ]
+      );
+      break;
+
+
+      case 'resimekle':
+      $file = Input::file('doktorresim');
+      $file->move('images/doctors' , $userid.$file->getClientOriginalName());
+      DB::table('doc_images')->insert(
+        [
+          'doctorid' => $userid,
+          'images' => $userid.$file->getClientOriginalName()
+        ]
+      );
+      break;
+
+
+
     }
 
     if ($request->egitimsil) {
       $id = $request->input('egitimsil');
       DB::table('doc_schools')->where('id',$id)->delete();
     }
+
     if ($request->deneyimsil) {
       $id = $request->input('deneyimsil');
       DB::table('exp_doc')->where('id',$id)->delete();
     }
+
+    if ($request->yayinsil) {
+      $id = $request->input('yayinsil');
+      DB::table('broad_doc')->where('id',$id)->delete();
+    }
+
+    if ($request->odulsil) {
+      $id = $request->input('odulsil');
+      DB::table('awards_doc')->where('id',$id)->delete();
+    }
+    if ($request->sertifikasil) {
+      $id = $request->input('sertifikasil');
+      DB::table('certificate')->where('id',$id)->delete();
+    }
+
+    if ($request->resimsil) {
+      $id = $request->input('resimsil');
+      DB::table('doc_images')->where('id',$id)->delete();
+    }
+
 
 
     return redirect()->action('Doctor\ProfileController@profilepage');

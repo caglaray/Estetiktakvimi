@@ -169,7 +169,7 @@
 						<hr />
 
 						<h5><strong>Yayınlar</strong></h5>
-						<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="text-right"><button data-modal="md-broad" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
 							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
 								<thead>
@@ -191,11 +191,13 @@
 										<td><strong>{!! $br->broad_name !!}</strong></td>
 										<td>{!! $br->start !!}</td>
 
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
+										<td class="">
+											<form role="form" method="post">
+												<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+												<div class="btn-group btn-group-xs">
+													<button type="submit" class="btn btn-danger fa fa-close" name="yayinsil" value="{{$br->id}}"></button>
+												</div>
+											</form>
 										</td>
 									</tr>
 									@endforeach
@@ -205,22 +207,14 @@
 						<br>
 						<hr />
 
-
-
-
 						<h5><strong>Ödüller</strong></h5>
 						<div class="text-right"><button data-modal="md-winner" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						<div class="table-responsive">
 							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
 								<thead>
 									<tr>
-
 										<th data-sortable="false">Ödül Adı</th>
-
 										<th data-sortable="false">Kazandığı Tarih</th>
-
-
-
 										<th data-sortable="false">Seçenekler</th>
 									</tr>
 								</thead>
@@ -231,11 +225,13 @@
 										<td><strong>{!! $aw->awards_name !!}</strong></td>
 										<td>{!! $aw->start !!}</td>
 
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
+										<td class="">
+											<form role="form" method="post">
+												<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+												<div class="btn-group btn-group-xs">
+													<button type="submit" class="btn btn-danger fa fa-close" name="odulsil" value="{{$aw->id}}"></button>
+												</div>
+											</form>
 										</td>
 									</tr>
 									@endforeach
@@ -254,11 +250,6 @@
 									<tr>
 
 										<th data-sortable="false">Resim</th>
-
-
-
-
-
 										<th data-sortable="false"></th>
 									</tr>
 								</thead>
@@ -269,24 +260,21 @@
 									<tr>
 										<td>
 											<div class="column">
-												<div class="inner" style="height: 80px; width: 80px;">
-
-													<div class="img-wrap">
-														<img src="{!! $cer->image !!}"  class="mfp-fade">
+												<div class="inner" style="width:80px;">
+													<div class="img-wrap" >
+														<img src="/images/certificates/{!! $cer->image !!}" height="80px" class="mfp-fade">
 													</div>
 
 												</div>
 											</div>
 										</td>
-										<td>
-
-										</td>
-
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
+										<td class="">
+											<form role="form" method="post">
+												<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+												<div class="btn-group btn-group-xs">
+													<button type="submit" class="btn btn-danger fa fa-close" name="sertifikasil" value="{{$cer->id}}"></button>
+												</div>
+											</form>
 										</td>
 									</tr>
 									@endforeach
@@ -299,7 +287,13 @@
 
 
 						<h5><strong>Fotoğraflar</strong></h5>
+
+						@if ($imagecount >= 20)
+				  					<div class="text-right"><button class="btn btn-danger btn-sm">Maksimum Resim</button></div>
+				@else
+
 						<div class="text-right"><button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						@endif
 						<div class="table-responsive">
 							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
 								<thead>
@@ -316,9 +310,8 @@
 												<div class="inner" style="height: 80px; width: 80px;">
 
 													<div class="img-wrap">
-														<img src="{!! $img->images !!}"  class="mfp-fade">
+														<img src="/images/doctors/{!! $img->images !!}"  class="mfp-fade">
 													</div>
-
 												</div>
 											</div>
 										</td>
@@ -326,11 +319,13 @@
 
 										</td>
 
-										<td>
-											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-											</div>
+										<td class="">
+											<form role="form" method="post">
+												<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+												<div class="btn-group btn-group-xs">
+													<button type="submit" class="btn btn-danger fa fa-close" name="resimsil" value="{{$img->id}}"></button>
+												</div>
+											</form>
 										</td>
 									</tr>
 									@endforeach
@@ -575,7 +570,7 @@
 							<label>Bitiş Tarihi </label>
 							<input type="text" class="form-control" name="schoolfinish" data-bv-field="school" placeholder="2001">
 						</div>
-						<p>
+						<p style="padding-bottom:20px">
 							<a class="btn btn-danger md-close">Kapat</a>
 							<button class="btn btn-success md-close" type="submit" name="kaydet" value="egitimekle">Kaydet</button>
 						</p>
@@ -608,7 +603,7 @@
 						</div>
 
 
-						<p>
+						<p style="padding-bottom:20px">
 							<a class="btn btn-danger md-close">Kapat</a>
 							<button class="btn btn-success md-close" type="submit" name="kaydet" value="deneyimekle">Kaydet</button>
 
@@ -619,69 +614,115 @@
 			</div>
 		</div>
 	</div>
+
+
+	<div class="md-modal md-fall md-hide" id="md-broad">
+		<div class="md-content">
+			<form role="form" style="margin:20px" method="post">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<h3>Yayın Ekle</h3>
+					<div>
+
+						<div class="form-group">
+							<label>Yayın Adı</label>
+							<input type="text" class="form-control" name="expname" data-bv-field="school">
+						</div>
+
+						<div class="form-group">
+							<label>Yayın Tarihi </label>
+							<input type="text" class="form-control" name="expstart" data-bv-field="school" placeholder="1995">
+						</div>
+
+
+						<p style="padding-bottom:20px">
+							<a class="btn btn-danger md-close">Kapat</a>
+							<button class="btn btn-success md-close" type="submit" name="kaydet" value="yayinekle">Kaydet</button>
+
+
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
 	<div class="md-modal md-fall md-hide" id="md-winner">
 		<div class="md-content">
-			<div class="form-group">
-				<h3>Ödül Ekle</h3>
-				<div>
-					<div class="form-group">
-						<label>Ödül Adı</label>
-						<input type="text" class="form-control" name="school" data-bv-field="school">
-					</div>
+			<form role="form" style="margin:20px" method="post">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<h3>Ödül Ekle</h3>
+					<div>
+						<div class="form-group">
+							<label>Ödül Adı</label>
+							<input type="text" class="form-control" name="odulname" data-bv-field="school">
+						</div>
 
-					<div class="form-group">
-						<label>Kazanma Tarihi </label>
-						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-					</div>
+						<div class="form-group">
+							<label>Kazanma Tarihi </label>
+							<input type="text" class="form-control" name="odulstart" data-bv-field="school" placeholder="1995">
+						</div>
 
-					<p>
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
+						<p style="padding-bottom:20px">
+							<a class="btn btn-danger md-close">Kapat</a>
+							<button class="btn btn-success md-close" type="submit" name="kaydet" value="odulekle">Kaydet</button>
+						</p>
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
+
+
+
+
 	<div class="md-modal md-fall md-hide" id="md-certificate">
 		<div class="md-content">
-			<div class="form-group">
-				<h3>Sertifika Ekle</h3>
-				<div>
-					<div class="form-group">
-						<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+			<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<h3>Sertifika Ekle</h3>
+					<div>
+						<div class="form-group">
 
+							<input type="file" name="sertifikaresim" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+
+						</div>
+						<p style="padding-bottom:20px">
+							<a class="btn btn-danger md-close">Kapat</a>
+							<button class="btn btn-success md-close" type="submit" name="kaydet" value="sertifikaekle">Kaydet</button>
+						</p>
 					</div>
-
-
-
-					<p>
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
+
+
+
 	<div class="md-modal md-fall md-hide" id="md-image">
 		<div class="md-content">
-			<div class="form-group">
-				<h3>Resim Ekle</h3>
-				<div>
-					<div class="form-group">
-						<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
-
+			<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<h3>Resim Ekle</h3>
+					<div>
+						<div class="form-group">
+							<input type="file" name="doktorresim" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+						</div>
+						<p style="padding-bottom:20px">
+							<a class="btn btn-danger md-close">Kapat</a>
+							<button class="btn btn-success md-close" type="submit" name="kaydet" value="resimekle">Kaydet</button>
+						</p>
 					</div>
-
-
-
-					<p>
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
+
+
 	<div class="md-modal md-fall md-hide" id="md-publish">
 		<div class="md-content">
 			<div class="form-group">
@@ -749,7 +790,7 @@
 		</div>
 
 	</div>
-<div class="md-overlay"></div>
+	<div class="md-overlay"></div>
 
 
 </div>
