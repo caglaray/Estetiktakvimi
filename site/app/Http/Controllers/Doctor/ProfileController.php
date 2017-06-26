@@ -29,6 +29,15 @@ class ProfileController extends Controller
     $schools = DB::table('doc_schools')->where('doctorid',$userid)->orderBy('start')->get();
     $services = DB::table('services')->get();
     $categories = DB::table('categories')->get();
+    $languages =DB::table('languages')->get();
+
+
+
+    $doclang =DB::table('doc_lang')
+    ->join('languages', 'languages.id', '=', 'doc_lang.langid')
+    ->where('doctorid',$userid)
+    ->get();
+
     $doctorservices = DB::table('service_doc')
     ->join('services', 'service_doc.servicesid', '=', 'services.id')
     ->where('doctorid' , $userid)
@@ -53,7 +62,7 @@ class ProfileController extends Controller
 
 
 
-    return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images','imagecount') );
+    return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images','imagecount','languages','doclang') );
 
 
   }
@@ -135,7 +144,7 @@ class ProfileController extends Controller
 
         case 'resimekle':
         $file = Input::file('doktorresim');
-        $file->move('images/doctors' , $userid.$file->getClientOriginalName());
+        $file->move('images/doctors/albums' , $userid.$file->getClientOriginalName());
         DB::table('doc_images')->insert(
           [
             'doctorid' => $userid,
@@ -182,7 +191,15 @@ class ProfileController extends Controller
         break;
 
         case 'profilguncelle':
-        return redirect()->action('HomeController@index');
+
+        $name=$request->get('accname');
+        $address=$request->get('accaddress');
+        $tel=$request->get('acctel');
+
+
+
+
+
         break;
 
 

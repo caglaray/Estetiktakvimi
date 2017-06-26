@@ -310,7 +310,7 @@
 												<div class="inner" style="height: 80px; width: 80px;">
 
 													<div class="img-wrap">
-														<img src="/images/doctors/{!! $img->images !!}"  class="mfp-fade">
+														<img src="/images/doctors/albums/{!! $img->images !!}"  class="mfp-fade">
 													</div>
 												</div>
 											</div>
@@ -461,7 +461,7 @@
 								<div class="col-sm-6">
 									<address>
 										<strong>Doktor Adı</strong><br>
-										<abbr title="Kurum Adı">{!! $doctor->name !!}</abbr>
+										<abbr title="Doktor Adı">{!! $doctor->name !!}</abbr>
 									</address>
 									<address>
 										<strong>Adres</strong><br>
@@ -485,7 +485,9 @@
 								<div class="col-sm-6">
 									<address>
 										<strong>Bildiği Diller</strong><br>
-										<abbr title="Dil">İngilizce</abbr>
+										@foreach($doclang as $dl)
+										<abbr title="Dil">{{$dl->name}}</abbr>
+										@endforeach
 									</address>
 									<address>
 										<strong>E-mail</strong><br>
@@ -497,17 +499,12 @@
 											<div class="inner">
 
 												<div class="img-wrap">
-													<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="mfp-fade">
+													<img height="110px;" width="80px;" src="/images/doctors/{!! $doctor->image !!}" class="mfp-fade">
 												</div>
-
 											</div>
 										</div>
 									</address>
-
-
-
 								</div>
-
 							</div>
 							<!-- End div .scroll-user-widget -->
 						</div>
@@ -812,20 +809,29 @@
 						<form role="form">
 							<div class="form-group">
 								<label for="corporationname">Doktor Adı</label>
-								<input type="text" class="form-control" id="" value="Adınız">
+								<input type="text" name="accname" class="form-control" id="" value="Adınız">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Adres</label>
-								<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+								<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="accaddress" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
 							</div>
 							<div class="form-group">
 								<label for="corporationphone">Telefon Numarası</label>
-								<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+								<input type="phone" name="acctel" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
 							</div>
 							<div class="form-group">
-								<label class="control-label">Bildiğiniz Diller</label><br>
-								<select class="" multiple style="width:160px;min-height:100px;" name="">
-									<option value="">sss</option>
+								<label class="control-label">Diller</label><br>
+								<select class="form-control" multiple style="width:160px;min-height:100px;" name="">
+
+									@foreach($languages as $lg)
+									@foreach($doclang as $dl)
+											@if( $dl->id == $lg->id )
+												<option selected value="{{$lg->id}}"> {{$lg->name}} </option>
+											@else
+												<option value="{{$lg->id}}"> {{$lg->name}} </option>
+											@endif
+											@endforeach
+									@endforeach
 								</select>
 							</div>
 
