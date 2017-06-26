@@ -289,8 +289,8 @@
 						<h5><strong>Fotoğraflar</strong></h5>
 
 						@if ($imagecount >= 20)
-				  					<div class="text-right"><button class="btn btn-danger btn-sm">Maksimum Resim</button></div>
-				@else
+						<div class="text-right"><button class="btn btn-danger btn-sm">Maksimum Resim</button></div>
+						@else
 
 						<div class="text-right"><button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 						@endif
@@ -350,22 +350,47 @@
 
 						<div class="col-sm-6">
 							<h5><strong>Hizmetler</strong></h5>
-							@foreach($doctorservices as $service)
-							<p>{!! $service->name !!}</p>
-							@endforeach
+
+
+							<table data-sortable="" class="table" data-sortable-initialized="true">
+								<thead>
+									<tr>
+										<th>Hizmetler</th>
+										<th data-sortable="false">Sil</th>
+									</tr>
+								</thead>
+								<tbody>
+								@foreach($doctorservices as $service)
+									<tr>
+										<td>{!! $service->name !!}</td>
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" href="#" title="Sil" class="btn btn-danger"><i class="icon-cancel-3"></i></a>
+											</div>
+										</td>
+									</tr>
+									@endforeach
+								</tbody>
+							</table>
+
+
+
 						</div>
 
 						<div class="col-sm-6">
-							<h5><strong>Hizmet Ekle</strong> </h5>
-							<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
-							<div class="col-sm-12">
-								<select multiple="" class="form-control">
-									@foreach($services as $service)
-									<option>{!! $service->name !!}</option>
-									@endforeach
-								</select>
-								<br>
-								<button class="btn btn-success btn-sm" type="button">Kaydet</button>
+							<form role="form" method="post">
+								<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+								<h5><strong>Hizmet Ekle</strong> </h5>
+								<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
+								<div class="col-sm-12">
+									<select multiple="" name="serlist" value="" class="form-control">
+										@foreach($services as $service)
+										<option value="{!! $service->id !!}" name="serlist">{!! $service->name !!}</option>
+										@endforeach
+									</select>
+									<br>
+									<button class="btn btn-success btn-sm" type="submit" name="kaydet" value="hizmetekle">Kaydet</button>
+								</form>
 							</div>
 
 
@@ -379,16 +404,19 @@
 							@endforeach
 						</div>
 						<div class="col-sm-6">
-							<h5><strong>Kategori Ekle</strong> </h5>
-							<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
-							<div class="col-sm-12">
-								<select multiple="" class="form-control">
-									@foreach($categories as $categories2)
-									<option>{!! $categories2->name !!}</option>
-									@endforeach
-								</select>
-								<br>
-								<button class="btn btn-success btn-sm" type="button">Kaydet</button>
+							<form role="form" method="post">
+								<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+								<h5><strong>Kategori Ekle</strong> </h5>
+								<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
+								<div class="col-sm-12">
+									<select name="catlist" multiple="" value="" class="form-control">
+										@foreach($categories as $categories2)
+										<option name="catlist" value="{!! $categories2->id !!}">{!! $categories2->name !!}</option>
+										@endforeach
+									</select>
+									<br>
+									<button class="btn btn-success btn-sm" type="submit" name="kaydet" value="kategoriekle">Kaydet</button>
+								</form>
 							</div>
 
 
