@@ -181,6 +181,11 @@ class ProfileController extends Controller
         }
         break;
 
+        case 'profilguncelle':
+        return redirect()->action('HomeController@index');
+        break;
+
+
       }
 
       if ($request->egitimsil) {
@@ -212,7 +217,26 @@ class ProfileController extends Controller
         DB::table('doc_images')->where('id',$id)->delete();
       }
 
+      if ($request->doktorhizmetsil) {
+        $serviceid = $request->input('doktorhizmetsil');
+        DB::table('service_doc')
+        ->where([
+          ['doctorid', '=', $userid],
+          ['servicesid', '=', $serviceid],
+        ])
+        ->delete();
+      }
 
+
+      if ($request->doktorhizmetkategorisil) {
+        $catid = $request->input('doktorhizmetkategorisil');
+        DB::table('doc_cat')
+        ->where([
+          ['doctorid', '=', $userid],
+          ['cat_id', '=', $catid],
+        ])
+        ->delete();
+      }
 
 
 
