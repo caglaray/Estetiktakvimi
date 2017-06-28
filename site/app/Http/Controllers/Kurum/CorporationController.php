@@ -43,9 +43,26 @@ class CorporationController extends Controller
     break;
 
     case 'hizmetekle': 
-    DB::table('corp_ser')->whereid($userid)->insert(
-      ['corpid' => $userid , 'servicesid' =>$request->get('hizmet') ]
-      );
+
+    $hizmet=$request->get('hizmet');
+
+    $control=DB::table('corp_ser')
+    ->where([
+      ['corpid', '=', $userid],
+      ['servicesid', '=', $hizmet],
+      ])
+    ->count();
+
+
+
+
+    if ($control == 0) {
+      DB::table('corp_ser')->whereid($userid)->insert(
+        ['corpid' => $userid , 'servicesid' =>$hizmet ]
+        );
+    }
+
+
     break;
 
     case 'hesapayarlari': 
