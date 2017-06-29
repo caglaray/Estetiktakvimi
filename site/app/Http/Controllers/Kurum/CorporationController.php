@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\CorporationModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 
 class CorporationController extends Controller
@@ -42,15 +43,35 @@ class CorporationController extends Controller
     break;
 
     case 'hizmetekle': 
-    DB::table('corp_ser')->whereid($userid)->insert(
-      ['corpid' => $userid , 'servicesid' =>$request->get('hizmet') ]
-      );
+
+    $hizmet=$request->get('hizmet');
+
+    $control=DB::table('corp_ser')
+    ->where([
+      ['corpid', '=', $userid],
+      ['servicesid', '=', $hizmet],
+      ])
+    ->count();
+
+
+
+
+    if ($control == 0) {
+      DB::table('corp_ser')->whereid($userid)->insert(
+        ['corpid' => $userid , 'servicesid' =>$hizmet ]
+        );
+    }
+
+
     break;
 
     case 'hesapayarlari': 
- DB::table('corporations')->whereid($userid)->update(
-      ['name' => $request->get('name'),'adress' => $request->get('adress'),'telephone' => $request->get('telephone'),'logo' => $request->get('logo')]
+    DB::table('corporations')->whereid($userid)->update(
+      ['name' => $request->get('name'),'adress' => $request->get('adress'),'telephone' => $request->get('telephone')]
       );
+    $file = Input::file('logo');
+    $file->move('images/corporations/Logos' , $userid.$file->getClientOriginalName());
+    DB::table('corporations')->whereid($userid)->update(['logo' => $userid.$file->getClientOriginalName()]);
     break;
 
     case 'kapat': 
@@ -107,11 +128,11 @@ public function doktorprofil($DoktorID)
 
 }
 public function silinecek($hizmetid)
-  {
-DB::table('corp_ser')->whereid($hizmetid)->delete(
-      ['id' => $hizmetid ]);
-    return view('corpadmin.about');
+{
+  DB::table('corp_ser')->whereid($hizmetid)->delete(
+    ['id' => $hizmetid ]);
+  return view('corpadmin.about');
 
-  }
+}
 
 }

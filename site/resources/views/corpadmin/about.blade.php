@@ -301,7 +301,6 @@
 
 						<div class="form-group">
 							<input type="file" class="btn btn-default" title="Logo Değiştir" name="logo" placeholder="">
-
 						</div>
 
 						<p style="margin-bottom: 5px;">
