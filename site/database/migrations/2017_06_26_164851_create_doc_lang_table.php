@@ -17,8 +17,7 @@ class CreateDocLangTable extends Migration
         $table->increments('id');
         $table->integer('doctorid')->unsigned();
         $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');
-        $table->integer('langid')->unsigned();
-        $table->foreign('langid')->references('id')->on('languages')->onDelete('cascade');
+        $table->string('name');
         $table->timestamps();
       });
     }

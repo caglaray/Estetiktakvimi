@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
     $this->call(CertificateSeeder::class);
     $this->call(DoctorImagesSeeder::class);
     $this->call(CorpServicesSeeder::class);
-    $this->call(LanguagesSeeder::class);
     $this->call(DocLangSeeder::class);
 
 

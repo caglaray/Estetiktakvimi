@@ -5,7 +5,7 @@
 
 <div class="profile-banner" style="background-image: url({{ URL::asset('images/stock/1epgUO0.jpg') }});">
 	<div class="col-sm-3 avatar-container">
-		<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="img-square profile-avatar" alt="User avatar">
+		<img src="/images/doctors/{!! Auth::user()->image !!}" class="img-square profile-avatar" alt="User avatar">
 	</div>
 	<div class="col-sm-12 profile-actions text-right">
 		<input type="file" class="btn btn-success btn-sm" title="Değiştir">
@@ -460,8 +460,12 @@
 								<h5><strong>Hesap Ayarları</strong></h5>
 								<div class="col-sm-6">
 									<address>
-										<strong>Doktor Adı</strong><br>
+										<strong>Adı</strong><br>
 										<abbr title="Doktor Adı">{!! $doctor->name !!}</abbr>
+									</address>
+									<address>
+										<strong>Soyadı</strong><br>
+										<abbr title="Doktor Soyadı">{!! $doctor->surname !!}</abbr>
 									</address>
 									<address>
 										<strong>Adres</strong><br>
@@ -486,8 +490,8 @@
 									<address>
 										<strong>Bildiği Diller</strong><br>
 										@foreach($doclang as $dl)
-										<abbr title="Dil">{{$dl->name}}</abbr>
 										@endforeach
+										<abbr title="Dil">{{$dl->name}}</abbr>
 									</address>
 									<address>
 										<strong>E-mail</strong><br>
@@ -803,42 +807,33 @@
 		</div>
 		<div class="md-modal md-fall md-hide" id="md-account">
 			<div class="md-content">
-				<form role="form" style="margin:20px" method="post">
+					<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
+
 					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 					<div id="basic-form">
 						<form role="form">
 							<div class="form-group">
 								<label for="corporationname">Doktor Adı</label>
-								<input type="text" name="accname" class="form-control" id="" value="Adınız">
+								<input type="text" name="accname" class="form-control" id="" value="{!! $doctor->name !!}">
+							</div>
+							<div class="form-group">
+								<label for="corporationname">Doktor Soyadı</label>
+								<input type="text" name="accsurname" class="form-control" id="" value="{!! $doctor->surname !!}">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Adres</label>
-								<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="accaddress" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+								<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="accaddress" placeholder="Adresinizi Giriniz">{!! $doctor->adress !!}</textarea>
 							</div>
 							<div class="form-group">
 								<label for="corporationphone">Telefon Numarası</label>
-								<input type="phone" name="acctel" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+								<input type="phone" name="acctel" class="form-control" id="" placeholder="Telefon Numarası Girin" value="{!! $doctor->telephone !!}">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Diller</label><br>
-								<select class="form-control" multiple style="width:160px;min-height:100px;" name="">
-
-									@foreach($languages as $lg)
-									@foreach($doclang as $dl)
-											@if( $dl->id == $lg->id )
-												<option selected value="{{$lg->id}}"> {{$lg->name}} </option>
-											@else
-												<option value="{{$lg->id}}"> {{$lg->name}} </option>
-											@endif
-											@endforeach
-									@endforeach
-								</select>
+								<input type="text" name="acclang" class="form-control" id="" value="{{ $dl->name }}">
 							</div>
-
-
-
 							<div class="form-group">
-								<input type="file" class="btn btn-default" title="Logo Değiştir">
+								<input name="accprofilephoto" type="file" class="btn btn-default" title="Logo Değiştir">
 							</div>
 
 							<p style="padding-bottom:20px">

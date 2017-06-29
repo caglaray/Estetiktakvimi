@@ -29,14 +29,14 @@ class ProfileController extends Controller
     $schools = DB::table('doc_schools')->where('doctorid',$userid)->orderBy('start')->get();
     $services = DB::table('services')->get();
     $categories = DB::table('categories')->get();
-    $languages =DB::table('languages')->get();
+
+    $doclang =DB::table('doc_lang')->where('doctorid',$userid)->get();
+    if (isset($doclang)) {
+      $query =DB::table('doc_lang')->insert(['doctorid' => $userid,'name' => "Türkçe"]);
+      $doclang =DB::table('doc_lang')->where('doctorid',$userid)->get();
+    }
 
 
-
-    $doclang =DB::table('doc_lang')
-    ->join('languages', 'languages.id', '=', 'doc_lang.langid')
-    ->where('doctorid',$userid)
-    ->get();
 
     $doctorservices = DB::table('service_doc')
     ->join('services', 'service_doc.servicesid', '=', 'services.id')
@@ -191,16 +191,36 @@ class ProfileController extends Controller
         break;
 
         case 'profilguncelle':
-
         $name=$request->get('accname');
+        $surname=$request->get('accsurname');
         $address=$request->get('accaddress');
         $tel=$request->get('acctel');
+        $lang= $request->get('acclang');
+        $imgurl = Auth::user()->image;
+
+        if (Input::hasFile('accprofilephoto')) {
+          $file = Input::file('accprofilephoto');
+          $file->resize(256,256)->move('images/doctors' , $userid.$file->getClientOriginalName());
+          $imgurl =  $userid.$file->getClientOriginalName();
+
+        }
 
 
+        DB::table('doctors')
+        ->where('id' , $userid)
+        ->update([
+          'name' => $name,
+          'surname' => $surname,
+          'adress' => $address,
+          'telephone' => $tel,
+          'image' => $imgurl
 
+        ]);
+        DB::table('doc_lang')->where('doctorid' , $userid)->update(['name' => $lang]);
 
 
         break;
+
 
 
       }
