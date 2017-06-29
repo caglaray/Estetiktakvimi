@@ -200,7 +200,7 @@ class ProfileController extends Controller
 
         if (Input::hasFile('accprofilephoto')) {
           $file = Input::file('accprofilephoto');
-          $file->resize(256,256)->move('images/doctors' , $userid.$file->getClientOriginalName());
+          $file->move('images/doctors' , $userid.$file->getClientOriginalName());
           $imgurl =  $userid.$file->getClientOriginalName();
 
         }

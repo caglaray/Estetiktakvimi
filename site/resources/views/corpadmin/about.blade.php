@@ -8,7 +8,7 @@
 		<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="img-square profile-avatar" alt="User avatar">
 	</div>
 	<div class="col-sm-12 profile-actions text-right">
-		
+
 
 	</div>
 </div>
@@ -70,9 +70,9 @@
 					<div class="tab-pane animated active fadeInRight" id="aboutus">
 						<div class="user-profile-content">
 							<h5><strong>Hakkımızda</strong></h5>
-							
-							<input type="text" class="form-control" placeholder="@foreach($about as $abouts){!! $abouts->about !!}@endforeach" disabled="" style="height: 80px;">	
-							
+
+							<input type="text" class="form-control" placeholder="@foreach($about as $abouts){!! $abouts->about !!}@endforeach" disabled="" style="height: 80px;">
+
 							<br>
 							<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
 							<hr />
@@ -100,10 +100,10 @@
 
 									<tbody>
 										@foreach($corporationservices as $service)
-										<tr>													
-											<td>{!! $service->name !!}</td>							
+										<tr>
+											<td>{!! $service->name !!}</td>
 											<td>
-												<div class="btn-group btn-group-xs">								
+												<div class="btn-group btn-group-xs">
 													<a data-toggle="tooltip" href="#" title="Sil" class="btn btn-danger"><i class="icon-cancel-3"></i></a>
 												</div>
 											</td>
@@ -117,12 +117,12 @@
 								<h5><strong>Hizmet Ekle</strong> </h5>
 								<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
 								<form class="form-horizontal" method="post" role="form">
-									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />  
+									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 									<div class="col-sm-12">
 										<select multiple="" name="hizmet" value="" class="form-control">
 											@foreach($services as $service)
 											<option value="{!! $service->id !!}" name="hizmet" >{!! $service->name !!}</option>
-											@endforeach	
+											@endforeach
 
 										</select>
 										<br>
@@ -149,7 +149,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="widget-content padding">
-								<h5><strong>Hesap Ayarları</strong></h5>                            
+								<h5><strong>Hesap Ayarları</strong></h5>
 								<div class="col-sm-6">
 									<address>
 										<strong>Kurum Adı</strong><br>
@@ -178,7 +178,7 @@
 										<strong>Üyelik Tipi</strong><br>
 										<abbr title="Üyelik Tipi">@if (Auth::user()->group_id==0 )
 											Ücretsiz Üyelik
-											@else 
+											@else
 											Ücretli Üyelik</abbr>@endif
 										</address>
 										<address>
@@ -228,7 +228,7 @@
 
 
 									</div>
-								</div>	
+								</div>
 								<div class="col-sm-6">
 									<div id="basic-form">
 										<form role="form">
@@ -263,10 +263,10 @@
 
 
 						<form class="form-horizontal" method="post" role="form">
-							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />   
+							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 							<div class="form-group">
 								<label>Hakkımızda</label>
-								
+
 								<textarea  name="about" maxlength="250" style="resize: none; height: 180px; width: 500px;">@if($abouts!=NULL){!! $abouts->about !!}@else @endif</textarea>
 
 
@@ -284,8 +284,8 @@
 			<div class="md-modal md-fall md-hide" id="md-account">
 				<div class="md-content">
 					<div id="basic-form">
-						<form class="form-horizontal" method="post" role="form">
-							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />   
+						<form class="form-horizontal" enctype="multipart/form-data" method="post" role="form">
+							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 						<div class="form-group">
 							<label for="corporationname">Kurum Adı</label>
 							<input type="text" class="form-control" name="name" id="" value="<?php echo Auth::user()->name; ?>">
@@ -308,7 +308,7 @@
 								<button type="submit" class="btn btn-success md-close" name="kaydet" value="hesapayarlari">Kaydet</button>
 						</p>
 
-						
+
 					</div>
 				</div>
 
