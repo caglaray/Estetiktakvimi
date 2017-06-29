@@ -20,6 +20,7 @@ class CreateCorporationsTable extends Migration
             $table->text('adress');
             $table->text('about')->nullable();
             $table->string('logo');
+            $table->string('background')->nullable();
             $table->string('telephone',30);
             $table->string('email',100)->unique();
             $table->string('city',60);

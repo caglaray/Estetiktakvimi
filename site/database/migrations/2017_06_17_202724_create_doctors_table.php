@@ -21,7 +21,8 @@ class CreateDoctorsTable extends Migration
             $table->string('name',35);
             $table->string('surname',50);
             $table->string('email',100)->unique();
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->string('background')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->text('adress');
             $table->string('telephone',30);
