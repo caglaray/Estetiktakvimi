@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DoctorModel;
 use App\Http\Requests\DoctorEkleRequestForm;
+use Illuminate\Support\Facades\Input;
 
 class DoctorController extends Controller
 {
@@ -19,48 +20,76 @@ class DoctorController extends Controller
     {
         return view("corpadmin.doktor.ekle");
     }
-
-    public function DoktorListe()
-    {
-        $userid = Auth::user()->id ;
-        $doctors = DB::table('corp_doc')
-        ->join('doctors', 'corp_doc.docid', '=', 'doctors.id')
-        ->select('doctors.*')
-        ->where('corp_doc.corpid',$userid)
-        ->get();
-        
-        return view('corpadmin.doktor.liste' , compact('doctors'));
-    }
-
-
-    public function DoktorDetay()
-    {
-        return view('corpadmin.doktor.detay');
-    }
-
-    public function store(DoctorEkleRequestForm $request)
+    public function doktorprofil($DoktorID)   
     {
 
-        $Doctor = new DoctorModel(array(
 
-            'name' => $request->get('name'),
-            'surname' => $request->get('surname'),
-            'username' => $request->get('username'),
-            'password' => $request->get('password'),
-            'email' => $request->get('email'),
-            'adress' => $request->get('adress'),
-            'image' => $request->get('image'),
-            'telephone' => $request->get('telephone'),
-            'birthday' => $request->get('birthday'),
-            'livecity' => $request->get('livecity'),
+      $userid = Auth::user()->id ;
+      $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
+      $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
 
-            ));
 
-        $Doctor->save();
+      $services = DB::table('services')->get();
 
-        $kurumid = Auth::user()->id ;
+      $doctorservices = DB::table('service_doc')
+      ->join('services', 'service_doc.servicesid', '=', 'services.id')
+      ->where('doctorid' , $DoktorID)
+      ->get();
 
-        $Lastid = $Doctor->id;
+
+
+
+      $categories = DB::table('categories')->get();
+
+      $doctorcategories = DB::table('doc_cat')
+      ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
+      ->where('doctorid' , $DoktorID)
+      ->get();
+
+      return view("corpadmin.doktor.detay", compact('doctors','services','doctorservices','categories','doctorcategories','schools'));
+
+  }
+  public function DoktorListe()
+  {
+    $userid = Auth::user()->id ;
+    $doctors = DB::table('corp_doc')
+    ->join('doctors', 'corp_doc.docid', '=', 'doctors.id')
+    ->select('doctors.*')
+    ->where('corp_doc.corpid',$userid)
+    ->get();
+
+    return view('corpadmin.doktor.liste' , compact('doctors'));
+}
+
+
+public function DoktorDetay()
+{
+    return view('corpadmin.doktor.detay');
+}
+
+public function store(DoctorEkleRequestForm $request)
+{
+
+    $Doctor = new DoctorModel(array(
+
+        'name' => $request->get('name'),
+        'surname' => $request->get('surname'),
+        'username' => $request->get('username'),
+        'password' => $request->get('password'),
+        'email' => $request->get('email'),
+        'adress' => $request->get('adress'),
+        'image' => $request->get('image'),
+        'telephone' => $request->get('telephone'),
+        'birthday' => $request->get('birthday'),
+        'livecity' => $request->get('livecity'),
+
+        ));
+
+    $Doctor->save();
+
+    $kurumid = Auth::user()->id ;
+
+    $Lastid = $Doctor->id;
 
 
 
@@ -68,17 +97,17 @@ class DoctorController extends Controller
 
 
         //$Doctor-save() Başarılıysa doktor/liste, Başarısız ise doktor/ekle sayfasına gönderdim
-        if ( $Doctor->save()==1) {
+    if ( $Doctor->save()==1) {
 
-           DB::table('corp_doc')->insert(
-            ['docid' => $Lastid , 'corpid' => $kurumid]
-            );
+     DB::table('corp_doc')->insert(
+        ['docid' => $Lastid , 'corpid' => $kurumid]
+        );
 
 
-           return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
-       }
-       else
-        return redirect('kurum/doktor/ekle');
+     return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
+ }
+ else
+    return redirect('kurum/doktor/ekle');
 }
 
 
@@ -94,26 +123,60 @@ public function edit($Kisi)
     return view('corpadmin.doktor.guncelle', compact('Doctor'));
 }
 
-public function update($Kisi , DoctorEkleRequestForm $request)
+public function update(request $Kisi)
+
 {
+//BURAYA DOKTORUN IDSİNİ ÇEKMEMİZ LAZIM NORMALDE CONTROLLERDAN GÖNDEREBİLİRİYORUZDA BURADA NASIL ÇEKECEĞİZ DOKTORUN IDSİNİ?
+    switch($request->kaydet) {
 
-    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+      case 'hakkindaekle':
+      DB::table('doctors')->whereid($Kisi)->update(
+        ['about' => $request->get('about')]
+        );
+      break;
 
-    $Doctor->name      = $request->get('name');
-    $Doctor->surname   = $request->get('surname');
-    $Doctor->username  = $request->get('username');
-    $Doctor->password  = $request->get('password');
-    $Doctor->email     = $request->get('email');
-    $Doctor->adress    = $request->get('adress');
-    $Doctor->photourl  = $request->get('photourl');
-    $Doctor->telephone = $request->get('telephone');
-    $Doctor->birthday  = $request->get('birthday');
-    $Doctor->birthday  = $request->get('birthday');
-    $Doctor->livecity  = $request->get('livecity');
 
-    $Doctor->save();
-    return redirect(action('Kurum\DoctorController@DoktorListe',$Kisi))->with('status',$Doctor->username.' adlı Kullanıcının Kaydı Güncellendi.');
+      case 'egitimekle':
 
+      break;
+
+
+      case 'deneyimekle':
+      
+      break;
+
+
+      case 'yayinekle':
+
+      break;
+
+
+      case 'odulekle':
+
+      break;
+
+
+      case 'sertifikaekle':
+
+
+      break;
+
+
+      case 'resimekle':
+      
+      break;
+
+
+      case 'hizmetekle':
+      
+      break;
+
+      case 'kategoriekle':
+
+      break;
+
+
+  }
 
 }
 

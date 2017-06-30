@@ -5,7 +5,7 @@
 
 <div class="profile-banner" style="background-image: url({{ URL::asset('images/stock/1epgUO0.jpg') }});">
 	<div class="col-sm-3 avatar-container">
-		<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="img-square profile-avatar" alt="User avatar">
+		<img src="/images/Corporations/Logos/{!! Auth::user()->logo !!}" class="img-square profile-avatar" alt="User avatar">
 	</div>
 	<div class="col-sm-12 profile-actions text-right">
 

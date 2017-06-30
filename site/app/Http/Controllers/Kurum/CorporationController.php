@@ -70,7 +70,7 @@ class CorporationController extends Controller
       ['name' => $request->get('name'),'adress' => $request->get('adress'),'telephone' => $request->get('telephone')]
       );
     $file = Input::file('logo');
-    $file->move('images/corporations/Logos' , $userid.$file->getClientOriginalName());
+    $file->move('images/Corporations/Logos' , $userid.$file->getClientOriginalName());
     DB::table('corporations')->whereid($userid)->update(['logo' => $userid.$file->getClientOriginalName()]);
     break;
 
@@ -99,34 +99,7 @@ public function doktorekle()
 
 
 
-public function doktorprofil($DoktorID)   
-{
 
-  $userid = Auth::user()->id ;
-  $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
-  $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
-
-
-  $services = DB::table('services')->get();
-
-  $doctorservices = DB::table('service_doc')
-  ->join('services', 'service_doc.servicesid', '=', 'services.id')
-  ->where('doctorid' , $DoktorID)
-  ->get();
-
-
-
-
-  $categories = DB::table('categories')->get();
-
-  $doctorcategories = DB::table('doc_cat')
-  ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
-  ->where('doctorid' , $DoktorID)
-  ->get();
-
-  return view("corpadmin.doctorprofile", compact('doctors','services','doctorservices','categories','doctorcategories','schools'));
-
-}
 public function silinecek($hizmetid)
 {
   DB::table('corp_ser')->whereid($hizmetid)->delete(
