@@ -197,15 +197,11 @@ class ProfileController extends Controller
         $tel=$request->get('acctel');
         $lang= $request->get('acclang');
         $imgurl = Auth::user()->image;
-
         if (Input::hasFile('accprofilephoto')) {
           $file = Input::file('accprofilephoto');
           $file->move('images/doctors' , $userid.$file->getClientOriginalName());
           $imgurl =  $userid.$file->getClientOriginalName();
-
         }
-
-
         DB::table('doctors')
         ->where('id' , $userid)
         ->update([
@@ -214,15 +210,26 @@ class ProfileController extends Controller
           'adress' => $address,
           'telephone' => $tel,
           'image' => $imgurl
-
         ]);
         DB::table('doc_lang')->where('doctorid' , $userid)->update(['name' => $lang]);
-
-
         break;
 
+        case 'kullaniciguncelle':
+
+        $username = $request->get('kbusername');
+        $password = $request->get('kbpassword');
+        $username = $request->get('kbpasswordagain');
+
+        $userid = Auth::user()->id ;
+        $ausername = Auth::user()->username;
+
+        if ($username == $ausername) {
 
 
+
+         }
+
+        break;
       }
 
       if ($request->egitimsil) {

@@ -22,9 +22,9 @@
 	<div class="col-sm-3">
 		<!-- Begin user profile -->
 		<div class="text-center user-profile-2">
-			<br><h4> <b>	
+			<br><h4> <b>
 			@foreach($doctors as $doctor)
-			{!! $doctor->name !!} {!! $doctor->surname !!} 
+			{!! $doctor->name !!} {!! $doctor->surname !!}
 			@endforeach
 		</b></h4>
 
@@ -83,8 +83,8 @@
 						@foreach($doctors as $doctor)
 						{!! $doctor->about !!}
 						@endforeach
-						
-						
+
+
 					</p>
 					<br>
 					<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button>
@@ -124,7 +124,7 @@
 									</td>
 								</tr>
 								@endforeach
-								
+
 
 							</tbody>
 						</table>
@@ -621,11 +621,11 @@
 
 								</div>
 								<div class="col-sm-6">
-									
+
 							@foreach($doctors as $doctor)
 									<div class="widget-content padding">
 
-										<h5><strong>Hesap Ayarları</strong></h5>                            
+										<h5><strong>Hesap Ayarları</strong></h5>
 										<div class="col-sm-6">
 											<address>
 												<strong>Doktor Adı</strong><br>
@@ -702,7 +702,7 @@
 
 
 										</div>
-									</div>	
+									</div>
 									<div class="col-sm-6">
 										<div id="basic-form">
 											<form role="form">
@@ -735,6 +735,7 @@
 						<div>
 
 							<form class="form-horizontal" method="post" role="form">
+								<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 								<label>Hakkında</label>
 								<textarea class="form-control" name="about" style="height: 140px; resize: none;" maxlength="250"></textarea>
 							</div>
@@ -861,7 +862,7 @@
 				<label>Kurum Adı</label>
 				<input type="text" class="form-control" name="school" data-bv-field="school">
 			</div>
-			
+
 			<div class="form-group">
 				<label>Başlangıç Tarihi </label>
 				<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
@@ -911,7 +912,7 @@
 
 </div>
 <div class="md-overlay">
-	
+
 </div>
 </div>
 

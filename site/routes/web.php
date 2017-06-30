@@ -53,6 +53,7 @@ Route::prefix('kurum')->group(function() {
 	//Corporation Adding,Update,Delete Doctor
 	Route::get ("/doktor/liste","Kurum\DoctorController@DoktorListe");
 	Route::get ("/doktor/detay/{DoktorID?}","Kurum\DoctorController@doktorprofil");
+	Route::post ("/doktor/detay/{DoktorID?}","Kurum\DoctorController@update");
 	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle")->name('corporation.doktorekle');
 	Route::post("/doktor/ekle","Kurum\DoctorController@store");
 	Route::get ("/doktor/guncelle/{Kisi?}","Kurum\DoctorController@edit");

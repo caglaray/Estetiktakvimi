@@ -5,7 +5,7 @@
 
 <div class="profile-banner" style="background-image: url({{ URL::asset('images/stock/1epgUO0.jpg') }});">
 	<div class="col-sm-3 avatar-container">
-		<img src="/images/doctors/{!! Auth::user()->image !!}" class="img-square profile-avatar" alt="User avatar">
+		<img src="/images/doctors/{!! Auth::user()->image !!}" style="max-width:200px;max-height:200px;"  class="img-square profile-avatar" alt="User avatar">
 	</div>
 	<div class="col-sm-12 profile-actions text-right">
 		<input type="file" class="btn btn-success btn-sm" title="Değiştir">
@@ -537,21 +537,20 @@
 							</div>
 							<div class="col-sm-6">
 								<div id="basic-form">
-									<form role="form">
+									<form role="form" method="post">
 										<div class="form-group">
 											<label>Kullanıcı Adı</label>
-											<input type="text" class="form-control"  placeholder="Kullanıcı adınız" required="" value="Kullanıcı Adınız">
+											<input type="text" class="form-control" name="kbusername"  placeholder="Kullanıcı adınız" required="" value="Kullanıcı Adınız">
 										</div>
 										<div class="form-group">
 											<label>Şifre</label>
-											<input type="password" class="form-control" required="" placeholder="Yeni Şifre">
+											<input type="password" class="form-control" name="kbpassword"  required="" placeholder="Yeni Şifre">
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Şifreyi Tekrar Yazını</label>
-											<input type="password" class="form-control" required=""  placeholder="Tekrar Yazın">
+											<input type="password" name="kbpasswordagain" class="form-control" required=""  placeholder="Tekrar Yazın">
 										</div>
-
-										<button type="submit" class="btn btn-success">Kaydet</button>
+										<button type="submit" class="btn btn-success" name="kaydet" value="kullaniciguncelle">Kaydet</button>
 									</form>
 								</div>
 							</div>

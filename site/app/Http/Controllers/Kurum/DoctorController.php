@@ -15,12 +15,12 @@ class DoctorController extends Controller
         $this->middleware('auth:corporation');
     }
 
-    
-    public function DoktorEkle()       
+
+    public function DoktorEkle()
     {
         return view("corpadmin.doktor.ekle");
     }
-    public function doktorprofil($DoktorID)   
+    public function doktorprofil($DoktorID)
     {
 
 
@@ -104,7 +104,7 @@ public function store(DoctorEkleRequestForm $request)
         );
 
 
-     return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');    
+     return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');
  }
  else
     return redirect('kurum/doktor/ekle');
@@ -123,16 +123,43 @@ public function edit($Kisi)
     return view('corpadmin.doktor.guncelle', compact('Doctor'));
 }
 
-public function update(request $Kisi)
+public function update(request $request , $DoktorID)
 
 {
-//BURAYA DOKTORUN IDSİNİ ÇEKMEMİZ LAZIM NORMALDE CONTROLLERDAN GÖNDEREBİLİRİYORUZDA BURADA NASIL ÇEKECEĞİZ DOKTORUN IDSİNİ?
+
     switch($request->kaydet) {
 
       case 'hakkindaekle':
-      DB::table('doctors')->whereid($Kisi)->update(
+      DB::table('doctors')->whereid( $DoktorID )->update(
         ['about' => $request->get('about')]
         );
+
+
+              $userid = Auth::user()->id ;
+              $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
+              $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
+
+
+              $services = DB::table('services')->get();
+
+              $doctorservices = DB::table('service_doc')
+              ->join('services', 'service_doc.servicesid', '=', 'services.id')
+              ->where('doctorid' , $DoktorID)
+              ->get();
+
+
+
+
+              $categories = DB::table('categories')->get();
+
+              $doctorcategories = DB::table('doc_cat')
+              ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
+              ->where('doctorid' , $DoktorID)
+              ->get();
+
+              return view("corpadmin.doktor.detay", compact('doctors','services','doctorservices','categories','doctorcategories','schools'));
+
+
       break;
 
 
@@ -142,7 +169,7 @@ public function update(request $Kisi)
 
 
       case 'deneyimekle':
-      
+
       break;
 
 
@@ -163,12 +190,12 @@ public function update(request $Kisi)
 
 
       case 'resimekle':
-      
+
       break;
 
 
       case 'hizmetekle':
-      
+
       break;
 
       case 'kategoriekle':
