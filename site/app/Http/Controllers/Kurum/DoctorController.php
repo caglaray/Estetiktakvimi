@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Input;
 
 class DoctorController extends Controller
 {
+
+
     public function __construct()
     {
         $this->middleware('auth:corporation');
+
+
     }
 
 
@@ -134,31 +138,7 @@ public function update(request $request , $DoktorID)
         ['about' => $request->get('about')]
         );
 
-
-              $userid = Auth::user()->id ;
-              $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
-              $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
-
-
-              $services = DB::table('services')->get();
-
-              $doctorservices = DB::table('service_doc')
-              ->join('services', 'service_doc.servicesid', '=', 'services.id')
-              ->where('doctorid' , $DoktorID)
-              ->get();
-
-
-
-
-              $categories = DB::table('categories')->get();
-
-              $doctorcategories = DB::table('doc_cat')
-              ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
-              ->where('doctorid' , $DoktorID)
-              ->get();
-
-              return view("corpadmin.doktor.detay", compact('doctors','services','doctorservices','categories','doctorcategories','schools'));
-
+        return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => $DoktorID]);
 
       break;
 
