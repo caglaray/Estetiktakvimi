@@ -7,7 +7,9 @@
 	<div class="widget">
 
 		<div class="widget-content">
-
+			<div style="margin:20px;" class="text-right">
+				<a class="btn btn-success btn-sm" href="/kurum/makale/ekle">Yeni Makale Ekle</a>
+			</div>
 			<div class="table-responsive">
 				@if(session('status'))
 				<div class="alert alert-success">
@@ -17,12 +19,10 @@
 
 				@if($articles->isEmpty())
 				<div style="margin: 20px;" class="alert alert-danger">
-						Kayıt Yok.
-					</div>
-				@else
-				<div style="margin:20px;" class="text-right">
-					<a class="btn btn-success btn-sm" href="/kurum/makale/ekle">Yeni Makale Ekle</a>
+					Kayıt Yok.
 				</div>
+				@else
+				
 				<table data-sortable="" class="table" data-sortable-initialized="true">
 					<thead>
 						<tr>

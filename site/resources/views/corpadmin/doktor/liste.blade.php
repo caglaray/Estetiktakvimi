@@ -51,7 +51,7 @@
 							<div class="btn-group btn-group-xs">
 								<a data-toggle="tooltip" title="Görüntüle" href="{!! action('Kurum\DoctorController@doktorprofil' , $doctor->id) !!}" class="btn btn-default"><i class="fa fa-user fa-1"></i></a>
 
-								<a data-toggle="tooltip" title="Güncelle" href="{!! action('Kurum\DoctorController@edit' , $doctor->id) !!}" class="btn btn-default"><i class="fa fa-edit"></i></a>
+								
 						
 								<a data-toggle="tooltip" title="Sil" href="{!! action('Kurum\DoctorController@silinecek' , $doctor->id) !!}" class="btn btn-default"><i class="fa fa-times fa-1"></i></a>
 							</div>

@@ -90,7 +90,7 @@
 					<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button>
 					</div>
 					<hr />
-					<h5><strong>Mezun Oluduğu Okullar  </strong></h5>
+					<h5><strong>Mezun Olduğu Okullar  </strong></h5>
 					<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 					<div class="table-responsive">
 						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
@@ -149,10 +149,10 @@
 							</thead>
 
 							<tbody>
-
+								@foreach($doctorexperience as $experiences)
 								<tr>
-									<td><strong>John Doe</strong></td>
-									<td></td><td>1985</td><td>1992</td>
+									<td><strong>{!! $experiences->company_name !!}</strong></td>
+									<td></td><td>{!! $experiences->start !!}</td><td>{!! $experiences->finish !!}</td>
 
 									<td>
 										<div class="btn-group btn-group-xs">
@@ -161,47 +161,13 @@
 										</div>
 									</td>
 								</tr>
-
-
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td></td><td>1985</td><td>1992</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td></td><td>1985</td><td>1992</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td></td><td>1985</td><td>1992</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-
+								@endforeach
 							</tbody>
 						</table>
 					</div>
 					<br>
 					<hr />
+
 					<h5><strong>Yayınlar</strong></h5>
 					<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
 					<div class="table-responsive">
@@ -220,9 +186,10 @@
 							</thead>
 
 							<tbody>
+								@foreach($doctorbroads as $broads)
 								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
+									<td><strong>{!! $broads->broad_name !!}</strong></td>
+									<td>{!! $broads->start !!}</td>
 
 									<td>
 										<div class="btn-group btn-group-xs">
@@ -231,39 +198,7 @@
 										</div>
 									</td>
 								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
+								@endforeach
 
 							</tbody>
 						</table>
@@ -288,9 +223,10 @@
 							</thead>
 
 							<tbody>
+								@foreach($doctorawards as $awards)
 								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
+									<td><strong>{!! $awards->awards_name !!}</strong></td>
+									<td>{!! $awards->start !!}</td>
 
 									<td>
 										<div class="btn-group btn-group-xs">
@@ -299,39 +235,7 @@
 										</div>
 									</td>
 								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>John Doe</strong></td>
-									<td>1985</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
+								@endforeach
 
 							</tbody>
 						</table>
@@ -356,13 +260,63 @@
 							</thead>
 
 							<tbody>
+								@foreach($doctorcertificate as $certificates)
 								<tr>
 									<td>
 										<div class="column">
 											<div class="inner" style="height: 80px; width: 80px;">
 
 												<div class="img-wrap">
-													<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
+													<img src="/images/Corporations/Doctors/Certificate/{!! $certificates->image !!}"  class="mfp-fade">
+												</div>
+
+											</div>
+										</div>
+									</td>
+									<td></td>
+
+									<td>
+										<div class="btn-group btn-group-xs">
+											
+											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+										</div>
+									</td>
+								</tr>
+								@endforeach
+
+
+
+							</tbody>
+						</table>
+					</div>
+					<br>
+					<hr />
+					<h5><strong>Fotoğraflar</strong></h5>
+					<div class="text-right"><button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+					<div class="table-responsive">
+						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+							<thead>
+								<tr>
+
+									<th data-sortable="false">Resim</th>
+
+
+
+
+
+									<th data-sortable="false"></th>
+								</tr>
+							</thead>
+
+							<tbody>
+								@foreach($doctorimages as $images)
+								<tr>
+									<td>
+										<div class="column">
+											<div class="inner" style="height: 80px; width: 80px;">
+
+												<div class="img-wrap">
+													<img src="/images/Corporations/Doctors/Img/{!! $images->images !!}"  class="mfp-fade">
 												</div>
 
 											</div>
@@ -371,485 +325,352 @@
 
 										<td>
 											<div class="btn-group btn-group-xs">
-												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												
 												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
 											</div>
 										</td>
 									</tr>
-									<tr>
-										<td>
-											<div class="column">
-												<div class="inner" style="height: 80px; width: 80px;">
-
-													<div class="img-wrap">
-														<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-													</div>
-
-												</div>
-											</div></td>
-											<td></td>
-
-											<td>
-												<div class="btn-group btn-group-xs">
-													<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-													<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="column">
-													<div class="inner" style="height: 80px; width: 80px;">
-
-														<div class="img-wrap">
-															<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-														</div>
-
-													</div>
-												</div></td>
-												<td></td>
-
-												<td>
-													<div class="btn-group btn-group-xs">
-														<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-														<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td><div class="column">
-													<div class="inner" style="height: 80px; width: 80px;">
-
-														<div class="img-wrap">
-															<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-														</div>
-
-													</div>
-												</div>
-											</td>
-											<td></td>
-
-											<td>
-												<div class="btn-group btn-group-xs">
-													<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-													<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-												</div>
-											</td>
-										</tr>
-
-									</tbody>
-								</table>
-							</div>
-							<br>
-							<hr />
-							<h5><strong>Fotoğraflar</strong></h5>
-							<div class="text-right"><button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-							<div class="table-responsive">
-								<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-									<thead>
-										<tr>
-
-											<th data-sortable="false">Resim</th>
-
-
-
-
-
-											<th data-sortable="false"></th>
-										</tr>
-									</thead>
-
-									<tbody>
-										<tr>
-											<td>
-												<div class="column">
-													<div class="inner" style="height: 80px; width: 80px;">
-
-														<div class="img-wrap">
-															<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-														</div>
-
-													</div>
-												</div></td>
-												<td></td>
-
-												<td>
-													<div class="btn-group btn-group-xs">
-														<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-														<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="column">
-														<div class="inner" style="height: 80px; width: 80px;">
-
-															<div class="img-wrap">
-																<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-															</div>
-
-														</div>
-													</div></td>
-													<td></td>
-
-													<td>
-														<div class="btn-group btn-group-xs">
-															<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-															<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="column">
-															<div class="inner" style="height: 80px; width: 80px;">
-
-																<div class="img-wrap">
-																	<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-																</div>
-
-															</div>
-														</div></td>
-														<td></td>
-
-														<td>
-															<div class="btn-group btn-group-xs">
-																<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-																<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td><div class="column">
-															<div class="inner" style="height: 80px; width: 80px;">
-
-																<div class="img-wrap">
-																	<img src="{{ URL::asset('images/users/user-256.jpg') }}"  class="mfp-fade">
-																</div>
-
-															</div>
-														</div>
-													</td>
-													<td></td>
-
-													<td>
-														<div class="btn-group btn-group-xs">
-															<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-															<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-														</div>
-													</td>
-												</tr>
-
-											</tbody>
-										</table>
-									</div>
-									<br>
-
-
-
-
-
-
-
-
-									<!-- End div .row -->
-								</div><!-- End div .user-profile-content -->
-							</div><!-- End div .tab-pane -->
-							<!-- End Tab aboutus -->
-
-							<!-- Tab services -->
-							<div class="tab-pane animated fadeInRight" id="services">
-								<div class="user-profile-content">
-
-									<div class="col-sm-6">
-										<h5><strong>Hizmetler</strong></h5>
-										@foreach($doctorservices as $service)
-										<p>{!! $service->name !!}</p>
-										@endforeach
-									</div>
-
-									<div class="col-sm-6">
-										<h5><strong>Hizmet Ekle</strong> </h5>
-										<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
-										<div class="col-sm-12">
-											<select multiple="" class="form-control">
-												@foreach($services as $service)
-												<option>{!! $service->name !!}</option>
-												@endforeach
-											</select>
-											<br>
-											<button class="btn btn-success btn-sm" type="button">Kaydet</button>
-										</div>
-
-
-									</div>
-
-
-									<div class="col-sm-6">
-										<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
-										@foreach($doctorcategories as $categories1)
-										<p>{!! $categories1->name !!}</p>
-										@endforeach
-									</div>
-									<div class="col-sm-6">
-										<h5><strong>Kategori Ekle</strong> </h5>
-										<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
-										<div class="col-sm-12">
-											<select multiple="" class="form-control">
-												@foreach($categories as $categories2)
-												<option>{!! $categories2->name !!}</option>
-												@endforeach
-											</select>
-											<br>
-											<button class="btn btn-success btn-sm" type="button">Kaydet</button>
-										</div>
-
-
-									</div>
-								</div>
-
-							</div><!-- End div .tab-pane -->
-							<!-- End Tab services -->
-
-
-							<!-- Tab user settings -->
-							<div class="tab-pane animated fadeInRight" id="settings">
-								<div class="scroll-user-widget">
-
-
-
-								</div>
-								<div class="col-sm-6">
-
-							@foreach($doctors as $doctor)
-									<div class="widget-content padding">
-
-										<h5><strong>Hesap Ayarları</strong></h5>
-										<div class="col-sm-6">
-											<address>
-												<strong>Doktor Adı</strong><br>
-												<abbr title="Doktor Adı">{!! $doctor->name !!}</abbr>
-											</address>
-											<address>
-												<strong>Adres</strong><br>
-												<abbr title="Adres">{!! $doctor->adress !!}</abbr>
-											</address>
-											<address>
-												<strong>Telefon</strong><br>
-												<abbr title="Telefon">{!! $doctor->telephone !!}</abbr>
-											</address>
-
-
-										</div>
-
-									</div>
-									<!-- End div .scroll-user-widget -->
 									@endforeach
-								</div>
-								<div class="col-sm-6">
-									<div class="widget-content padding">
-
-										<div class="col-sm-6">
-											<address>
-												<strong>Bildiği Diller</strong><br>
-												<abbr title="Dil">İngilizce</abbr>
-											</address>
-											<address>
-												<strong>E-mail</strong><br>
-												<a href="#">{!! $doctor->email !!}</a>
-											</address>
-											<address>
-												<strong>Profil Resmi</strong><br>
-												<div class="column">
-													<div class="inner">
-
-														<div class="img-wrap">
-															<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="mfp-fade">
-														</div>
-
-													</div>
-												</div>
-											</address>
 
 
 
 
-										</div>
-
-									</div>
-									<!-- End div .scroll-user-widget -->
-								</div>
-								<div class="text-right" style="margin-right: 80px;"><button data-modal="md-account" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
-							</div><!-- End div .tab-pane -->
-							<!-- End Tab user settings -->
-
-							<!-- Tab user information -->
-							<div class="tab-pane animated fadeInRight" id="information">
-								<div class="scroll-user-widget">
-									<div class="col-sm-6">
-										<div id="basic-form">
-
-											<div class="form-group">
-												<label>Kullanıcı Adı</label>
-												<input type="text" class="form-control" id="" placeholder="Kullanıcı adınız" disabled="">
-											</div>
-											<div class="form-group">
-												<label>Şifre</label>
-												<input type="password" class="form-control"  placeholder="******" disabled="">
-											</div>
+								</tbody>
+							</table>
+						</div>
+						<br>
 
 
 
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div id="basic-form">
-											<form role="form">
-
-												<div class="form-group">
-													<label>Şifre</label>
-													<input type="password" class="form-control" required="" placeholder="Yeni Şifre">
-												</div>
-												<div class="form-group">
-													<label for="exampleInputPassword1">Şifreyi Tekrar Yazını</label>
-													<input type="password" class="form-control" required=""  placeholder="Tekrar Yazın">
-												</div>
-
-												<button type="submit" class="btn btn-success">Kaydet</button>
-											</form>
-										</div>
-									</div>
-
-								</div><!-- End div .scroll-user-widget -->
-							</div><!-- End div .tab-pane -->
-							<!-- End Tab user messages -->
-						</div><!-- End div .tab-content -->
-					</div><!-- End div .box-info -->
-				</div>
 
 
-				<div class="md-modal md-fall md-hide" id="md-fall">
-					<div class="md-content">
-						<h3>Doktor Hakkında</h3>
-						<div>
 
-							<form class="form-horizontal" method="post" role="form">
-								<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-								<label>Hakkında</label>
-								<textarea class="form-control" name="about" style="height: 140px; resize: none;" maxlength="250"></textarea>
+
+
+						<!-- End div .row -->
+					</div><!-- End div .user-profile-content -->
+				</div><!-- End div .tab-pane -->
+				<!-- End Tab aboutus -->
+
+				<!-- Tab services -->
+				<div class="tab-pane animated fadeInRight" id="services">
+					<div class="user-profile-content">
+
+						<div class="col-sm-6">
+							<h5><strong>Hizmetler</strong></h5>
+							@foreach($doctorservices as $service)
+							<p>{!! $service->name !!}</p>
+							@endforeach
+						</div>
+
+						<div class="col-sm-6">
+							<h5><strong>Hizmet Ekle</strong> </h5>
+							<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
+							<div class="col-sm-12">
+								<form class="form-horizontal" method="post" role="form">
+									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+									<select name="hizmet" value="" multiple="" class="form-control">
+										@foreach($services as $service)
+										<option value="{!! $service->id !!}" name="hizmet" >{!! $service->name !!}</option>
+										@endforeach
+									</select>
+									<br>
+									<button class="btn btn-success btn-sm" type="submit" name="kaydet" value="hizmetekle">Kaydet</button>
+								</form>
 							</div>
-							<p>
-								<button type="button" class="btn btn-danger md-close" name="kapat" value="kapat">Kapat</button>
-								<button type="submit" class="btn btn-success md-close" name="kaydet" value="hakkindaekle">Kaydet</button>
-							</p>
+
 
 						</div>
-					</div>
+
+
+						<div class="col-sm-6">
+							<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
+							@foreach($doctorcategories as $categories1)
+							<p>{!! $categories1->name !!}</p>
+							@endforeach
+						</div>
+						<div class="col-sm-6">
+							<h5><strong>Kategori Ekle</strong> </h5>
+							<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
+							<div class="col-sm-12">
+								<form class="form-horizontal" method="post" role="form">
+									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+									<select name="kategori" value="" multiple="" class="form-control">
+										@foreach($categories as $categories2)
+										<option value="{!! $categories2->id !!}" name="kategori" >{!! $categories2->name !!}</option>
+										@endforeach
+									</select>
+									<br>
+									<button type="submit" name="kaydet" value="kategoriekle" class="btn btn-success btn-sm" type="button">Kaydet</button>
+									</form>
+								</div>
+
+
+							</div>
+						</div>
+
+					</div><!-- End div .tab-pane -->
+					<!-- End Tab services -->
+
+
+					<!-- Tab user settings -->
+					<div class="tab-pane animated fadeInRight" id="settings">
+						<div class="scroll-user-widget">
+
+
+
+						</div>
+						<div class="col-sm-6">
+
+							@foreach($doctors as $doctor)
+							<div class="widget-content padding">
+
+								<h5><strong>Hesap Ayarları</strong></h5>
+								<div class="col-sm-6">
+									<address>
+										<strong>Doktor Adı</strong><br>
+										<abbr title="Doktor Adı">{!! $doctor->name !!}</abbr>
+									</address>
+									<address>
+										<strong>Adres</strong><br>
+										<abbr title="Adres">{!! $doctor->adress !!}</abbr>
+									</address>
+									<address>
+										<strong>Telefon</strong><br>
+										<abbr title="Telefon">{!! $doctor->telephone !!}</abbr>
+									</address>
+
+
+								</div>
+
+							</div>
+							<!-- End div .scroll-user-widget -->
+							@endforeach
+						</div>
+						<div class="col-sm-6">
+							<div class="widget-content padding">
+
+								<div class="col-sm-6">
+									<address>
+										<strong>Bildiği Diller</strong><br>
+										<abbr title="Dil">İngilizce</abbr>
+									</address>
+									<address>
+										<strong>E-mail</strong><br>
+										<a href="#">{!! $doctor->email !!}</a>
+									</address>
+									<address>
+										<strong>Profil Resmi</strong><br>
+										<div class="column">
+											<div class="inner">
+
+												<div class="img-wrap">
+													<img src="{{ URL::asset('images/users/user-256.jpg') }}" class="mfp-fade">
+												</div>
+
+											</div>
+										</div>
+									</address>
+
+
+
+
+								</div>
+
+							</div>
+							<!-- End div .scroll-user-widget -->
+						</div>
+						<div class="text-right" style="margin-right: 80px;"><button data-modal="md-account" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
+					</div><!-- End div .tab-pane -->
+					<!-- End Tab user settings -->
+
+					<!-- Tab user information -->
+					<div class="tab-pane animated fadeInRight" id="information">
+						<div class="scroll-user-widget">
+							<div class="col-sm-6">
+								<div id="basic-form">
+
+									<div class="form-group">
+										<label>Kullanıcı Adı</label>
+										<input type="text" class="form-control" id="" placeholder="Kullanıcı adınız" disabled="">
+									</div>
+									<div class="form-group">
+										<label>Şifre</label>
+										<input type="password" class="form-control"  placeholder="******" disabled="">
+									</div>
+
+
+
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div id="basic-form">
+									<form role="form">
+
+										<div class="form-group">
+											<label>Şifre</label>
+											<input type="password" class="form-control" required="" placeholder="Yeni Şifre">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Şifreyi Tekrar Yazını</label>
+											<input type="password" class="form-control" required=""  placeholder="Tekrar Yazın">
+										</div>
+
+										<button type="submit" class="btn btn-success">Kaydet</button>
+									</form>
+								</div>
+							</div>
+
+						</div><!-- End div .scroll-user-widget -->
+					</div><!-- End div .tab-pane -->
+					<!-- End Tab user messages -->
+				</div><!-- End div .tab-content -->
+			</div><!-- End div .box-info -->
+		</div>
+
+
+		<div class="md-modal md-fall md-hide" id="md-fall">
+			<div class="md-content">
+				<h3>Doktor Hakkında</h3>
+				<div>
+
+					<form class="form-horizontal" method="post" role="form">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<label>Hakkında</label>
+						<textarea class="form-control" name="about" style="height: 140px; resize: none;" maxlength="250"></textarea>
+
+						<p>
+							<button type="button" class="btn btn-danger md-close" name="kapat" value="kapat">Kapat</button>
+							<button type="submit" class="btn btn-success md-close" name="kaydet" value="hakkindaekle">Kaydet</button>
+						</p>
+					</form>
 				</div>
-				<div class="md-modal md-fall md-hide" id="md-education">
-					<div class="md-content"><div class="form-group">
-						<h3>Eğitim Bilgisi Ekle</h3>
-						<div>
+			</div>
+		</div>
+		<div class="md-modal md-fall md-hide" id="md-education">
+			<div class="md-content">
+				<div class="form-group">
+					<h3>Eğitim Bilgisi Ekle</h3>
+					<div>
+						<form class="form-horizontal" method="post" role="form">
+							<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 							<div class="form-group">
 								<label>Okul Adı</label>
-								<input type="text" class="form-control" name="school" data-bv-field="school">
+								<input type="text" class="form-control" name="name" data-bv-field="school">
+							</div>
+							<div class="form-group">
+								<label>Bölüm Adı</label>
+								<input type="text" class="form-control" name="education" data-bv-field="school">
 							</div>
 
 							<div class="form-group">
 								<label>Başlangıç Tarihi </label>
-								<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+								<input type="text" class="form-control" name="start" data-bv-field="school" placeholder="1995">
 							</div>
 							<div class="form-group">
 								<label>Bitiş Tarihi </label>
-								<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
+								<input type="text" class="form-control" name="finish" data-bv-field="school" placeholder="2001">
 							</div>
 							<p>
-								<button class="btn btn-danger md-close">Kapat</button>
-								<button class="btn btn-success md-close">Kaydet</button>
+								<button type="button" class="btn btn-danger md-close">Kapat</button>
+								<button type="submit" name="kaydet" value="egitimekle" class="btn btn-success md-close">Kaydet</button>
 							</p>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
-			<div class="md-modal md-fall md-hide" id="md-experience">
-				<div class="md-content"><div class="form-group">
-					<h3>Yayın Ekle</h3>
-					<div>
+		</div>
+		<div class="md-modal md-fall md-hide" id="md-experience">
+			<div class="md-content"><div class="form-group">
+				<h3>Yayın Ekle</h3>
+				<div>
+					<form class="form-horizontal" method="post" role="form">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 						<div class="form-group">
 							<label>Yayın Adı</label>
-							<input type="text" class="form-control" name="school" data-bv-field="school">
+							<input type="text" class="form-control" name="broad_name" data-bv-field="broad_name">
 						</div>
 
 						<div class="form-group">
 							<label>Yayınlanma Tarihi </label>
-							<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
+							<input type="text" class="form-control" name="start" data-bv-field="start" placeholder="1995">
 						</div>
 
 						<p>
-							<button class="btn btn-danger md-close">Kapat</button>
-							<button class="btn btn-success md-close">Kaydet</button>
+							<button type="button" class="btn btn-danger md-close">Kapat</button>
+							<button type="submit" name="kaydet" value="yayinekle" class="btn btn-success md-close">Kaydet</button>
 						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="md-modal md-fall md-hide" id="md-winner">
-			<div class="md-content"><div class="form-group">
-				<h3>Ödül Ekle</h3>
-				<div>
-					<div class="form-group">
-						<label>Ödül Adı</label>
-						<input type="text" class="form-control" name="school" data-bv-field="school">
-					</div>
-
-					<div class="form-group">
-						<label>Kazanma Tarihi </label>
-						<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-					</div>
-
-					<p>
-						<button class="btn btn-danger md-close">Kapat</button>
-						<button class="btn btn-success md-close">Kaydet</button>
-					</p>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="md-modal md-fall md-hide" id="md-certificate">
+	<div class="md-modal md-fall md-hide" id="md-winner">
 		<div class="md-content"><div class="form-group">
-			<h3>Sertifika Ekle</h3>
+			<h3>Ödül Ekle</h3>
 			<div>
+				<form class="form-horizontal" method="post" role="form">
+					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+					<div class="form-group">
+						<label>Ödül Adı</label>
+						<input type="text" class="form-control" name="awards_name" data-bv-field="school">
+					</div>
+
+					<div class="form-group">
+						<label>Kazanma Tarihi </label>
+						<input type="text" class="form-control" name="start" data-bv-field="school" placeholder="1995">
+					</div>
+
+					<p>
+						<button type="button" class="btn btn-danger md-close">Kapat</button>
+						<button type="submit" name="kaydet" value="odulekle" class="btn btn-success md-close">Kaydet</button>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="md-modal md-fall md-hide" id="md-certificate">
+	<div class="md-content"><div class="form-group">
+		<h3>Sertifika Ekle</h3>
+		<div>
+			<form class="form-horizontal" method="post" role="form" enctype="multipart/form-data"">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
 				<div class="form-group">
-					<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+					<input type="file" class="btn btn-default" name="image" title="Resim Seç" style="left: -160px; top: 3px;">
 
 				</div>
 
 
 
 				<p>
-					<button class="btn btn-danger md-close">Kapat</button>
-					<button class="btn btn-success md-close">Kaydet</button>
+					<button type="button" class="btn btn-danger md-close">Kapat</button>
+					<button type="submit" name="kaydet" value="sertifikaekle" class="btn btn-success md-close">Kaydet</button>
 				</p>
-			</div>
+			</form>
 		</div>
 	</div>
+</div>
 </div>
 <div class="md-modal md-fall md-hide" id="md-image">
 	<div class="md-content"><div class="form-group">
 		<h3>Resim Ekle</h3>
 		<div>
-			<div class="form-group">
-				<input type="file" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+			<form class="form-horizontal" method="post" role="form" enctype="multipart/form-data">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<input type="file" class="btn btn-default" title="Resim Seç" name="image" style="left: -160px; top: 3px;">
 
-			</div>
+				</div>
 
 
 
-			<p>
-				<button class="btn btn-danger md-close">Kapat</button>
-				<button class="btn btn-success md-close">Kaydet</button>
-			</p>
+				<p>
+					<button type="button" class="btn btn-danger md-close">Kapat</button>
+					<button type="submit" name="kaydet" value="resimekle" class="btn btn-success md-close">Kaydet</button>
+				</p>
+
+			</form>
 		</div>
 	</div>
 </div>
@@ -858,23 +679,26 @@
 	<div class="md-content"><div class="form-group">
 		<h3>Deneyim Ekle</h3>
 		<div>
-			<div class="form-group">
-				<label>Kurum Adı</label>
-				<input type="text" class="form-control" name="school" data-bv-field="school">
-			</div>
+			<form class="form-horizontal" method="post" role="form">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				<div class="form-group">
+					<label>Kurum Adı</label>
+					<input type="text" class="form-control" name="company_name" data-bv-field="school">
+				</div>
 
-			<div class="form-group">
-				<label>Başlangıç Tarihi </label>
-				<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-			</div>
-			<div class="form-group">
-				<label>Bitiş Tarihi </label>
-				<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
-			</div>
-			<p>
-				<button class="btn btn-danger md-close">Kapat</button>
-				<button class="btn btn-success md-close">Kaydet</button>
-			</p>
+				<div class="form-group">
+					<label>Başlangıç Tarihi </label>
+					<input type="text" class="form-control" name="start" data-bv-field="school" placeholder="1995">
+				</div>
+				<div class="form-group">
+					<label>Bitiş Tarihi </label>
+					<input type="text" class="form-control" name="finish" data-bv-field="school" placeholder="2001">
+				</div>
+				<p>
+					<button type="button" class="btn btn-danger md-close">Kapat</button>
+					<button type="submit" name="kaydet" value="deneyimekle" class="btn btn-success md-close">Kaydet</button>
+				</p>
+			</form>
 		</div>
 	</div>
 </div>
