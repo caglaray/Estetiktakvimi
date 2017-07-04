@@ -21,9 +21,21 @@ class CorporationController extends Controller
   {
     return view('corpadmin.home');
   }
-  public function fatura()
+  public function fatura(Request $request)
   {
-    return view('invoice');
+    return view('corpadmin.invoice');
+  }
+  public function siparis_detay(Request $request)
+  {
+  
+    return view('corpadmin.invoice');
+  }
+  public function siparis()
+  {  
+    $product_options = DB::table('corp_product_options')->get();
+    $product = DB::table('corp_product')->get();
+
+    return view('corpadmin.checkout', compact('product_options','product')); 
   }
 
 

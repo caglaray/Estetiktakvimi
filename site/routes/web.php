@@ -28,6 +28,8 @@ Route::prefix('kurum')->group(function() {
 	Route::get('/profil', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
 	Route::post('/profil', 'Kurum\CorporationController@about');
 	Route::get('/fatura', 'Kurum\CorporationController@fatura')->name('corporation.fatura');
+	Route::get('/checkout', 'Kurum\CorporationController@siparis')->name('corporation.siparis');
+	Route::post('/checkout', 'Kurum\CorporationController@siparis_detay')->name('corporation.siparis_detay');
 
 
 	//Atticle

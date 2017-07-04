@@ -40,9 +40,9 @@
 						<table class="table table-condensed table-striped">
 							<thead>
 								<tr>
-									<th>Siperiş Adı</th>
+									<th>Sipariş Adı</th>
 									<th>Süre</th>
-									<th>Birim Fiyatı</th>
+									<th>Fiyatı</th>
 									<th width="100">Toplam</th>
 								</tr>
 							</thead>
@@ -72,7 +72,7 @@
 							
 						</table>
 						<br><br>
-						<h4 class="text-center">Ödeme Yaptığınız İçin Teşekkür Ederiz</h4><br><br>
+						<h4 class="text-center"><strong>Ödeme İşleminiz Onaylandıktan Sonra İşlemlerinizi Yapabilirsiniz.</strong></h4><br><br>
 						
 					</div>
 					</div>
