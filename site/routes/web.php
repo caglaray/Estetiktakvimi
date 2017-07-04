@@ -27,7 +27,7 @@ Route::prefix('kurum')->group(function() {
 	Route::get('/', 'Kurum\CorporationController@index')->name('corporation.anasayfa');
 	Route::get('/profil', 'Kurum\CorporationController@about')->name('corporation.hakkimizda');
 	Route::post('/profil', 'Kurum\CorporationController@about');
-
+	Route::get('/fatura', 'Kurum\CorporationController@fatura')->name('corporation.fatura');
 
 
 	//Atticle

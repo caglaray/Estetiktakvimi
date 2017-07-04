@@ -21,6 +21,10 @@ class CorporationController extends Controller
   {
     return view('corpadmin.home');
   }
+  public function fatura()
+  {
+    return view('invoice');
+  }
 
 
 
