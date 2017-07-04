@@ -22,7 +22,14 @@ class DoctorController extends Controller
 
   public function DoktorEkle()
   {
-    return view("corpadmin.doktor.ekle");
+ $userid = Auth::user()->id ;
+    $adding=DB::table('corp_doc')
+    ->where([
+      ['corpid', '=', $userid]
+      
+      ])
+    ->count();
+    return view("corpadmin.doktor.ekle", compact('adding'));
   }
   public function doktorprofil($DoktorID)
   {
@@ -31,6 +38,7 @@ class DoctorController extends Controller
     $userid = Auth::user()->id ;
     $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
     $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
+    $degree = DB::table('doc_degree')->get();
 
 
     $services = DB::table('services')->get();
@@ -38,6 +46,9 @@ class DoctorController extends Controller
     $doctorservices = DB::table('service_doc')
     ->join('services', 'service_doc.servicesid', '=', 'services.id')
     ->where('doctorid' , $DoktorID)
+    ->get();
+    $doctordegrees = DB::table('doctors')
+    ->join('doc_degree', 'doctors.docdegrees', '=', 'doc_degree.id')
     ->get();
 
 
@@ -54,7 +65,7 @@ class DoctorController extends Controller
     ->where('doctorid' , $DoktorID)
     ->get();
 
-    return view("corpadmin.doktor.detay", compact('doctorcertificate','doctorimages','doctorawards','doctors','services','doctorservices','categories','doctorcategories','schools','doctorexperience','doctorbroads'));
+    return view("corpadmin.doktor.detay", compact('degree','doctordegrees','doctorcertificate','doctorimages','doctorawards','doctors','services','doctorservices','categories','doctorcategories','schools','doctorexperience','doctorbroads'));
 
   }
   public function DoktorListe()
@@ -239,7 +250,7 @@ public function update(request $request , $DoktorID)
         ['doctorid' => $DoktorID , 'servicesid' =>$hizmet ]
         );
     }
-return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => $DoktorID]);
+    return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => $DoktorID]);
     break;
 
     case 'kategoriekle':
@@ -262,24 +273,46 @@ return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => 
         );
     }
     
-return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => $DoktorID]);
+    return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => $DoktorID]);
     break;
 
+    case 'doktorhesap':
+    DB::table('doctors') ->where([
+      ['id', '=', $DoktorID]])->update(
+      [
+      
+      'name' => $request->get('name'),      
+      'surname' => $request->get('surname'),
+      'docdegrees' => $request->get('docdegrees'),
+      'livecity' => $request->get('livecity'),
+      'birthday' => $request->get('birthday'),
+      'adress' => $request->get('adress'),
+      'telephone' => $request->get('telephone'),
+     // if (isset('image' => $request->get('image'))) {
+      'image' => $request->get('image'),
+     //  $file = Input::file('image');
+     //  $file->move('images/Corporations/Doctors/Profile/' , $DoktorID.$file->getClientOriginalName());
+    // }
+
+      ]
+      );
+      return redirect()->action('Kurum\DoctorController@doktorprofil', ['DoktorID' => $DoktorID]);
+      break;
+
+    }
 
   }
 
-}
+  public function silinecek($Kisi)
+  {
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+    return view('corpadmin.doktor.sil', compact('Doctor'));
+  }
 
-public function silinecek($Kisi)
-{
-  $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-  return view('corpadmin.doktor.sil', compact('Doctor'));
-}
-
-public function destroy($Kisi)
-{
-  $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
-  $Doctor->delete();
-  return redirect('kurum/doktor/liste')->with('status' , $Doctor->name.' isimli Doktor Silindi.');
-}
+  public function destroy($Kisi)
+  {
+    $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
+    $Doctor->delete();
+    return redirect('kurum/doktor/liste')->with('status' , $Doctor->name.' isimli Doktor Silindi.');
+  }
 }

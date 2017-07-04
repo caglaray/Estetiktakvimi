@@ -29,303 +29,257 @@
 		</b></h4>
 
 		<h5>Doktor Ünvanı</h5>
-		<ul class="list-group">
+			<ul class="list-group">
 
-			<li class="list-group-item">
-				<span class="badge" title="Cevapladığı Soru Sayısı">101</span>
-				Takip Eden
-			</li>
-			<li class="list-group-item">
-				<span class="badge" title="Cevapladığı Soru Sayısı">2</span>
-				Cevap Bekleyen Soru
-			</li>
-			<li class="list-group-item">
-				<span class="badge" title="Cevapladığı Soru Sayısı">10</span>
-				Cevapladığı Soru
-			</li>
-
-
-		</ul>
-
-		<!-- User button -->
-		<div class="user-button">
-			<div class="row">
-				<p class="help-block"></p>
+				<li class="list-group-item">
+					<span class="badge" title="Cevapladığı Soru Sayısı">101</span>
+					Takip Eden
+				</li>
+				<li class="list-group-item">
+					<span class="badge" title="Cevapladığı Soru Sayısı">2</span>
+					Cevap Bekleyen Soru
+				</li>
+				<li class="list-group-item">
+					<span class="badge" title="Cevapladığı Soru Sayısı">10</span>
+					Cevapladığı Soru
+				</li>
 
 
+			</ul>
 
-			</div>
-		</div><!-- End div .user-button -->
-	</div><!-- End div .box-info -->
-	<!-- Begin user profile -->
-</div><!-- End div .col-sm-4 -->
-<br>
-<div class="col-sm-9">
-	<div class="widget widget-tabbed">
-		<!-- Nav tab -->
-		<ul class="nav nav-tabs nav-justified">
-			<li class="active"><a href="#aboutus" data-toggle="tab"><i class="fa fa-pencil"></i> Hakkında</a></li>
-			<li><a href="#services" data-toggle="tab"><i class="fa fa-user"></i> Hizmet & Kategori</a></li>
-			<li><a href="#settings" data-toggle="tab"><i class="fa fa-laptop"></i> Profil Ayarları</a></li>
-			<li><a href="#information" data-toggle="tab"><i class="fa fa-envelope"></i> Kullanıcı Bilgileri</a></li>
-		</ul>
-		<!-- End nav tab -->
-
-		<!-- Tab panes -->
-		<div class="tab-content">
-
-
-			<!-- Tab aboutus -->
-			<div class="tab-pane animated active fadeInRight" id="aboutus">
-				<div class="user-profile-content">
-					<h5><strong>Hakkında</strong></h5>
-					<p>
-						@foreach($doctors as $doctor)
-						{!! $doctor->about !!}
-						@endforeach
-
-
-					</p>
-					<br>
-					<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button>
-					</div>
-					<hr />
-					<h5><strong>Mezun Olduğu Okullar  </strong></h5>
-					<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-					<div class="table-responsive">
-						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-							<thead>
-								<tr>
-
-									<th data-sortable="false">Okul Adı</th>
-									<th data-sortable="false">Eğitim Bilgisi</th>
-									<th data-sortable="false">Başlangıç Tarihi</th>
-									<th data-sortable="false">Mezuniyet Tarihi</th>
-
-
-									<th data-sortable="false">Seçenekler</th>
-								</tr>
-
-							</thead>
-
-							<tbody>
-								@foreach($schools as $school)
-								<tr>
-									<td><strong>  {!! $school->name !!}</strong></td>
-									<td>{!! $school->education !!}</td>
-									<td>{!! $school->start !!}</td>
-									<td>{!! $school->finish !!}</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								@endforeach
-
-
-							</tbody>
-						</table>
-					</div>
-					<br>
-					<hr />
-					<h5><strong>Deneyimler</strong></h5>
-					<div class="text-right"><button data-modal="md-publish" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-					<div class="table-responsive">
-						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-							<thead>
-								<tr>
-
-									<th data-sortable="false">Kurum Adı</th>
-									<th data-sortable="false"></th>
-									<th data-sortable="false">İşe Başlama Tarihi</th>
-									<th data-sortable="false">İşten Ayrılma Tarihi</th>
-
-
-									<th data-sortable="false">Seçenekler</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								@foreach($doctorexperience as $experiences)
-								<tr>
-									<td><strong>{!! $experiences->company_name !!}</strong></td>
-									<td></td><td>{!! $experiences->start !!}</td><td>{!! $experiences->finish !!}</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								@endforeach
-							</tbody>
-						</table>
-					</div>
-					<br>
-					<hr />
-
-					<h5><strong>Yayınlar</strong></h5>
-					<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-					<div class="table-responsive">
-						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-							<thead>
-								<tr>
-
-									<th data-sortable="false">Yayın Adı</th>
-
-									<th data-sortable="false">Yayınlanma Tarihi</th>
+			<!-- User button -->
+			<div class="user-button">
+				<div class="row">
+					<p class="help-block"></p>
 
 
 
-									<th data-sortable="false">Seçenekler</th>
-								</tr>
-							</thead>
+				</div>
+			</div><!-- End div .user-button -->
+		</div><!-- End div .box-info -->
+		<!-- Begin user profile -->
+	</div><!-- End div .col-sm-4 -->
+	<br>
+	<div class="col-sm-9">
+		<div class="widget widget-tabbed">
+			<!-- Nav tab -->
+			<ul class="nav nav-tabs nav-justified">
+				<li class="active"><a href="#aboutus" data-toggle="tab"><i class="fa fa-pencil"></i> Hakkında</a></li>
+				<li><a href="#services" data-toggle="tab"><i class="fa fa-user"></i> Hizmet & Kategori</a></li>
+				<li><a href="#settings" data-toggle="tab"><i class="fa fa-laptop"></i> Profil Ayarları</a></li>
+				<li><a href="#information" data-toggle="tab"><i class="fa fa-envelope"></i> Kullanıcı Bilgileri</a></li>
+			</ul>
+			<!-- End nav tab -->
 
-							<tbody>
-								@foreach($doctorbroads as $broads)
-								<tr>
-									<td><strong>{!! $broads->broad_name !!}</strong></td>
-									<td>{!! $broads->start !!}</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								@endforeach
-
-							</tbody>
-						</table>
-					</div>
-					<br>
-					<hr />
-					<h5><strong>Ödüller</strong></h5>
-					<div class="text-right"><button data-modal="md-winner" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-					<div class="table-responsive">
-						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-							<thead>
-								<tr>
-
-									<th data-sortable="false">Ödül Adı</th>
-
-									<th data-sortable="false">Kazandığı Tarih</th>
+			<!-- Tab panes -->
+			<div class="tab-content">
 
 
-
-									<th data-sortable="false">Seçenekler</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								@foreach($doctorawards as $awards)
-								<tr>
-									<td><strong>{!! $awards->awards_name !!}</strong></td>
-									<td>{!! $awards->start !!}</td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								@endforeach
-
-							</tbody>
-						</table>
-					</div>
-					<br>
-					<hr />
-					<h5><strong>Sertifikalar</strong></h5>
-					<div class="text-right"><button data-modal="md-certificate" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-					<div class="table-responsive">
-						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-							<thead>
-								<tr>
-
-									<th data-sortable="false">Resim</th>
+				<!-- Tab aboutus -->
+				<div class="tab-pane animated active fadeInRight" id="aboutus">
+					<div class="user-profile-content">
+						<h5><strong>Hakkında</strong></h5>
+						<p>
+							@foreach($doctors as $doctor)
+							{!! $doctor->about !!}
+							@endforeach
 
 
+						</p>
+						<br>
+						<div class="text-right"><button data-modal="md-fall" class="btn btn-default btn-sm md-trigger">Düzenle</button>
+						</div>
+						<hr />
+						<h5><strong>Mezun Olduğu Okullar  </strong></h5>
+						<div class="text-right"><button data-modal="md-education" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Okul Adı</th>
+										<th data-sortable="false">Eğitim Bilgisi</th>
+										<th data-sortable="false">Başlangıç Tarihi</th>
+										<th data-sortable="false">Mezuniyet Tarihi</th>
 
 
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
 
-									<th data-sortable="false"></th>
-								</tr>
-							</thead>
+								</thead>
 
-							<tbody>
-								@foreach($doctorcertificate as $certificates)
-								<tr>
-									<td>
-										<div class="column">
-											<div class="inner" style="height: 80px; width: 80px;">
+								<tbody>
+									@foreach($schools as $school)
+									<tr>
+										<td><strong>  {!! $school->name !!}</strong></td>
+										<td>{!! $school->education !!}</td>
+										<td>{!! $school->start !!}</td>
+										<td>{!! $school->finish !!}</td>
 
-												<div class="img-wrap">
-													<img src="/images/Corporations/Doctors/Certificate/{!! $certificates->image !!}"  class="mfp-fade">
-												</div>
-
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
 											</div>
-										</div>
-									</td>
-									<td></td>
-
-									<td>
-										<div class="btn-group btn-group-xs">
-											
-											<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
-										</div>
-									</td>
-								</tr>
-								@endforeach
+										</td>
+									</tr>
+									@endforeach
 
 
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+						<h5><strong>Deneyimler</strong></h5>
+						<div class="text-right"><button data-modal="md-publish" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
 
-							</tbody>
-						</table>
-					</div>
-					<br>
-					<hr />
-					<h5><strong>Fotoğraflar</strong></h5>
-					<div class="text-right"><button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
-					<div class="table-responsive">
-						<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
-							<thead>
-								<tr>
-
-									<th data-sortable="false">Resim</th>
+										<th data-sortable="false">Kurum Adı</th>
+										<th data-sortable="false"></th>
+										<th data-sortable="false">İşe Başlama Tarihi</th>
+										<th data-sortable="false">İşten Ayrılma Tarihi</th>
 
 
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
+								</thead>
 
+								<tbody>
+									@foreach($doctorexperience as $experiences)
+									<tr>
+										<td><strong>{!! $experiences->company_name !!}</strong></td>
+										<td></td><td>{!! $experiences->start !!}</td><td>{!! $experiences->finish !!}</td>
 
-
-									<th data-sortable="false"></th>
-								</tr>
-							</thead>
-
-							<tbody>
-								@foreach($doctorimages as $images)
-								<tr>
-									<td>
-										<div class="column">
-											<div class="inner" style="height: 80px; width: 80px;">
-
-												<div class="img-wrap">
-													<img src="/images/Corporations/Doctors/Img/{!! $images->images !!}"  class="mfp-fade">
-												</div>
-
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
 											</div>
-										</div></td>
+										</td>
+									</tr>
+									@endforeach
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+
+						<h5><strong>Yayınlar</strong></h5>
+						<div class="text-right"><button data-modal="md-experience" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Yayın Adı</th>
+
+										<th data-sortable="false">Yayınlanma Tarihi</th>
+
+
+
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									@foreach($doctorbroads as $broads)
+									<tr>
+										<td><strong>{!! $broads->broad_name !!}</strong></td>
+										<td>{!! $broads->start !!}</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+									@endforeach
+
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+						<h5><strong>Ödüller</strong></h5>
+						<div class="text-right"><button data-modal="md-winner" class="btn btn-success btn-sm md-trigger">Ekle</button></div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Ödül Adı</th>
+
+										<th data-sortable="false">Kazandığı Tarih</th>
+
+
+
+										<th data-sortable="false">Seçenekler</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									@foreach($doctorawards as $awards)
+									<tr>
+										<td><strong>{!! $awards->awards_name !!}</strong></td>
+										<td>{!! $awards->start !!}</td>
+
+										<td>
+											<div class="btn-group btn-group-xs">
+												<a data-toggle="tooltip" title="Düzenle" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+											</div>
+										</td>
+									</tr>
+									@endforeach
+
+								</tbody>
+							</table>
+						</div>
+						<br>
+						<hr />
+						<h5><strong>Sertifikalar</strong></h5>
+						<div class="text-right">
+							<button data-modal="md-certificate" class="btn btn-success btn-sm md-trigger">Ekle</button>
+						</div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
+
+										<th data-sortable="false">Resim</th>
+
+
+
+
+
+										<th data-sortable="false"></th>
+									</tr>
+								</thead>
+
+								<tbody>
+									@foreach($doctorcertificate as $certificates)
+									<tr>
+										<td>
+											<div class="column">
+												<div class="inner" style="height: 80px; width: 80px;">
+
+													<div class="img-wrap">
+														<img src="/images/Corporations/Doctors/Certificate/{!! $certificates->image !!}"  class="mfp-fade">
+													</div>
+
+												</div>
+											</div>
+										</td>
 										<td></td>
 
 										<td>
 											<div class="btn-group btn-group-xs">
-												
+
 												<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
 											</div>
 										</td>
@@ -334,74 +288,124 @@
 
 
 
-
 								</tbody>
 							</table>
 						</div>
 						<br>
-
-
-
-
-
-
-
-
-						<!-- End div .row -->
-					</div><!-- End div .user-profile-content -->
-				</div><!-- End div .tab-pane -->
-				<!-- End Tab aboutus -->
-
-				<!-- Tab services -->
-				<div class="tab-pane animated fadeInRight" id="services">
-					<div class="user-profile-content">
-
-						<div class="col-sm-6">
-							<h5><strong>Hizmetler</strong></h5>
-							@foreach($doctorservices as $service)
-							<p>{!! $service->name !!}</p>
-							@endforeach
+						<hr />
+						<h5><strong>Fotoğraflar</strong></h5>
+						<div class="text-right">
+						<button data-modal="md-image" class="btn btn-success btn-sm md-trigger">Ekle</button>
 						</div>
+						<div class="table-responsive">
+							<table data-sortable="" class="table table-hover table-striped" data-sortable-initialized="true">
+								<thead>
+									<tr>
 
-						<div class="col-sm-6">
-							<h5><strong>Hizmet Ekle</strong> </h5>
-							<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
-							<div class="col-sm-12">
-								<form class="form-horizontal" method="post" role="form">
-									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-									<select name="hizmet" value="" multiple="" class="form-control">
-										@foreach($services as $service)
-										<option value="{!! $service->id !!}" name="hizmet" >{!! $service->name !!}</option>
+										<th data-sortable="false">Resim</th>
+
+
+
+
+
+										<th data-sortable="false"></th>
+									</tr>
+								</thead>
+
+								<tbody>
+									@foreach($doctorimages as $images)
+									<tr>
+										<td>
+											<div class="column">
+												<div class="inner" style="height: 80px; width: 80px;">
+
+													<div class="img-wrap">
+														<img src="/images/Corporations/Doctors/Img/{!! $images->images !!}"  class="mfp-fade">
+													</div>
+
+												</div>
+											</div></td>
+											<td></td>
+
+											<td>
+												<div class="btn-group btn-group-xs">
+
+													<a data-toggle="tooltip" title="Sil" class="btn btn-danger"><i class="fa fa-close"></i></a>
+												</div>
+											</td>
+										</tr>
 										@endforeach
-									</select>
-									<br>
-									<button class="btn btn-success btn-sm" type="submit" name="kaydet" value="hizmetekle">Kaydet</button>
-								</form>
+
+
+
+
+									</tbody>
+								</table>
+							</div>
+							<br>
+
+
+
+
+
+
+
+
+							<!-- End div .row -->
+						</div><!-- End div .user-profile-content -->
+					</div><!-- End div .tab-pane -->
+					<!-- End Tab aboutus -->
+
+					<!-- Tab services -->
+					<div class="tab-pane animated fadeInRight" id="services">
+						<div class="user-profile-content">
+
+							<div class="col-sm-6">
+								<h5><strong>Hizmetler</strong></h5>
+								@foreach($doctorservices as $service)
+								<p>{!! $service->name !!}</p>
+								@endforeach
+							</div>
+
+							<div class="col-sm-6">
+								<h5><strong>Hizmet Ekle</strong> </h5>
+								<p class="help-block">Eklemek İstediğiniz Hizmet Alanı Bulunmuyorsa <br>Lütfen Yöneticinize Başvurun</p>
+								<div class="col-sm-12">
+									<form class="form-horizontal" method="post" role="form">
+										<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+										<select name="hizmet" value="" multiple="" class="form-control">
+											@foreach($services as $service)
+											<option value="{!! $service->id !!}" name="hizmet" >{!! $service->name !!}</option>
+											@endforeach
+										</select>
+										<br>
+										<button class="btn btn-success btn-sm" type="submit" name="kaydet" value="hizmetekle">Kaydet</button>
+									</form>
+								</div>
+
+
 							</div>
 
 
-						</div>
-
-
-						<div class="col-sm-6">
-							<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
-							@foreach($doctorcategories as $categories1)
-							<p>{!! $categories1->name !!}</p>
-							@endforeach
-						</div>
-						<div class="col-sm-6">
-							<h5><strong>Kategori Ekle</strong> </h5>
-							<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
-							<div class="col-sm-12">
-								<form class="form-horizontal" method="post" role="form">
-									<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-									<select name="kategori" value="" multiple="" class="form-control">
-										@foreach($categories as $categories2)
-										<option value="{!! $categories2->id !!}" name="kategori" >{!! $categories2->name !!}</option>
-										@endforeach
-									</select>
-									<br>
-									<button type="submit" name="kaydet" value="kategoriekle" class="btn btn-success btn-sm" type="button">Kaydet</button>
+							<div class="col-sm-6">
+								<h5><strong>Hizmet Verdiği Kategoriler</strong></h5>
+								@foreach($doctorcategories as $categories1)
+								<p>{!! $categories1->name !!}</p>
+								@endforeach
+							</div>
+							<div class="col-sm-6">
+								<h5><strong>Kategori Ekle</strong> </h5>
+								<p class="help-block"><b>Eklemek İstediğiniz Kategori  Yoksa <br>Lütfen Yöneticinize Başvurun</b></p>
+								<div class="col-sm-12">
+									<form class="form-horizontal" method="post" role="form">
+										<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+										<select name="kategori" value="" multiple="" class="form-control">
+											@foreach($categories as $categories2)
+											<option value="{!! $categories2->id !!}" name="kategori" >{!! $categories2->name !!}</option>
+											@endforeach
+										</select>
+										<br>
+										<button type="submit" name="kaydet" value="kategoriekle" class="btn btn-success btn-sm" type="button">Kaydet</button>
 									</form>
 								</div>
 
@@ -706,30 +710,67 @@
 <div class="md-modal md-fall md-hide" id="md-account">
 	<div class="md-content">
 		<div id="basic-form">
-			<form role="form">
+			<form class="form-horizontal" method="post" role="form" enctype="multipart/form-data">
+				<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+				@foreach($doctors as $doctor)
+
+
 				<div class="form-group">
-					<label for="corporationname">Kurum Adı</label>
-					<input type="text" class="form-control" id="" value="Kurum Adınız">
+					<label for="doctorname">Adı</label>
+					<input type="text" class="form-control" id=""  placeholder="Doktor Adını Girin" name="name" value="{!! $doctor->name !!}">
+				</div>
+				<div class="form-group">
+					<label for="doctorsurname">Soyadı</label>
+					<input type="text" class="form-control" id="" placeholder="Soyadını Girin" name="surname" value="{!! $doctor->surname !!}">
+				</div>
+				<div class="form-group">
+					<label for="birthday">Doğum Tarihi</label>
+					<input type="text" class="form-control" id="" placeholder="Gün/Ay/Yıl" name="birthday" value="{!! $doctor->birthday !!}">
+				</div>
+				<div class="form-group">
+					<label for="doctordegrees">Ünvanı</label>
+					
+					<select name="docdegrees"  class="form-control" placeholder="" value="">
+						@foreach($degree as $degrees)
+						<option value="{!! $degrees->id !!}">{!! $degrees->name !!}</option>
+						
+						@endforeach
+					</select>
+					
+				</div>
+				<div class="form-group">
+					<label for="doctorlivecity">Şehir</label>
+
+					<select name="livecity"  class="form-control" placeholder="" value="">
+						<option value="{!! $doctor->livecity !!}">{!! $doctor->livecity !!}</option>
+						<option value="İstanbul">İstanbul</option>
+						<option value="Ankara">Ankara</option>
+						<option value="İzmir">İzmir</option>
+						<option value="Antalya">Antalya</option>
+						<option value="Manisa">Manisa</option>
+
+					</select>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Adres</label>
-					<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="" placeholder="Adresinizi Giriniz">Adresiniz</textarea>
+					<textarea style="max-width: 470px; max-height:80px;" name="adress" class="form-control" name="adress" placeholder="Adresinizi Giriniz">{!! $doctor->adress !!}</textarea>
 				</div>
 				<div class="form-group">
-					<label for="corporationphone">Telefon Numarası</label>
-					<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" value="0541 280 10 30">
+					<label for="doctortelephone">Telefon Numarası</label>
+					<input type="phone" class="form-control" id="" placeholder="Telefon Numarası Girin" name="telephone" value="{!! $doctor->telephone !!}">
 				</div>
 
+
 				<div class="form-group">
-					<input type="file" class="btn btn-default" title="Logo Değiştir">
+					<input type="file" class="btn btn-default" name="image" title="Profil Resmi Değiştir">
 
 				</div>
 
 				<p style="margin-bottom: 5px;">
-					<button class="btn btn-danger md-close">Kapat</button>
-					<button class="btn btn-success md-close">Kaydet</button>
+					<button type="button" class="btn btn-danger md-close">Kapat</button>
+					<button type="submit" name="kaydet" value="doktorhesap" class="btn btn-success md-close">Kaydet</button>
 				</p>
-
+				@endforeach
 			</form>
 		</div>
 	</div>

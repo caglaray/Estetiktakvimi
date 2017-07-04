@@ -7,7 +7,11 @@
 	<div>
 		<h2><strong></strong></h2>
 	</div>
-	<div class="widget-content padding" style="display: block;">
+	@if(Auth::user()->doc_capacity<=$adding)
+
+	<p class="alert alert-danger"> Doktor Ekleyebilmeniz İçin Ödeme Yapmanız Gerekmektedir.</p>
+	 @else 
+	 <div class="widget-content padding" style="display: block;">
 		<form role="form" method="post" id="registerForm" class="bv-form">
 			<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />   
 			@foreach($errors->all() as $error)
@@ -84,6 +88,8 @@
 		</form>
 	</div>
 </div>
+	 @endif
+	</div>
 
 
 @endsection
