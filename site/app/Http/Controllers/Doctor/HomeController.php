@@ -23,35 +23,10 @@ class HomeController extends Controller
 	}
 
 
-	public function Doktorindex()
+	public function duyuruyap()
 	{
-		return view("docadmin.home");
+		return view("docadmin.duyuru");
 	}
-
-	public function soru()
-	{
-		return view("docadmin.sorucevap.sorular");
-	}
-
-	public function cevap()
-	{
-		return view("docadmin.sorucevap.cevap");
-	}
-
-	public function deneyim()
-	{
-		return view("docadmin.deneyim");
-	}
-
-	
-
-	public function yayinekle()
-	{
-
-
-		return view("docadmin.home");
-	}
-
 
 
 

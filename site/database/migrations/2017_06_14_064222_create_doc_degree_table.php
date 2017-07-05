@@ -15,8 +15,8 @@ class CreateDocDegreeTable extends Migration
     {
         Schema::create('doc_degree', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',70);
-            $table->string('sname',40);
+            $table->string('degreename',70);
+            $table->string('degreesname',40);
             $table->timestamps();
         });
     }

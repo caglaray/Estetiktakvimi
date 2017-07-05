@@ -1,17 +1,30 @@
 @extends('doktormaster')
 @section('content')
 
+<?php ?>
+
+<?php if (Auth::user()->background =="" ) {
+	$backimage = '1epgUO0.jpg';
+}
+else {
+	$backimage = Auth::user()->background ;
+}
+?>
 
 
-<div class="profile-banner" style="background-image: url({{ URL::asset('images/stock/1epgUO0.jpg') }});">
+<div class="profile-banner" style="background-image: url(/images/doctors/backgrounds/{!! $backimage !!});">
 	<div class="col-sm-3 avatar-container">
 		<img src="/images/doctors/{!! Auth::user()->image !!}" style="max-width:200px;max-height:200px;"  class="img-square profile-avatar" alt="User avatar">
 	</div>
-	<div class="col-sm-12 profile-actions text-right">
-		<input type="file" class="btn btn-success btn-sm" title="Değiştir">
-		<button type="button" class="btn btn-primary btn-sm " title="Kaydet"><i class="fa fa-save"></i> Kaydet</button>
 
+	<div class="col-sm-12 profile-actions text-right">
+		<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
+			<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+			<input type="file" name="backgroundimage" class="btn btn-success btn-sm" title="Değiştir">
+			<button type="submit" name="kaydet" value="arkaplanekle" class="btn btn-primary btn-sm" title="Kaydet"><i class="fa fa-save"></i> Kaydet</button>
+		</form>
 	</div>
+
 </div>
 
 
@@ -24,7 +37,11 @@
 		<div class="text-center user-profile-2">
 			<br><h4> <b><?php echo Auth::user()->name." ".Auth::user()->surname; ?></b></h4>
 
-			<h5>Doktor Ünvanı</h5>
+			<h5>
+				@foreach($degrees->where('id',Auth::user()->docdegrees)  as $degree)
+				{!! $degree->degreename !!}
+				@endforeach
+			</h5>
 			<ul class="list-group">
 
 				<li class="list-group-item">
@@ -56,6 +73,12 @@
 	</div><!-- End div .col-sm-4 -->
 	<br>
 	<div class="col-sm-9">
+		@if(session('status'))
+		<div class="alert alert-success">
+			{{ session('status') }}
+		</div>
+		<br><br><br>
+		@endif
 		<div class="widget widget-tabbed">
 			<!-- Nav tab -->
 			<ul class="nav nav-tabs nav-justified">
@@ -468,6 +491,10 @@
 										<abbr title="Doktor Soyadı">{!! $doctor->surname !!}</abbr>
 									</address>
 									<address>
+										<strong>Ünvanı</strong><br>
+										<abbr title="Ünvan Bilgisi">{!! $degree->degreename !!}</abbr>
+									</address>
+									<address>
 										<strong>Adres</strong><br>
 										<abbr title="Adres">{!! $doctor->adress !!}</abbr>
 									</address>
@@ -475,381 +502,393 @@
 										<strong>Telefon</strong><br>
 										<abbr title="Telefon">{!! $doctor->telephone !!}</abbr>
 									</address>
+									<address>
 
+
+
+									</div>
 
 								</div>
 
+								<!-- End div .scroll-user-widget -->
 							</div>
+							<div class="col-sm-6">
+								<div class="widget-content padding">
 
-							<!-- End div .scroll-user-widget -->
-						</div>
-						<div class="col-sm-6">
-							<div class="widget-content padding">
+									<div class="col-sm-6">
+										<address>
+											<strong>Bildiği Diller</strong><br>
+											@foreach($doclang as $dl)
+											@endforeach
+											<abbr title="Dil">{{$dl->name}}</abbr>
+										</address>
+										<address>
+											<strong>E-mail</strong><br>
+											<a href="#">{!! $doctor->email !!}</a>
+										</address>
+										<address>
+											<strong>Profil Resmi</strong><br>
+											<div class="column">
+												<div class="inner">
 
-								<div class="col-sm-6">
-									<address>
-										<strong>Bildiği Diller</strong><br>
-										@foreach($doclang as $dl)
-										@endforeach
-										<abbr title="Dil">{{$dl->name}}</abbr>
-									</address>
-									<address>
-										<strong>E-mail</strong><br>
-										<a href="#">{!! $doctor->email !!}</a>
-									</address>
-									<address>
-										<strong>Profil Resmi</strong><br>
-										<div class="column">
-											<div class="inner">
-
-												<div class="img-wrap">
-													<img height="110px;" width="80px;" src="/images/doctors/{!! $doctor->image !!}" class="mfp-fade">
+													<div class="img-wrap">
+														<img height="110px;" width="80px;" src="/images/doctors/{!! $doctor->image !!}" class="mfp-fade">
+													</div>
 												</div>
 											</div>
-										</div>
-									</address>
-								</div>
-							</div>
-							<!-- End div .scroll-user-widget -->
-						</div>
-						<div class="text-right" style="margin-right: 80px;"><button data-modal="md-account" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
-					</div><!-- End div .tab-pane -->
-					<!-- End Tab user settings -->
-
-					<!-- Tab user information -->
-					<div class="tab-pane animated fadeInRight" id="information">
-						<div class="scroll-user-widget">
-							<div class="col-sm-6">
-								<div id="basic-form">
-
-									<div class="form-group">
-										<label>Kullanıcı Adı</label>
-										<input type="text" class="form-control" id="" placeholder="Kullanıcı adınız" disabled="">
+										</address>
 									</div>
-									<div class="form-group">
-										<label>Şifre</label>
-										<input type="password" class="form-control"  placeholder="******" disabled="">
-									</div>
-
-
-
 								</div>
+								<!-- End div .scroll-user-widget -->
 							</div>
-							<div class="col-sm-6">
-								<div id="basic-form">
-									<form role="form" method="post">
+							<div class="text-right" style="margin-right: 80px;"><button data-modal="md-account" class="btn btn-default btn-sm md-trigger">Düzenle</button></div>
+						</div><!-- End div .tab-pane -->
+						<!-- End Tab user settings -->
+
+						<!-- Tab user information -->
+						<div class="tab-pane animated fadeInRight" id="information">
+							<div class="scroll-user-widget">
+								<div class="col-sm-6">
+									<div id="basic-form">
+
 										<div class="form-group">
 											<label>Kullanıcı Adı</label>
-											<input type="text" class="form-control" name="kbusername"  placeholder="Kullanıcı adınız" required="" value="Kullanıcı Adınız">
+											<input type="text" class="form-control" id="" placeholder="{!! Auth::user()->username !!}" disabled="">
 										</div>
+
 										<div class="form-group">
 											<label>Şifre</label>
-											<input type="password" class="form-control" name="kbpassword"  required="" placeholder="Yeni Şifre">
+											<input type="password" class="form-control"  placeholder="******" disabled="">
 										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Şifreyi Tekrar Yazını</label>
-											<input type="password" name="kbpasswordagain" class="form-control" required=""  placeholder="Tekrar Yazın">
-										</div>
-										<button type="submit" class="btn btn-success" name="kaydet" value="kullaniciguncelle">Kaydet</button>
-									</form>
+
+
+
+									</div>
 								</div>
-							</div>
+								<div class="col-sm-6">
+									<div id="basic-form">
+										<form role="form" method="post">
+											<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+											<div class="form-group">
+												<label>Kullanıcı Adı</label>
+												<input type="text" class="form-control" name="kbusername"  placeholder="Kullanıcı adınız" required="" value="">
+											</div>
+											<div class="form-group">
+												<label>Şifre</label>
+												<input type="password" class="form-control" name="kbpassword"  required="" placeholder="Yeni Şifre">
+											</div>
+											<div class="form-group">
+												<label for="exampleInputPassword1">Şifreyi Tekrar Yazını</label>
+												<input type="password" name="kbpasswordagain" class="form-control" required=""  placeholder="Tekrar Yazın">
+											</div>
+											<button type="submit" class="btn btn-success" name="kaydet" value="kullaniciguncelle">Kaydet</button>
+										</form>
+									</div>
+								</div>
 
-						</div><!-- End div .scroll-user-widget -->
-					</div><!-- End div .tab-pane -->
-					<!-- End Tab user messages -->
-				</div><!-- End div .tab-content -->
-			</div><!-- End div .box-info -->
-		</div>
-
-
-
-		<div class="md-modal md-fall md-hide" id="md-fall">
-			<div class="md-content">
-				<form role="form" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<h3>Hakkımızda</h3>
-					<div>
-
-						<div class="form-group">
-							<label>Hakkımızda</label>
-
-							@if( $doctor->group_id == 1 )
-							<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="1000">{!! $doctor->about !!}</textarea>
-							@else
-							<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="250">{!! $doctor->about !!}</textarea>
-
-							@endif
-
-
-						</div>
-						<p>
-							<button class="btn btn-danger md-close">Kapat</button>
-							<button class="btn btn-success md-close" type="submit" name="kaydet" value="hakkmizdaekle">Kaydet</button>
-						</p>
-
-					</div>
-
-				</form>
+							</div><!-- End div .scroll-user-widget -->
+						</div><!-- End div .tab-pane -->
+						<!-- End Tab user messages -->
+					</div><!-- End div .tab-content -->
+				</div><!-- End div .box-info -->
 			</div>
-		</div>
-		<div class="md-modal md-fall md-hide" id="md-education">
-			<div class="md-content">
-				<form role="form" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<div class="form-group">
-						<h3>Eğitim Bilgisi Ekle</h3>
+
+
+
+			<div class="md-modal md-fall md-hide" id="md-fall">
+				<div class="md-content">
+					<form role="form" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<h3>Hakkımızda</h3>
 						<div>
+
 							<div class="form-group">
-								<label>Okul Adı</label>
-								<input type="text" class="form-control"  name="schoolname" data-bv-field="school">
+								<label>Hakkımızda</label>
+
+								@if( $doctor->group_id == 1 )
+								<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="1000">{!! $doctor->about !!}</textarea>
+								@else
+								<textarea class="form-control" name="about" style="height: 140px; resize: none;" placeholder="" maxlength="250">{!! $doctor->about !!}</textarea>
+
+								@endif
+
+
 							</div>
-							<div class="form-group">
-								<label>Eğitim Bilgisi</label>
-								<input type="text" class="form-control" name="schooltype" data-bv-field="school">
-							</div>
-							<div class="form-group">
-								<label>Başlangıç Tarihi </label>
-								<input type="text" class="form-control" name="schoolstart" data-bv-field="school" placeholder="1995">
-							</div>
-							<div class="form-group">
-								<label>Bitiş Tarihi </label>
-								<input type="text" class="form-control" name="schoolfinish" data-bv-field="school" placeholder="2001">
-							</div>
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="egitimekle">Kaydet</button>
+							<p>
+								<button class="btn btn-danger md-close">Kapat</button>
+								<button class="btn btn-success md-close" type="submit" name="kaydet" value="hakkmizdaekle">Kaydet</button>
 							</p>
+
 						</div>
-					</div>
-				</form>
+
+					</form>
+				</div>
 			</div>
-		</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
-		<div class="md-modal md-fall md-hide" id="md-experience">
-			<div class="md-content">
-				<form role="form" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+			<div class="md-modal md-fall md-hide" id="md-education">
+				<div class="md-content">
+					<form role="form" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div class="form-group">
+							<h3>Eğitim Bilgisi Ekle</h3>
+							<div>
+								<div class="form-group">
+									<label>Okul Adı</label>
+									<input type="text" class="form-control"  name="schoolname" data-bv-field="school">
+								</div>
+								<div class="form-group">
+									<label>Eğitim Bilgisi</label>
+									<input type="text" class="form-control" name="schooltype" data-bv-field="school">
+								</div>
+								<div class="form-group">
+									<label>Başlangıç Tarihi </label>
+									<input type="text" class="form-control" name="schoolstart" data-bv-field="school" placeholder="1995">
+								</div>
+								<div class="form-group">
+									<label>Bitiş Tarihi </label>
+									<input type="text" class="form-control" name="schoolfinish" data-bv-field="school" placeholder="2001">
+								</div>
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="egitimekle">Kaydet</button>
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div><!-- la üstte bulunan 3 tane model da eksik var ozaman hiçbirinde sıkıntı yok bunda -->
+			<div class="md-modal md-fall md-hide" id="md-experience">
+				<div class="md-content">
+					<form role="form" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div class="form-group">
+							<h3>Deneyim Ekle</h3>
+							<div>
+
+								<div class="form-group">
+									<label>Deneyim Adı</label>
+									<input type="text" class="form-control" name="expname" data-bv-field="school">
+								</div>
+
+								<div class="form-group">
+									<label>Deneyim Başlangıç Tarihi </label>
+									<input type="text" class="form-control" name="expstart" data-bv-field="school" placeholder="1995">
+								</div>
+
+								<div class="form-group">
+									<label>Deneyim Bitiş Tarihi </label>
+									<input type="text" class="form-control" name="expfinish" data-bv-field="school" placeholder="2000">
+								</div>
+
+
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="deneyimekle">Kaydet</button>
+
+
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="md-modal md-fall md-hide" id="md-broad">
+				<div class="md-content">
+					<form role="form" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div class="form-group">
+							<h3>Yayın Ekle</h3>
+							<div>
+
+								<div class="form-group">
+									<label>Yayın Adı</label>
+									<input type="text" class="form-control" name="expname" data-bv-field="school">
+								</div>
+
+								<div class="form-group">
+									<label>Yayın Tarihi </label>
+									<input type="text" class="form-control" name="expstart" data-bv-field="school" placeholder="1995">
+								</div>
+
+
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="yayinekle">Kaydet</button>
+
+
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="md-modal md-fall md-hide" id="md-winner">
+				<div class="md-content">
+					<form role="form" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div class="form-group">
+							<h3>Ödül Ekle</h3>
+							<div>
+								<div class="form-group">
+									<label>Ödül Adı</label>
+									<input type="text" class="form-control" name="odulname" data-bv-field="school">
+								</div>
+
+								<div class="form-group">
+									<label>Kazanma Tarihi </label>
+									<input type="text" class="form-control" name="odulstart" data-bv-field="school" placeholder="1995">
+								</div>
+
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="odulekle">Kaydet</button>
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+
+
+			<div class="md-modal md-fall md-hide" id="md-certificate">
+				<div class="md-content">
+					<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div class="form-group">
+							<h3>Sertifika Ekle</h3>
+							<div>
+								<div class="form-group">
+
+									<input type="file" name="sertifikaresim" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+
+								</div>
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="sertifikaekle">Kaydet</button>
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+
+			<div class="md-modal md-fall md-hide" id="md-image">
+				<div class="md-content">
+					<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div class="form-group">
+							<h3>Resim Ekle</h3>
+							<div>
+								<div class="form-group">
+									<input type="file" name="doktorresim" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
+								</div>
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="resimekle">Kaydet</button>
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+			<div class="md-modal md-fall md-hide" id="md-publish">
+				<div class="md-content">
 					<div class="form-group">
 						<h3>Deneyim Ekle</h3>
 						<div>
-
 							<div class="form-group">
-								<label>Deneyim Adı</label>
-								<input type="text" class="form-control" name="expname" data-bv-field="school">
+								<label>Kurum Adı</label>
+								<input type="text" class="form-control" name="school" data-bv-field="school">
 							</div>
-
 							<div class="form-group">
-								<label>Deneyim Başlangıç Tarihi </label>
-								<input type="text" class="form-control" name="expstart" data-bv-field="school" placeholder="1995">
+								<label>Derecesi</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
 							</div>
-
 							<div class="form-group">
-								<label>Deneyim Bitiş Tarihi </label>
-								<input type="text" class="form-control" name="expfinish" data-bv-field="school" placeholder="2000">
+								<label>Başlangıç Tarihi </label>
+								<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
 							</div>
-
-
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="deneyimekle">Kaydet</button>
-
-
+							<div class="form-group">
+								<label>Bitiş Tarihi </label>
+								<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
+							</div>
+							<p>
+								<button class="btn btn-danger md-close">Kapat</button>
+								<button class="btn btn-success md-close">Kaydet</button>
 							</p>
 						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="md-modal md-fall md-hide" id="md-broad">
-			<div class="md-content">
-				<form role="form" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<div class="form-group">
-						<h3>Yayın Ekle</h3>
-						<div>
-
-							<div class="form-group">
-								<label>Yayın Adı</label>
-								<input type="text" class="form-control" name="expname" data-bv-field="school">
-							</div>
-
-							<div class="form-group">
-								<label>Yayın Tarihi </label>
-								<input type="text" class="form-control" name="expstart" data-bv-field="school" placeholder="1995">
-							</div>
-
-
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="yayinekle">Kaydet</button>
-
-
-							</p>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="md-modal md-fall md-hide" id="md-winner">
-			<div class="md-content">
-				<form role="form" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<div class="form-group">
-						<h3>Ödül Ekle</h3>
-						<div>
-							<div class="form-group">
-								<label>Ödül Adı</label>
-								<input type="text" class="form-control" name="odulname" data-bv-field="school">
-							</div>
-
-							<div class="form-group">
-								<label>Kazanma Tarihi </label>
-								<input type="text" class="form-control" name="odulstart" data-bv-field="school" placeholder="1995">
-							</div>
-
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="odulekle">Kaydet</button>
-							</p>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
-
-
-
-		<div class="md-modal md-fall md-hide" id="md-certificate">
-			<div class="md-content">
-				<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<div class="form-group">
-						<h3>Sertifika Ekle</h3>
-						<div>
-							<div class="form-group">
-
-								<input type="file" name="sertifikaresim" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
-
-							</div>
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="sertifikaekle">Kaydet</button>
-							</p>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
-
-
-		<div class="md-modal md-fall md-hide" id="md-image">
-			<div class="md-content">
-				<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<div class="form-group">
-						<h3>Resim Ekle</h3>
-						<div>
-							<div class="form-group">
-								<input type="file" name="doktorresim" class="btn btn-default" title="Resim Seç" style="left: -160px; top: 3px;">
-							</div>
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="resimekle">Kaydet</button>
-							</p>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
-
-		<div class="md-modal md-fall md-hide" id="md-publish">
-			<div class="md-content">
-				<div class="form-group">
-					<h3>Deneyim Ekle</h3>
-					<div>
-						<div class="form-group">
-							<label>Kurum Adı</label>
-							<input type="text" class="form-control" name="school" data-bv-field="school">
-						</div>
-						<div class="form-group">
-							<label>Derecesi</label>
-							<select class="form-control">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Başlangıç Tarihi </label>
-							<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="1995">
-						</div>
-						<div class="form-group">
-							<label>Bitiş Tarihi </label>
-							<input type="text" class="form-control" name="school" data-bv-field="school" placeholder="2001">
-						</div>
-						<p>
-							<button class="btn btn-danger md-close">Kapat</button>
-							<button class="btn btn-success md-close">Kaydet</button>
-						</p>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="md-modal md-fall md-hide" id="md-account">
-			<div class="md-content">
+			<div class="md-modal md-fall md-hide" id="md-account">
+				<div class="md-content">
 					<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
 
-					<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-					<div id="basic-form">
-						<form role="form">
-							<div class="form-group">
-								<label for="corporationname">Doktor Adı</label>
-								<input type="text" name="accname" class="form-control" id="" value="{!! $doctor->name !!}">
-							</div>
-							<div class="form-group">
-								<label for="corporationname">Doktor Soyadı</label>
-								<input type="text" name="accsurname" class="form-control" id="" value="{!! $doctor->surname !!}">
-							</div>
-							<div class="form-group">
-								<label class="control-label">Adres</label>
-								<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="accaddress" placeholder="Adresinizi Giriniz">{!! $doctor->adress !!}</textarea>
-							</div>
-							<div class="form-group">
-								<label for="corporationphone">Telefon Numarası</label>
-								<input type="phone" name="acctel" class="form-control" id="" placeholder="Telefon Numarası Girin" value="{!! $doctor->telephone !!}">
-							</div>
-							<div class="form-group">
-								<label class="control-label">Diller</label><br>
-								<input type="text" name="acclang" class="form-control" id="" value="{{ $dl->name }}">
-							</div>
-							<div class="form-group">
-								<input name="accprofilephoto" type="file" class="btn btn-default" title="Logo Değiştir">
-							</div>
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
+						<div id="basic-form">
+							<form role="form">
+								<div class="form-group">
+									<label for="corporationname">Doktor Adı</label>
+									<input type="text" name="accname" class="form-control" id="" value="{!! $doctor->name !!}">
+								</div>
+								<div class="form-group">
+									<label for="corporationname">Doktor Soyadı</label>
+									<input type="text" name="accsurname" class="form-control" id="" value="{!! $doctor->surname !!}">
+								</div>
+								<div class="form-group">
+									<label for="corporationname">Doktor Ünvanı</label>
+									<select class="" name="degreelist">
+										@foreach($degrees as $degree)
+										<option @if($degree->id == Auth::user()->docdegrees) selected @endif	name="degreelist" value="{!!$degree->id!!}">{!!$degree->degreename!!}</option>
+										@endforeach
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Adres</label>
+									<textarea style="max-width: 470px; max-height:80px;" class="form-control" name="accaddress" placeholder="Adresinizi Giriniz">{!! $doctor->adress !!}</textarea>
+								</div>
+								<div class="form-group">
+									<label for="corporationphone">Telefon Numarası</label>
+									<input type="phone" name="acctel" class="form-control" id="" placeholder="Telefon Numarası Girin" value="{!! $doctor->telephone !!}">
+								</div>
+								<div class="form-group">
+									<label class="control-label">Diller</label><br>
+									<input type="text" name="acclang" class="form-control" id="" value="{{ $dl->name }}">
+								</div>
+								<div class="form-group">
+									<input name="accprofilephoto" type="file" class="btn btn-default" title="Logo Değiştir">
+								</div>
 
-							<p style="padding-bottom:20px">
-								<a class="btn btn-danger md-close">Kapat</a>
-								<button class="btn btn-success md-close" type="submit" name="kaydet" value="profilguncelle">Kaydet</button>
-							</p>
+								<p style="padding-bottom:20px">
+									<a class="btn btn-danger md-close">Kapat</a>
+									<button class="btn btn-success md-close" type="submit" name="kaydet" value="profilguncelle">Kaydet</button>
+								</p>
 
-						</form>
-					</div>
-				</form>
+							</form>
+						</div>
+					</form>
+				</div>
+
 			</div>
+			<div class="md-overlay"></div>
+
 
 		</div>
-		<div class="md-overlay"></div>
 
 
-	</div>
-
-
-	@endsection
+		@endsection

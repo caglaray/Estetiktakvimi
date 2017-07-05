@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Doctor;
 
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -10,11 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
 
-
 class ProfileController extends Controller
 {
-
-
   public function __construct()
   {
     $this->middleware('auth:doctor');
@@ -25,10 +21,18 @@ class ProfileController extends Controller
   {
 
     $userid = Auth::user()->id ;
-    $doctors = DB::table('doctors')->where('id',$userid)->get();
+    $userdegree = Auth::user()->docdegrees;
+
+
+    $doctors = DB::table('doctors')
+    ->where('id' , $userid )
+    ->get();
+
     $schools = DB::table('doc_schools')->where('doctorid',$userid)->orderBy('start')->get();
     $services = DB::table('services')->get();
     $categories = DB::table('categories')->get();
+
+    $degrees = DB::table('doc_degree')-> get();
 
     $doclang =DB::table('doc_lang')->where('doctorid',$userid)->get();
     if (isset($doclang)) {
@@ -62,7 +66,7 @@ class ProfileController extends Controller
 
 
 
-    return view("docadmin.profile", compact('doctors','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images','imagecount','languages','doclang') );
+    return view("docadmin.profile", compact('doctors','degrees','services','doctorservices','categories','doctorcategories','schools','experiences','awards','broads','certificates','images','imagecount','languages','doclang') );
 
 
   }
@@ -153,6 +157,22 @@ class ProfileController extends Controller
         );
         break;
 
+        case 'arkaplanekle':
+
+        if (Input::hasFile('backgroundimage')) {
+          $file = Input::file('backgroundimage');
+          $file->move('images/doctors/backgrounds' , $userid.$file->getClientOriginalName());
+          DB::table('doctors')
+          ->update(['background' => $userid.$file->getClientOriginalName()]);
+          }
+        else {
+          DB::table('doctors')
+          ->update(['background' => '']);
+        }
+
+        break;
+
+
 
         case 'hizmetekle':
         $serviceid =$request->get('serlist');
@@ -196,6 +216,7 @@ class ProfileController extends Controller
         $address=$request->get('accaddress');
         $tel=$request->get('acctel');
         $lang= $request->get('acclang');
+        $degree=$request->get('degreelist');
         $imgurl = Auth::user()->image;
         if (Input::hasFile('accprofilephoto')) {
           $file = Input::file('accprofilephoto');
@@ -209,7 +230,8 @@ class ProfileController extends Controller
           'surname' => $surname,
           'adress' => $address,
           'telephone' => $tel,
-          'image' => $imgurl
+          'image' => $imgurl,
+          'docdegrees' => $degree
         ]);
         DB::table('doc_lang')->where('doctorid' , $userid)->update(['name' => $lang]);
         break;
@@ -218,16 +240,20 @@ class ProfileController extends Controller
 
         $username = $request->get('kbusername');
         $password = $request->get('kbpassword');
-        $username = $request->get('kbpasswordagain');
+        $passwordagain = $request->get('kbpasswordagain');
 
         $userid = Auth::user()->id ;
         $ausername = Auth::user()->username;
 
         if ($username == $ausername) {
-
-
-
+          if ($password == $passwordagain ) {
+             $dbpassword = bcrypt($password);
+              DB::table('doctors')->where('username',$ausername)->update(['password' => $dbpassword]);
+              return redirect('doktor/profil')->with('status' , 'Şifre başarıyla değiştirildi.');
+          }
+             return redirect('doktor/profil')->with('status' , 'Şifreler uyuşmuyor.');
          }
+                       return redirect('doktor/profil')->with('status' , 'Kullanıcı adınız yanlış.');
 
         break;
       }

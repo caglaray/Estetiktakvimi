@@ -139,6 +139,7 @@ Route::prefix('doktor')->group(function() {
 	route::get ("/sorucevap/cevap/{id?}","Doctor\QuestionController@questiondetail");
  	//route::get ("/sorucevap/cevap","Doctor\HomeController@cevap");
 
+	route::get("/duyuru","Doctor\HomeController@duyuruyap");
 
 	Route::get ("/profil","Doctor\ProfileController@profilepage");
 	Route::post ("/profil","Doctor\ProfileController@profileupdate");
