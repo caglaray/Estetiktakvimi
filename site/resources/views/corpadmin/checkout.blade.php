@@ -25,15 +25,15 @@
 				<h3> Kullanıcı Bilgileri</h3>
 				<div class="form-group">
 					<label for="corporationsname">Kurum Adı</label> 
-					<input type="text" id="corporationsname" value="<?php  echo Auth::user()->name ?>" class="form-control" required="">
+					<input type="text" id="corporationsname" name="corporationsname" value="<?php  echo Auth::user()->name ?>" class="form-control" required="">
 				</div>
 				<div class="form-group">
 					<label for="corporationsadress">Kurum Adresi</label>
-					<input type="text" id="corporationsadress" value="<?php  echo Auth::user()->adress ?>" class="form-control" required="">
+					<input type="text" id="corporationsadress" name="corporationsadress" value="<?php  echo Auth::user()->adress ?>" class="form-control" required="">
 				</div>
 				<div class="form-group">
 					<label for="corporationsphone">Telefon Numarası</label>
-					<input type="text" id="corporationsphone" value="<?php  echo Auth::user()->telephone ?>" class="form-control" required="">
+					<input type="text" id="corporationsphone" name="corporationsphone" value="<?php  echo Auth::user()->telephone ?>" class="form-control" required="">
 				</div>
 				<button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Sonraki Adım</button>
 			</div>
@@ -49,7 +49,7 @@
 					<div class="col-sm-10">
 
 						<select name="productdetail" value="" class="form-control selectpicker">@foreach($product as $productdetail)
-							<option value="{!! $productdetail->price !!}">{!! $productdetail->name !!} {!! $productdetail->price !!} TL</option>
+							<option value="{!! $productdetail->id !!}" name="productdetail" >{!! $productdetail->name !!} {!! $productdetail->price !!} TL</option>
 							
 							@endforeach
 						</select>
@@ -62,7 +62,7 @@
 					<div class="col-sm-10">
 
 						<select name="productoptions" value=""  class="form-control selectpicker">@foreach($product_options as $productoptions)
-							<option value="{!! $productoptions->price !!}">{!! $productoptions->name !!} Doktor İçin Ücret: {!! $productoptions->price !!} TL</option>
+							<option value="{!! $productoptions->id !!}" name="productoptions">{!! $productoptions->name !!} Doktor İçin Ücret: {!! $productoptions->price !!} TL</option>
 							
 							@endforeach
 						</select>

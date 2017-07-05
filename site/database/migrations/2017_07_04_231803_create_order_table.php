@@ -28,7 +28,6 @@ class CreateOrderTable extends Migration
             $table->foreign('optionsid')->references('id')->on('corp_product_options');
             $table->decimal('total', 15, 2);
             $table->tinyInteger('status')->default(0);
-            
             $table->timestamps();
         });
     }

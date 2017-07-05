@@ -27,8 +27,23 @@ class CorporationController extends Controller
   }
   public function siparis_detay(Request $request)
   {
-  
-    return view('corpadmin.invoice');
+    $option=$request->get('productoptions');
+   $optionprice=DB::table('corp_product_options')->whereid($option)->get();
+    $product=$request->get('productdetail');
+   $productprice=DB::table('corp_product')->whereid($product)->get();
+    $userid = Auth::user()->id ;
+    $save=DB::table('order')->insert(
+      ['customername' => $request->get('corporationsname'),
+      'customeradress' => $request->get('corporationsadress'),
+      'customerphone' => $request->get('corporationsphone'),
+      'corpid' => $userid = Auth::user()->id,
+      'productid' => $request->get('productdetail'),
+      'optionsid' => $request->get('productoptions'),
+      'total'=>$request->get('productoptions')+$request->get('productdetail')
+      ]
+      );
+ 
+    return view('corpadmin.invoice', compact('optionprice','productprice','order'));
   }
   public function siparis()
   {  
