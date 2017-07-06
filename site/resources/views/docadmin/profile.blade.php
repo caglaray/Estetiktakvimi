@@ -20,7 +20,7 @@ else {
 	<div class="col-sm-12 profile-actions text-right">
 		<form role="form" enctype="multipart/form-data" style="margin:20px" method="post">
 			<input type="hidden" name="_token" value="{!! csrf_token() !!}"  />
-			<input type="file" name="backgroundimage" class="btn btn-success btn-sm" title="Değiştir">
+			<input type="file" name="backgroundimage" class="btn btn-success btn-sm" title="Değiştir (1920x400)">
 			<button type="submit" name="kaydet" value="arkaplanekle" class="btn btn-primary btn-sm" title="Kaydet"><i class="fa fa-save"></i> Kaydet</button>
 		</form>
 	</div>
@@ -530,7 +530,7 @@ else {
 													<a href="#">{!! $doctor->email !!}</a>
 												</address>
 												<address>
-													<strong>Profil Resmi (1920x400)</strong><br>
+													<strong>Profil Resmi</strong><br>
 													<div class="column">
 														<div class="inner">
 
@@ -874,7 +874,7 @@ else {
 											<input type="text" name="acclang" class="form-control" id="" value="{{ $dl->name }}">
 										</div>
 										<div class="form-group">
-											<input name="accprofilephoto" type="file" class="btn btn-default" title="Profil Resmi Değiştir (1920x400)">
+											<input name="accprofilephoto" type="file" class="btn btn-default" title="Profil Resmi Değiştir">
 										</div>
 
 										<p style="padding-bottom:20px">
