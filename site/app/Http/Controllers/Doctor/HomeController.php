@@ -22,6 +22,12 @@ class HomeController extends Controller
 		$this->middleware('auth:doctor');
 	}
 
+	public function Doktorindex()
+	{
+		return view("docadmin.home");
+	}
+
+
 
 	public function duyuruyap()
 	{
