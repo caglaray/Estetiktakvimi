@@ -530,7 +530,7 @@ else {
 													<a href="#">{!! $doctor->email !!}</a>
 												</address>
 												<address>
-													<strong>Profil Resmi</strong><br>
+													<strong>Profil Resmi (1920x400)</strong><br>
 													<div class="column">
 														<div class="inner">
 
@@ -874,7 +874,7 @@ else {
 											<input type="text" name="acclang" class="form-control" id="" value="{{ $dl->name }}">
 										</div>
 										<div class="form-group">
-											<input name="accprofilephoto" type="file" class="btn btn-default" title="Logo Değiştir">
+											<input name="accprofilephoto" type="file" class="btn btn-default" title="Profil Resmi Değiştir (1920x400)">
 										</div>
 
 										<p style="padding-bottom:20px">
