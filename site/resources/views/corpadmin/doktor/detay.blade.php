@@ -732,7 +732,7 @@
 					
 					<select name="docdegrees"  class="form-control" placeholder="" value="">
 						@foreach($degree as $degrees)
-						<option value="{!! $degrees->id !!}">{!! $degrees->name !!}</option>
+						<option value="{!! $degrees->id !!}">{!! $degrees->degreename !!}</option>
 						
 						@endforeach
 					</select>
