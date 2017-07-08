@@ -19,7 +19,7 @@ class AppointmentController extends Controller
 	}
 	public function DoktorRandevu()
 	{
-$appointmentdays =DB::table('appointmentdays')->get();
+		$appointmentdays =DB::table('appointmentdays')->get();
 		return view('docadmin.randevu',compact('appointmentdays'));
 	}
 	public function DoktorRandevuOlustur(request $request)
@@ -33,34 +33,33 @@ $appointmentdays =DB::table('appointmentdays')->get();
 
 			$hours=date('08:00');
 
-		
-				for ($a=0; $a <8 ; $a++) {
-					$hours=date('08:00');
 
-					for ($b=0; $b <24 ; $b++) { 
-						$appointment=DB::table('appointmentdays')->insert(
-							['dayname' => $today ,
-							'hours' => $hours,
-							'doctorid'=>$Doctorid ]
-							);
+			for ($a=0; $a <8 ; $a++) {
+				$hours=date('08:00');
+
+				for ($b=0; $b <24 ; $b++) { 
+					$appointment=DB::table('appointmentdays')->insert(
+						['dayname' => $today ,
+						'hours' => $hours,
+						'doctorid'=>$Doctorid ]
+						);
 
 
-						$halfnext = strtotime($hours) + 30*60;
+					$halfnext = strtotime($hours) + 30*60;
 
-						$hours = date('H:i', $halfnext);
-					} 
+					$hours = date('H:i', $halfnext);
+				} 
 
-					$today++;}
-				
+				$today++;
+			}
+
 			
 
-					break;
-
-			}
-			$appointmentdays =DB::table('appointmentdays')->get();
-			return redirect()->action('Doctor\AppointmentController@DoktorRandevu');
+			break;
 
 		}
+		$appointmentdays =DB::table('appointmentdays')->get();
+		return redirect()->action('Doctor\AppointmentController@DoktorRandevu');
+
 	}
-
-
+}
