@@ -54,6 +54,7 @@ Route::prefix('kurum')->group(function() {
 
 	//Corporation Adding,Update,Delete Doctor
 	Route::get ("/doktor/liste","Kurum\DoctorController@DoktorListe");
+	//Route::get ("/doktor/randevu","Kurum\DoctorController@DoktorRandevu")->name('corporation.randevu');
 	Route::get ("/doktor/detay/{DoktorID?}","Kurum\DoctorController@doktorprofil");
 	Route::post ("/doktor/detay/{DoktorID?}","Kurum\DoctorController@update");
 	Route::get ("/doktor/ekle","Kurum\DoctorController@DoktorEkle")->name('corporation.doktorekle');
@@ -114,7 +115,9 @@ Route::prefix('doktor')->group(function() {
 	Route::get ('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
 	Route::post('/login', 'Auth\DoctorLoginController@login')->name('docadmin.login.submit');
 	Route::get ('/', 'Doctor\HomeController@Doktorindex')->name('doctor.dashboard');
-
+	Route::get ("/randevu/","Doctor\AppointmentController@DoktorRandevu")->name('doctor.randevu');
+	Route::get ("/randevu-takvimi-olustur","Doctor\AppointmentController@DoktorRandevuOlustur")->name('doctor.randevuolustur');
+	Route::post("/randevu-takvimi-olustur", "Doctor\AppointmentController@DoktorRandevuOlustur");
 
 	route::get ("/makale","Doctor\ArticleController@makaleliste");
 	Route::get ("/makale/ekle","Doctor\ArticleController@makaleekle");

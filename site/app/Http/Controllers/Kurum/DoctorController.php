@@ -18,6 +18,10 @@ class DoctorController extends Controller
 
 
   }
+  public function DoktorRandevu()
+  {
+    return view('corpadmin.doktor.randevu');
+  }
 
 
   public function DoktorEkle()
