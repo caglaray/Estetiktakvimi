@@ -115,9 +115,10 @@ Route::prefix('doktor')->group(function() {
 	Route::get ('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
 	Route::post('/login', 'Auth\DoctorLoginController@login')->name('docadmin.login.submit');
 	Route::get ('/', 'Doctor\HomeController@Doktorindex')->name('doctor.dashboard');
-	Route::get ("/randevu/","Doctor\AppointmentController@DoktorRandevu")->name('doctor.randevu');
-	Route::get ("/randevu-takvimi-olustur","Doctor\AppointmentController@DoktorRandevuOlustur")->name('doctor.randevuolustur');
-	Route::post("/randevu-takvimi-olustur", "Doctor\AppointmentController@DoktorRandevuOlustur");
+	Route::get ("/randevu/","Doctor\AppointmentController@renderAppointmentTableByDoctorId")->name('doctor.randevu');
+	//Route::post ("/randevu/","Doctor\AppointmentController@DoktorRandevuOnayla")->name('doctor.randevuonayla');
+	//Route::get ("/randevu-takvimi-olustur","Doctor\AppointmentController@DoktorRandevuOlustur")->name('doctor.randevuolustur');
+//	Route::post("/randevu-takvimi-olustur", "Doctor\AppointmentController@DoktorRandevuOlustur");
 
 	route::get ("/makale","Doctor\ArticleController@makaleliste");
 	Route::get ("/makale/ekle","Doctor\ArticleController@makaleekle");
