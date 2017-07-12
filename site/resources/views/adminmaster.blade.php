@@ -281,7 +281,7 @@
             <!--- Profile -->
             <div class="profile-info">
                 <div class="col-xs-4">
-                  <a href="{{ route('admin.anasayfa') }}" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
+                  <a href="{{ route('admin.dashboard') }}" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
               </div>
               <div class="col-xs-8">
                 <div class="profile-text">Estetik Takvimi</div>
@@ -295,7 +295,7 @@
       <!--- Divider -->
       <div id="sidebar-menu">
           <ul>
-              <li class=''><a href="{{ route('admin.anasayfa') }}"><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
+              <li class=''><a href="{{ route('admin.dashboard') }}"><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
               
               <!--<li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                   <ul>
@@ -314,7 +314,7 @@
                           <li><a href="{{ route('admin.kurumliste') }}"><span>Kurum Listesi</span></a></li>
                           <li><a href="{{ route('admin.kurumekle') }}"><span>Kurum Ekle</span></a></li></ul></li>
                           <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Kategoriler & Hizmetler</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
-                              <li><a href='google-maps.html'><span>Kategoriler</span></a></li>
+                              <li><a href="{{ route('admin.kategori') }}"><span>Kategoriler</span></a></li>
                               <li><a href='vector-maps.html'><span>Hizmetler</span></a></li>
                           </ul>
                       </li>

@@ -54,16 +54,16 @@ class ArticleController extends Controller
             ));
 
         $Article->save();
-       if ($Article->save() ==1) {
-        DB::table('doctors')->where('id',$userid )->update(
+        if ($Article->save() ==1) {
+            DB::table('doctors')->where('id',$userid )->update(
     //eski puan üzeri 5 eklenecek 
-      ['point_result' =>'5']
-      );
+              ['point_result' =>'5']
+              );
         }
-         return redirect('doktor/makale/')->with('status' , $Article->title.' isimli Makale Eklendi.');
-    
+        return redirect('doktor/makale/')->with('status' , $Article->title.' isimli Makale Eklendi.');
+        
 
-           
+        
 
     }
 
@@ -87,7 +87,7 @@ class ArticleController extends Controller
 
 
         $Article = ArticleModel::whereid("$Makaleid")->firstorFail();
-    $userid = Auth::user()->id ;
+        $userid = Auth::user()->id ;
         $Article->title      = $request->get('title');
         $Article->content   = $request->get('content');
         $Article->doctorid   = $userid;
@@ -114,8 +114,8 @@ class ArticleController extends Controller
 
     public function destroy($Makaleid)
     {
-       $Article = ArticleModel::whereid($Makaleid)->firstorFail();
-       $Article->delete();
-       return redirect('doktor/makale/')->with('status' , $Article->title.' isimli Makale Silindi.');
-   }
+     $Article = ArticleModel::whereid($Makaleid)->firstorFail();
+     $Article->delete();
+     return redirect('doktor/makale/')->with('status' , $Article->title.' isimli Makale Silindi.');
+ }
 }

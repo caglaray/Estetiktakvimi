@@ -46,8 +46,8 @@
 						@foreach($articles as $article)
 						<tr>
 							<td>{!! $article->id !!}</td>
-							<td><strong>{{{ str_limit($article->title, $limit = 25, $end = '...')}}} </strong></td>
-							<td>  {{{ str_limit($article->content, $limit = 30, $end = '...')}}} </td>
+							<td><strong>{!! str_limit($article->title, $limit = 25, $end = '...')!!} </strong></td>
+							<td> {!! str_limit($article->content, $limit = 30, $end = '...')!!} </td>
 							<td>{!! $article->created_at !!}</td>
 							<td><label for="input-text"  class="control-label">{!! $article->status ? '<span class="label label-success">Açık' : '<span class="label label-warning">Onay Bekliyor' !!}</span></label></td>
 							<td>

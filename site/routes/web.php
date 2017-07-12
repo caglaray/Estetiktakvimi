@@ -73,7 +73,21 @@ Route::prefix('admin')->group(function() {
 
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-	Route::get('/', 'Admin\HomeController@index')->name('admin.anasayfa');
+	Route::get('/', 'Admin\HomeController@index')->name('admin.dashboard');
+
+
+	//Kategori işlemleri
+	Route::get('/kategori', 'Admin\HomeController@kategori')->name('admin.kategori');
+	//Kategori Ekle Blade.php
+	Route::get('/kategori-ekle', 'Admin\HomeController@kategoriekle')->name('admin.kategoriekle');
+	Route::post("/kategori-ekle","Admin\HomeController@kategoristore");
+
+	//Kategori Detay
+	Route::get ("/kategori/detay/{CategoriesID?}","Admin\HomeController@kategorishow");
+	//Kategori Güncelle
+	Route::get ("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriedit");
+	Route::get ("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriupdate");
+
 
 
 
