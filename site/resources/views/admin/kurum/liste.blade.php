@@ -3,34 +3,39 @@
 
 @section('content')
 
+<div class="col-md-12">
+	<div class="widget">
+		<div class="widget-header">
+			<h2><strong>Kurum Listesi</strong></h2>
+			
+		</div>
+		<div class="widget-content">
+			<br>					
+			<div class="table-responsive">
+				@if(session('status'))
+				<div class="alert alert-success">
+					{{ session('status') }}
+				</div>
+				@endif
 
-<div class="widget">
-	<div class="widget-header transparent">
-
-	</div>
-	<div class="widget-content">					
-		<div class="table-responsive">
-			@if(session('status'))
-			<div class="alert alert-success">
-				{{ session('status') }}
-			</div>
-			@endif
-
-			@if($corporations->isEmpty())
-			<p> Kayıt Yok</p>
-			@else
-			<table data-sortable="" class="table" data-sortable-initialized="true">
-				<thead>
-					<tr>
-						<th>Kurum ID</th>
-						<th>Kurum Adı</th>
-						<th>Üyelik Tipi</th>
-						<th>Durum</th>
-						<th data-sortable="false">İşlemler</th>
-					</tr>
-				</thead>
-
-				<tbody>
+				@if($corporations->isEmpty())
+				<p> Kayıt Yok</p>
+				@else
+				<form class='form-horizontal' role='form'>
+					<table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Kurum Adı</th>
+								<th>Üyelik Tipi</th>
+								<th>E-mail</th>
+								<th>Üyelik Durumu</th>
+								
+							</tr>
+						</thead>
+						
+						
+						<tbody>
 
 				@foreach($corporations as $corporation)
 
