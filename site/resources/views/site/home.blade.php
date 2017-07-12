@@ -21,12 +21,11 @@
 
       <div class="finder_form">
         <div class="form-group col-sm-5 p0">
+     
           <select name="" id="" class="form-control select2" style="width: 100%">
-            <option value="Kadın Hastalıkları ve Doğum">Kadın Hastalıkları ve Doğum</option>
-            <option value="Genel Cerrahi">Genel Cerrahi</option>
-            <option value="Ortopedi ve Travmatoloji">Ortopedi ve Travmatoloji</option>
-            <option value="Kulak Burun Boğaz">Kulak Burun Boğaz</option>
+              @foreach($categories as $category) <option value="{!! $category->id !!}">{!! $category->name !!}</option>  @endforeach
           </select>
+        
         </div>
         <div class="form-group col-sm-5 p0">
           <select name="" id="" class="form-control select2" style="width: 100%">
@@ -46,28 +45,9 @@
   <!-- Kategori Kutusu-->
   <div class="dc_jumbo_cats">
     <div class="container">
-      <ul>
-        <li><a href="#">Kadın hastalıkları ve doğum</a></li>
-        <li><a href="#">Ortopedi ve travmatoloji</a></li>
-        <li><a href="#">Genel Cerrahi</a></li>
-        <li><a href="#">Kulak burun boğaz</a></li>
-        <li><a href="#">Beyin ve sinir cerrahisi</a></li>
-        <li><a href="#">Dermatoloji</a></li>
-        <li><a href="#">Göz hastalıkları</a></li>
-        <li><a href="#">İç hastalıkları</a></li>
-        <li><a href="#">Plastik rekonstrüktif ve estetik cerrahi</a></li>
-        <li><a href="#">Psikiyatri</a></li>
-        <li><a href="#">Çocuk sağlığı ve hastalıkları</a></li>
-        <li><a href="#">Üroloji</a></li>
-        <li><a href="#">Nöroloji</a></li>
-        <li><a href="#">Kardiyoloji</a></li>
-        <li><a href="#">Kalp ve damar cerrahisi</a></li>
-        <li><a href="#">Gastroenteroloji</a></li>
-        <li><a href="#">Göğüs hastalıkları</a></li>
-        <li><a href="#">Fiziksel tıp ve rehabilitasyon</a></li>
-        <li><a href="#">Radyasyon onkolojisi</a></li>
-        <li><a href="#">Diş hastalıkları ve tedavisi</a></li>
-        <li><a href="#"><strong>Daha fazla</strong></a></li>
+      <ul>  
+       @foreach($categories as $category)<li><a href="{!! $category->id !!}">{!! $category->name !!}</a></li>@endforeach
+       
       </ul>
     </div>
   </div>

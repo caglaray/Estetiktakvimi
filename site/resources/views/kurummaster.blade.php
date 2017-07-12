@@ -33,7 +33,8 @@
   <link href="{{ URL::asset('assets/libs/summernote/summernote.css') }}"    rel="stylesheet" />
   <link href="{{ URL::asset('assets/css/style.css') }}"    rel="stylesheet" />
   <link href="{{ URL::asset('assets/css/style-responsive.css') }}"    rel="stylesheet" />
-
+  <link href="{{ URL::asset('assets/libs/jquery-datatables/extensions/TableTools/css/dataTables.tableTools.css') }}"    rel="stylesheet" />
+  <link href="{{ URL::asset('assets/libs/jquery-datatables/css/dataTables.bootstrap.css') }}"    rel="stylesheet" />
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -218,7 +219,7 @@
             <div class="col-xs-8">
               <div class="profile-text">Estetik Takvimi</div>
               <div class="profile-buttons">
-                
+
 
               </div>
             </div>
@@ -261,8 +262,8 @@
 
             <li class='has_sub'><a href='javascript:void(0);'><i class='glyphicon glyphicon-shopping-cart'></i><span>Sipariş Bölümü</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
               <ul>
-             
-              <li><a href="#"><span>Siparişler</span></a></li>
+
+                <li><a href="#"><span>Siparişler</span></a></li>
                 <li><a href="{{route('corporation.siparis')}}"><span>Ödeme Yap</span></a></li>
               </ul>
             </li>
@@ -389,6 +390,12 @@
 <script src="{{ URL::asset('assets/dist/sweetalert.min.js') }}"></script>
 <script src="{{ URL::asset('assets/libs/jquery-wizard/jquery.easyWizard.js') }}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-wizard.js') }}"></script>
+
+<script src="{{ URL::asset('assets/libs/jquery-datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-datatables/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-datatables/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/pages/datatables.js') }}"></script>
+
 <script>$(document).ready(function () {
   var navListItems = $('div.setup-panel div a'),
   allWells = $('.setup-content'),

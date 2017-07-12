@@ -26,13 +26,13 @@
 				<div style="margin:20px;" class="text-right">
 					<a class="btn btn-success btn-sm" href="/doktor/video/ekle">Yeni Video Ekle</a>
 				</div>
-				<table data-sortable="" class="table" data-sortable-initialized="true">
+				<form class='form-horizontal' role='form'>
+					<table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
-
 							<tr>
 								<th>No</th>
 								<th>Video Adı</th>
-								<th>Sıralama</th>
+							
 								<th>Yükleme Tarih</th>
 								<th>Durum</th>
 								<th>İşlemler</th>
@@ -44,9 +44,9 @@
 							<tr>
 								<td>{!! $video->id !!}</td>
 								<td>{!! $video->name !!}</td>
-								<td>{!! $video->order !!}</td>
+								
 								<td>{!! $video->created_at !!}</td>
-								<td>{!! $video->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Onay Bekliyor' !!}</span></td>
+								<td>{!! $video->status ? '<span class="label label-success">Açık' : '<span class="label label-warning">Onay Bekliyor' !!}</span></td>
 								<td>
 									<div class="btn-group btn-group-xs">
 										<a data-toggle="tooltip" href="{!! action('Doctor\VideoController@show' , $video->id) !!}" title="Görüntüle" class="btn btn-default"><i class="fa fa-user"></i></a>
@@ -59,19 +59,10 @@
 							@endforeach
 						</tbody>
 				</table>
+				</form>
 				@endif
 			</div>
-			<div class="data-table-toolbar text-center">
-				<ul class="pagination">
-					<li class="disabled"><a href="#">&laquo;</a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-			</div>
+		
 		</div>
 	</div>
 </div>

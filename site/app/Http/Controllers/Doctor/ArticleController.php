@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\ArticleModel;
 use App\Http\Requests\ArticleEkleRequestForm;
-
+use Illuminate\Support\Facades\DB;
 class ArticleController extends Controller
 {
 
@@ -54,9 +54,16 @@ class ArticleController extends Controller
             ));
 
         $Article->save();
+       if ($Article->save() ==1) {
+        DB::table('doctors')->where('id',$userid )->update(
+    //eski puan üzeri 5 eklenecek 
+      ['point_result' =>'5']
+      );
+        }
+         return redirect('doktor/makale/')->with('status' , $Article->title.' isimli Makale Eklendi.');
+    
 
-
-        return redirect('doktor/makale/')->with('status' , $Article->title.' isimli Makale Eklendi.');    
+           
 
     }
 

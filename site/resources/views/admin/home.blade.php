@@ -90,7 +90,7 @@
 				</div>
 					<div class="row">
 					
-					<div class="col-lg-8 portlets">
+					<div class="col-lg-6 portlets">
 						<div class="widget">
 						
 							<div class="widget-content">

@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
 
-
+        $categories = DB::table('categories')->get();
 
         $articles = DB::table('article')
         ->join('doctors', 'article.doctorid', '=', 'doctors.id')
@@ -39,7 +39,7 @@ class HomeController extends Controller
 
 
 
-        return view("site.home", compact('articles','videos') );
+        return view("site.home", compact('articles','videos','categories') );
 
 
 
@@ -63,7 +63,7 @@ class HomeController extends Controller
         return view('site.blog');
     }
     
-      public function sorusor()
+    public function sorusor()
     {
         return view('site.sorusor');
     }

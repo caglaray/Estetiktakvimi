@@ -18,20 +18,23 @@
 				@if($doctors->isEmpty())
 				<p> Kayıt Yok</p>
 				@else
-				<table data-sortable="" class="table" data-sortable-initialized="true">
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>Kullanıcı Adı</th>
-							<th>Adı</th>
-							<th>Soyadı</th>
-							<th>Email</th>
-							<th>Durum</th>
-							<th data-sortable="false">İşlemler</th>
-						</tr>
-					</thead>
+				<form class='form-horizontal' role='form'>
+					<table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Kullanıcı Adı</th>
+								<th>Adı</th>
+								<th>Soyadı</th>
+								<th>E-mail</th>
+								<th>Üyelik Durumu </th>
+								<th>İşlem</th>
 
-					<tbody>
+							</tr>
+						</thead>
+						
+						
+						<tbody>
 
 						@foreach($doctors as $doctor)
 

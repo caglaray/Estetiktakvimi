@@ -281,15 +281,11 @@
             <!--- Profile -->
             <div class="profile-info">
                 <div class="col-xs-4">
-                  <a href="profile.html" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
+                  <a href="{{ route('admin.anasayfa') }}" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
               </div>
               <div class="col-xs-8">
                 <div class="profile-text">Estetik Takvimi</div>
-                <div class="profile-buttons">
-                  <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
-
-                  <a class="md-trigger" data-modal="logout-modal" title="Sign Out"><i class="fa fa-power-off text-red-1"></i></a>
-              </div>
+               
           </div>
       </div>
       <!--- Divider -->
@@ -299,7 +295,7 @@
       <!--- Divider -->
       <div id="sidebar-menu">
           <ul>
-              <li class=''><a href='/Admin'><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
+              <li class=''><a href="{{ route('admin.anasayfa') }}"><i class='icon-home-3 '></i><span>Ana Sayfa</span></a></li>
               
               <!--<li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>İçerik Yönetimi</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                   <ul>

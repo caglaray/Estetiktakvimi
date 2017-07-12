@@ -31,8 +31,8 @@ E<!DOCTYPE html>
   <link href="{{ URL::asset('assets/libs/summernote/summernote.css') }}"    rel="stylesheet" />
   <link href="{{ URL::asset('assets/css/style.css') }}"    rel="stylesheet" />
   <link href="{{ URL::asset('assets/css/style-responsive.css') }}"    rel="stylesheet" />
-<link href="{{ URL::asset('assets/libs/jquery-datatables/css/dataTables.bootstrap.css') }}"    rel="stylesheet" />
-<link href="{{ URL::asset('assets/libs/jquery-datatables/extensions/TableTools/css/dataTables.tableTools.css') }}"    rel="stylesheet" />
+  <link href="{{ URL::asset('assets/libs/jquery-datatables/css/dataTables.bootstrap.css') }}"    rel="stylesheet" />
+  <link href="{{ URL::asset('assets/libs/jquery-datatables/extensions/TableTools/css/dataTables.tableTools.css') }}"    rel="stylesheet" />
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
