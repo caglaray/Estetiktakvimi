@@ -43,7 +43,7 @@
 							<td>{!! $video->name !!}</td>
 							<td>{!! $video->order !!}</td>
 							<td>{!! $video->created_at !!}</td>
-							<td>{!! $video->status ? '<span class="label label-success">Açık' : '<span class="label label-danger">Kapalı' !!}</span></td>
+							<td>{!! $video->status ? '<span class="label label-success">Onaylandı' : '<span class="label label-warning">Onay Bekliyor' !!}</span></td>
 							<td>
 								<div class="btn-group btn-group-xs">
 									<a data-toggle="tooltip" href="{!! action('Kurum\VideoController@show' , $video->id) !!}" title="Görüntüle" class="btn btn-default"><i class="fa fa-user"></i></a>

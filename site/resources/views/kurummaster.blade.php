@@ -256,18 +256,20 @@
                 <li><a href="{{ route('corporation.videolar') }}"><span>Videolar</span></a></li>
               </ul>
             </li>
-            <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mesajlar</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-              <ul>
-                <li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li>
-                <li><a href='new-message.html'><span>New Message</span></a></li>
-              </ul>
-            </li>
+
             
 
+
+            <li class='has_sub'><a href='javascript:void(0);'><i class='glyphicon glyphicon-shopping-cart'></i><span>Sipariş Bölümü</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+              <ul>
+             
+              <li><a href="#"><span>Siparişler</span></a></li>
+                <li><a href="{{route('corporation.siparis')}}"><span>Ödeme Yap</span></a></li>
+              </ul>
+            </li>
             <li class=''><a href="{{route('corporation.hakkimizda')}}"><i class='fa fa-user'></i><span>Kurum Ayarları</span> <span class="pull-right"></span></a>
 
             </li>
-
             
           </ul>                  
           <div class="clearfix"></div>
@@ -292,7 +294,7 @@
      <!-- ============================================================== -->
      <!-- Start Content here -->
      <!-- ============================================================== -->
-       @include('sweet::alert')
+     @include('sweet::alert')
 
      <div class="content">
        <!-- Page Heading Start -->
@@ -390,51 +392,51 @@
 <script src="{{ URL::asset('assets/js/pages/form-wizard.js') }}"></script>
 <script>$(document).ready(function () {
   var navListItems = $('div.setup-panel div a'),
-          allWells = $('.setup-content'),
-          allNextBtn = $('.nextBtn'),
-        allPrevBtn = $('.prevBtn');
+  allWells = $('.setup-content'),
+  allNextBtn = $('.nextBtn'),
+  allPrevBtn = $('.prevBtn');
 
   allWells.hide();
 
   navListItems.click(function (e) {
-      e.preventDefault();
-      var $target = $($(this).attr('href')),
-              $item = $(this);
+    e.preventDefault();
+    var $target = $($(this).attr('href')),
+    $item = $(this);
 
-      if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('btn-primary').addClass('btn-default');
-          $item.addClass('btn-primary');
-          allWells.hide();
-          $target.show();
-          $target.find('input:eq(0)').focus();
-      }
+    if (!$item.hasClass('disabled')) {
+      navListItems.removeClass('btn-primary').addClass('btn-default');
+      $item.addClass('btn-primary');
+      allWells.hide();
+      $target.show();
+      $target.find('input:eq(0)').focus();
+    }
   });
   
   allPrevBtn.click(function(){
-      var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+    var curStep = $(this).closest(".setup-content"),
+    curStepBtn = curStep.attr("id"),
+    prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
 
-          prevStepWizard.removeAttr('disabled').trigger('click');
+    prevStepWizard.removeAttr('disabled').trigger('click');
   });
 
   allNextBtn.click(function(){
-      var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='url']"),
-          isValid = true;
+    var curStep = $(this).closest(".setup-content"),
+    curStepBtn = curStep.attr("id"),
+    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+    curInputs = curStep.find("input[type='text'],input[type='url']"),
+    isValid = true;
 
-      $(".form-group").removeClass("has-error");
-      for(var i=0; i<curInputs.length; i++){
-          if (!curInputs[i].validity.valid){
-              isValid = false;
-              $(curInputs[i]).closest(".form-group").addClass("has-error");
-          }
+    $(".form-group").removeClass("has-error");
+    for(var i=0; i<curInputs.length; i++){
+      if (!curInputs[i].validity.valid){
+        isValid = false;
+        $(curInputs[i]).closest(".form-group").addClass("has-error");
       }
+    }
 
-      if (isValid)
-          nextStepWizard.removeAttr('disabled').trigger('click');
+    if (isValid)
+      nextStepWizard.removeAttr('disabled').trigger('click');
   });
 
   $('div.setup-panel div a.btn-primary').trigger('click');

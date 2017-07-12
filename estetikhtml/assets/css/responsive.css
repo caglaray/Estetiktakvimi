@@ -1,0 +1,205 @@
+@media only screen and (min-width:1650px) {
+  body.sticky .thead {
+    width: 45%;
+  }
+}
+
+@media(min-width:1420px) and (max-width:1550px) {}
+
+@media(min-width:769px) and (max-width:1024px) {}
+
+@media only screen and (max-width:768px) {}
+
+@media only screen and (max-width: 479px) {
+  .navbar-default .navbar-toggle {
+    margin-top: 14px;
+    margin-right: 0;
+    border-color: #fff;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+  .navbar-brand {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  header .navbar-form .submit {
+    width: 100%;
+  }
+  header .navbar-form {
+    margin-top: 0;
+    border-top: 0;
+    box-shadow: none;
+  }
+  .logon_link {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 16px;
+    text-align: center;
+  }
+  .filter_dropdown {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    padding: 0;
+  }
+  .filter_dropdown>span.labeled {
+    width: 100%;
+    margin: 0 0 5px;
+  }
+  .filter_dropdown .select2-container {
+    width: 100% !important;
+  }
+  .randevual_btn {
+    margin-bottom: 20px;
+  }
+  .pagination>li>a, .pagination>li>span {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  footer.visible-xs {
+    border-top: 0;
+    background: none;
+  }
+  .mbl_ft_links {
+    text-align: center;
+  }
+  .mbl_ft_links a {
+    padding: 15px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0 !important;
+    background: none;
+  }
+  .mbl_ft_links a:first-child {
+    border-top: 0;
+  }
+  .mbl_ft_links a:last-child {
+    border-bottom: 0;
+  }
+  .doctor_stock {
+    position: relative;
+    right: auto;
+    margin: 20px auto;
+    display: table;
+  }
+  .doctor_finder_form {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .dc_jumbo_cats {
+    margin: 20px auto 0;
+  }
+  .dc_jumbo_cats ul {
+    margin: 0;
+    padding: 0;
+  }
+  .dc_jumbo_cats ul li {
+    margin: 0;
+    display: block;
+    width: 100%;
+  }
+  .dc_jumbo_cats ul li a {
+    float: left;
+    width: 100%;
+    padding: 4px 0;
+  }
+  .doctor_appointment_infos .h4 {
+    font-size: 20px;
+  }
+  .doctor_appointment_infos span {
+    font-size: 14px;
+  }
+  .partners_car .owl-controls {
+    display: none !important
+  }
+  .comm_dt {
+    display: table;
+  }
+  .last_comm, .last_vids, .last_articles {
+    margin-bottom: 15px;
+  }
+  .mobile_apps .phone_stock {
+    text-align: center;
+    display: table;
+    margin: 30px auto 0;
+  }
+  .app_buttons {
+    display: table;
+    margin-bottom: 20px;
+  }
+  .social_links {
+    margin-bottom: -90px;
+  }
+  .social_links .col-xs-12 {
+    margin-bottom: 15px;
+  }
+  .doctor_page_hero {
+    height: 250px;
+  }
+  .form_holder {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+  }
+  .doctor_infos .thumb {
+    margin: 10px 0;
+    width: 40%;
+    text-align: center;
+  }
+  .doctor_sh-detail {
+    width: 60%;
+    float: right;
+    text-align: right;
+    
+  }
+  .doctor_sh-detail .dc_name {
+    width: 170%;
+    margin: 0 auto;
+    margin-top: 65%;
+    margin-left: -70%;
+    text-align: left;
+  }
+  .dc_randevu {
+    margin-top: -75%;
+    float: right;
+  }
+  .dc_randevu a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 18px;
+    font-size: 16px;
+  }
+  .dc_harita {
+    float: left;
+    width: 100%;
+  }
+  .appo_cal_head, .appo_cal_days {
+    padding: 20px;
+  }
+  .appo_cal_days a {
+    padding: 10px;
+  }
+  .certificates a {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .certificates a img {
+    width: 100%;
+  }
+  .dc_about .certificates span.more_images {
+    height: 98px;
+    line-height: 98px;
+  }
+  .ask_question {
+    float: left;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {}
+
+@media only screen and (max-width: 320px) {}

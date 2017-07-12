@@ -28,9 +28,9 @@ class CorporationController extends Controller
   public function siparis_detay(Request $request)
   {
     $option=$request->get('productoptions');
-   $optionprice=DB::table('corp_product_options')->whereid($option)->get();
+    $optionprice=DB::table('corp_product_options')->whereid($option)->get();
     $product=$request->get('productdetail');
-   $productprice=DB::table('corp_product')->whereid($product)->get();
+    $productprice=DB::table('corp_product')->whereid($product)->get();
     $userid = Auth::user()->id ;
     $save=DB::table('order')->insert(
       ['customername' => $request->get('corporationsname'),
@@ -42,7 +42,7 @@ class CorporationController extends Controller
       'total'=>$request->get('productoptions')+$request->get('productdetail')
       ]
       );
- 
+    
     return view('corpadmin.invoice', compact('optionprice','productprice','order'));
   }
   public function siparis()
@@ -60,6 +60,7 @@ class CorporationController extends Controller
   public function about( Request $request)        
   {
    $userid = Auth::user()->id ;
+   $kurumadi = Auth::user()->name ;
 
 
 
@@ -101,6 +102,7 @@ class CorporationController extends Controller
       ['name' => $request->get('name'),'adress' => $request->get('adress'),'telephone' => $request->get('telephone')]
       );
     $file = Input::file('logo');
+    $filename=$kurumadi;
     $file->move('images/Corporations/Logos' , $userid.$file->getClientOriginalName());
     DB::table('corporations')->whereid($userid)->update(['logo' => $userid.$file->getClientOriginalName()]);
     break;

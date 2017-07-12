@@ -28,6 +28,7 @@ class AppointmentController extends Controller
  * @param null|Carbon $endTime Randevu bitiş saati. Verilmemişse 17:30
  * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
  */
+
 public function renderAppointmentTableByDoctorId($doctorid, $dayRange = 7, $startDate = null, $startTime = null, $endTime = null)
 {
 	$hours = [
@@ -90,7 +91,7 @@ public function DoktorRandevuOnayla()
 {
 	$Doctorid = Auth::user()->id ;
 	$appointmentdays =DB::table('appointmentdays')->where('doctorid',$Doctorid)->get();
-	
+
 	return view('docadmin.randevu',compact('appointmentdays','hourscount'));
 }
 }
