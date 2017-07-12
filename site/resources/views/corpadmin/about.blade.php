@@ -39,14 +39,7 @@
 				</ul>
 
 				<!-- User button -->
-				<div class="user-button">
-					<div class="row">
-						<p class="help-block"></p>
-						<button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-okey"></i>Daha Fazla Doktor Eklemek İstermisiniz? </button>
-
-
-					</div>
-				</div><!-- End div .user-button -->
+				
 			</div><!-- End div .box-info -->
 			<!-- Begin user profile -->
 		</div><!-- End div .col-sm-4 -->

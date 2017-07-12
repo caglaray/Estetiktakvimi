@@ -18,7 +18,7 @@ class CreateAppointmentDaysTable extends Migration
             $table->string('dayname');
             $table->string('hours');
             $table->integer('doctorid')->unsigned()->nullable();
-            $table->foreign('doctorid')->references('id')->on('doctors');
+            $table->foreign('doctorid')->references('id')->on('corporations')->onDelete('cascade');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DoctorModel;
 use App\Http\Requests\DoctorEkleRequestForm;
-
-
+use Illuminate\Support\Facades\Input;
 
 class DoctorController extends Controller
 {
@@ -103,5 +104,19 @@ class DoctorController extends Controller
         $Doctor = DoctorModel::whereid($Kisi)->firstorFail();
         $Doctor->delete();
         return redirect('admin/doktor/liste')->with('status' , $Doctor->name.' isimli Doktor Silindi.');
+    }
+    public function onayla($DoktorID)
+    {
+     $onayla = DB::table('doctors')->where('id',$DoktorID)->update(
+      ['status' =>'0']
+      );
+
+
+        return redirect('admin/doktor/liste');
+    }
+     public function onaylanmadi($DoktorID)
+    {
+
+        return redirect('admin/doktor/liste');
     }
 }

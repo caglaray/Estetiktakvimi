@@ -188,7 +188,7 @@
                 </li>
                 <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
                 <li class="dropdown topbar-profile">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{ URL::asset('images/users/user-35.jpg') }}"></span> Hoşgeldin <strong><?php echo $name ?></strong> <i class="fa fa-caret-down"></i></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="/images/Corporations/Logos/{!! Auth::user()->logo !!}"></span> Hoşgeldin <strong><?php echo $name ?></strong> <i class="fa fa-caret-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Hesabım</a></li>
                     <li><a href="#">Parola Değiştir</a></li>
@@ -213,14 +213,13 @@
           <!--- Profile -->
           <div class="profile-info">
             <div class="col-xs-4">
-              <a href="{{ route('corporation.anasayfa') }}" class="rounded-image profile-image"><img src="{{ URL::asset('images/users/user-100.jpg') }}"></a>
+              <a href="{{ route('corporation.anasayfa') }}" class="rounded-image profile-image"><img src="/images/Corporations/Logos/{!! Auth::user()->logo !!}"></a>
             </div>
             <div class="col-xs-8">
               <div class="profile-text">Estetik Takvimi</div>
               <div class="profile-buttons">
-                <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
+                
 
-                <a class="md-trigger" data-modal="logout-modal" title="Sign Out"><i class="fa fa-power-off text-red-1"></i></a>
               </div>
             </div>
           </div>

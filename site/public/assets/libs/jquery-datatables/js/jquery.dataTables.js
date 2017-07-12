@@ -10708,7 +10708,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Gösterilen _START_ ile _END_ Arasındadır. _TOTAL_ Girilmiştir.",
 	
 	
 			/**
@@ -10729,7 +10729,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Gösterilen 0 ile 0 Arasındadır 0 Girilmiştir",
 	
 	
 			/**
@@ -10751,7 +10751,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(Filtrelenen  _MAX_ Veri Girişi)",
 	
 	
 			/**

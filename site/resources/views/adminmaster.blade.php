@@ -31,7 +31,11 @@
     <link href="{{ URL::asset('assets/libs/summernote/summernote.css') }}"    rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/style.css') }}"    rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/style-responsive.css') }}"    rel="stylesheet" />
+     
+       <link href="{{ URL::asset('assets/libs/jquery-datatables/extensions/TableTools/css/dataTables.tableTools.css') }}"    rel="stylesheet" />
+        <link href="{{ URL::asset('assets/libs/jquery-datatables/css/dataTables.bootstrap.css') }}"    rel="stylesheet" />
 
+  
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -443,5 +447,12 @@
 <script src="{{ URL::asset('assets/libs/prettify/prettify.js') }}"></script>
 
 <script src="{{ URL::asset('assets/js/init.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-datatables/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/jquery-datatables/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/pages/datatables.js') }}"></script>
+
+
+
 </body>
 </html>

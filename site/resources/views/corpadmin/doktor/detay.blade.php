@@ -28,7 +28,7 @@
 			@endforeach
 		</b></h4>
 
-		<h5>Doktor Ünvanı</h5>
+		<h5>		Doktor Ünvanı</h5>
 			<ul class="list-group">
 
 				<li class="list-group-item">

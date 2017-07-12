@@ -20,9 +20,7 @@
 				@if($videos->isEmpty())
 				<p> Kayıt Yok</p>
 				@else
-				<div style="margin:20px;" class="text-right">
-					<a class="btn btn-success btn-sm" href="/kurum/video/ekle">Yeni Video Ekle</a>
-				</div>
+				
 				<table data-sortable="" class="table" data-sortable-initialized="true">
 					<thead>
 

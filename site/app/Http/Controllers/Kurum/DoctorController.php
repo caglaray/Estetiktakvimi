@@ -26,93 +26,91 @@ class DoctorController extends Controller
 
   public function DoktorEkle()
   {
- $userid = Auth::user()->id ;
-    $adding=DB::table('corp_doc')
-    ->where([
-      ['corpid', '=', $userid]
-      
-      ])
-    ->count();
-    return view("corpadmin.doktor.ekle", compact('adding'));
-  }
-  public function doktorprofil($DoktorID)
-  {
+   $userid = Auth::user()->id ;
+   $adding=DB::table('corp_doc')
+   ->where([
+    ['corpid', '=', $userid]
+
+    ])
+   ->count();
+   return view("corpadmin.doktor.ekle", compact('adding'));
+ }
+ public function doktorprofil($DoktorID)
+ {
 
 
-    $userid = Auth::user()->id ;
-    $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
-    $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
-    $degree = DB::table('doc_degree')->get();
+  $userid = Auth::user()->id ;
+  $doctors = DB::table('doctors')->where('id',$DoktorID)->get();
+  $schools = DB::table('doc_schools')->where('doctorid',$DoktorID)->get();
+  $degree = DB::table('doc_degree')->get();
 
 
-    $services = DB::table('services')->get();
+  $services = DB::table('services')->get();
 
-    $doctorservices = DB::table('service_doc')
-    ->join('services', 'service_doc.servicesid', '=', 'services.id')
-    ->where('doctorid' , $DoktorID)
-    ->get();
-    $doctordegrees = DB::table('doctors')
-    ->join('doc_degree', 'doctors.docdegrees', '=', 'doc_degree.id')
-    ->get();
+  $doctorservices = DB::table('service_doc')
+  ->join('services', 'service_doc.servicesid', '=', 'services.id')
+  ->where('doctorid' , $DoktorID)
+  ->get();
+  $degrees = DB::table('doc_degree')-> get();
 
 
-    $doctorexperience= DB::table('exp_doc')->where('doctorid',$DoktorID)->get();
-    $doctorcertificate= DB::table('certificate')->where('doctorid',$DoktorID)->get();
-    $doctorimages= DB::table('doc_images')->where('doctorid',$DoktorID)->get();
-    $doctorbroads= DB::table('broad_doc')->where('doctorid',$DoktorID)->get();
-    $doctorawards= DB::table('awards_doc')->where('doctorid',$DoktorID)->get();
+  $doctorexperience= DB::table('exp_doc')->where('doctorid',$DoktorID)->get();
+  $doctorcertificate= DB::table('certificate')->where('doctorid',$DoktorID)->get();
+  $doctorimages= DB::table('doc_images')->where('doctorid',$DoktorID)->get();
+  $doctorbroads= DB::table('broad_doc')->where('doctorid',$DoktorID)->get();
+  $doctorawards= DB::table('awards_doc')->where('doctorid',$DoktorID)->get();
 
-    $categories = DB::table('categories')->get();
+  $categories = DB::table('categories')->get();
 
-    $doctorcategories = DB::table('doc_cat')
-    ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
-    ->where('doctorid' , $DoktorID)
-    ->get();
+  $doctorcategories = DB::table('doc_cat')
+  ->join('categories', 'doc_cat.cat_id', '=', 'categories.id')
+  ->where('doctorid' , $DoktorID)
+  ->get();
 
-    return view("corpadmin.doktor.detay", compact('degree','doctordegrees','doctorcertificate','doctorimages','doctorawards','doctors','services','doctorservices','categories','doctorcategories','schools','doctorexperience','doctorbroads'));
+  return view("corpadmin.doktor.detay", compact('degree','degrees','doctorcertificate','doctorimages','doctorawards','doctors','services','doctorservices','categories','doctorcategories','schools','doctorexperience','doctorbroads'));
 
-  }
-  public function DoktorListe()
-  {
-    $userid = Auth::user()->id ;
-    $doctors = DB::table('corp_doc')
-    ->join('doctors', 'corp_doc.docid', '=', 'doctors.id')
-    ->select('doctors.*')
-    ->where('corp_doc.corpid',$userid)
-    ->get();
+}
+public function DoktorListe()
+{
+  $userid = Auth::user()->id ;
+  $doctors = DB::table('corp_doc')
+  ->join('doctors', 'corp_doc.docid', '=', 'doctors.id')
+  ->select('doctors.*')
+  ->where('corp_doc.corpid',$userid)
+  ->get();
 
-    return view('corpadmin.doktor.liste' , compact('doctors'));
-  }
+  return view('corpadmin.doktor.liste' , compact('doctors'));
+}
 
 
-  public function DoktorDetay()
-  {
-    return view('corpadmin.doktor.detay');
-  }
+public function DoktorDetay()
+{
+  return view('corpadmin.doktor.detay');
+}
 
-  public function store(DoctorEkleRequestForm $request)
-  {
+public function store(DoctorEkleRequestForm $request)
+{
 
-    $Doctor = new DoctorModel(array(
+  $Doctor = new DoctorModel(array(
 
-      'name' => $request->get('name'),
-      'surname' => $request->get('surname'),
-      'username' => $request->get('username'),
-      'password' => $request->get('password'),
-      'email' => $request->get('email'),
-      'adress' => $request->get('adress'),
-      'image' => $request->get('image'),
-      'telephone' => $request->get('telephone'),
-      'birthday' => $request->get('birthday'),
-      'livecity' => $request->get('livecity'),
+    'name' => $request->get('name'),
+    'surname' => $request->get('surname'),
+    'username' => $request->get('username'),
+    'password' => $request->get('password'),
+    'email' => $request->get('email'),
+    'adress' => $request->get('adress'),
+    'image' => $request->get('image'),
+    'telephone' => $request->get('telephone'),
+    'birthday' => $request->get('birthday'),
+    'livecity' => $request->get('livecity'),
 
-      ));
+    ));
 
-    $Doctor->save();
+  $Doctor->save();
 
-    $kurumid = Auth::user()->id ;
+  $kurumid = Auth::user()->id ;
 
-    $Lastid = $Doctor->id;
+  $Lastid = $Doctor->id;
 
 
 
@@ -120,17 +118,17 @@ class DoctorController extends Controller
 
 
         //$Doctor-save() Başarılıysa doktor/liste, Başarısız ise doktor/ekle sayfasına gönderdim
-    if ( $Doctor->save()==1) {
+  if ( $Doctor->save()==1) {
 
-     DB::table('corp_doc')->insert(
-      ['docid' => $Lastid , 'corpid' => $kurumid]
-      );
+   DB::table('corp_doc')->insert(
+    ['docid' => $Lastid , 'corpid' => $kurumid]
+    );
 
 
-     return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');
-   }
-   else
-    return redirect('kurum/doktor/ekle');
+   return redirect('kurum/doktor/liste')->with('status', 'Kayıt Eklendi.');
+ }
+ else
+  return redirect('kurum/doktor/ekle');
 }
 
 

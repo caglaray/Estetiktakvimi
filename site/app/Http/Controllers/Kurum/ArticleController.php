@@ -43,7 +43,7 @@ class ArticleController extends Controller
 
 			'title' => $request->get('title'),
 			'content' => $request->get('content'),
-
+			'status' => '0',
 			'corporationsid' => $userid  ,
 			'image' =>$request->get('resim'),
 
