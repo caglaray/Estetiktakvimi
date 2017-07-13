@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CategoriesModel;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,7 @@ class HomeController extends Controller
 	
 	{
 		$categories = CategoriesModel::all();
-		return view('admin.kategori' , compact('categories'));       
+		return view('admin.kategori.kategori' , compact('categories'));       
 
 		
 	}
@@ -33,7 +34,7 @@ class HomeController extends Controller
 	public function kategoriekle()
 	{
 
-		return view('admin.kategoriekle')->with('status', 'Kayıt Başarıyla Eklenmiştir.');    
+		return view('admin.kategori.kategoriekle')->with('status', 'Kayıt Başarıyla Eklenmiştir.');    
 
 	}
 //Admin Kategori Ekle Blade Temadan gelen Post Modelle Kayıt Oluşturması
@@ -51,25 +52,40 @@ class HomeController extends Controller
 
 	}
 	public function kategorishow($CategoriesID)
+	{
+		$Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
+		return view('admin.kategori.kategoridetay' , compact('Categories'));   
+	}
+	public function kategoriduzenle($CategoriesID)
+	{
+		$Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
+		return view('admin.kategori.kategoriguncelle' , compact('Categories'));   
+	}
+	public function kategoriupdate(request $request, $CategoriesID)
+	{
+
+		$Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
+
+		$Categories->name      = $request->get('name');
+		$Categories->about  = $request->get('about');
+
+		$Categories->save();
+
+		return redirect(action('Admin\HomeController@kategori',$CategoriesID))->with('status',$Categories->name.' adlı Kategori Güncellendi.');
+	}
+	
+
+	public function kategorisil($CategoriesID)
+	{
+
+		$Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
+		return view('admin.kategori.kategorisil', compact('Categories'));
+
+	}
+	public function kategoridestroy($CategoriesID)
     {
-        $Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
-        return view('admin.kategoridetay' , compact('Categories'));   
-    }
-    public function kategoriedits($CategoriesID)
-    {
-        $Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
-        return view('admin.kategoridetay' , compact('Categories'));  
-    }
-    public function kategoriupdate($CategoriesID , DoctorEkleRequestForm $request)
-    {
-
-       $Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
-
-        $Categories->name      = $request->get('name');
-        $Categories->about  = $request->get('about');
-
-        $Categories->save();
-
-        return redirect(action('Admin\HomeController@kategori',$CategoriesID))->with('status',$Categories->name.' adlı Kategori Güncellendi.');
-    }
+     $Categories = CategoriesModel::whereid($CategoriesID)->firstorFail();
+     $Categories->delete();
+     return redirect('admin/kategori/')->with('status' , $Categories->name.' Kategorisi Silindi.');
+ }
 }

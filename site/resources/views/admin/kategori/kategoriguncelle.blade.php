@@ -24,7 +24,7 @@
 				<label class="col-sm-2 control-label">Kategori Hakkında</label>
 				<div class="col-sm-10">
 
-					<textarea  class="summernote" name="content" style="height: auto; width: auto;">{!! $Categories->content !!}</textarea>
+					<textarea  class="summernote" name="about" style="height: auto; width: auto;">{!! $Categories->content !!}</textarea>
 
 				</div>
 				<input type="submit" value="Kaydet" class="btn btn-default" style="float: right; margin-right: 15px;">

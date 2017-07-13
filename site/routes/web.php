@@ -85,8 +85,10 @@ Route::prefix('admin')->group(function() {
 	//Kategori Detay
 	Route::get ("/kategori/detay/{CategoriesID?}","Admin\HomeController@kategorishow");
 	//Kategori Güncelle
-	Route::get ("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriedit");
-	Route::get ("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriupdate");
+	Route::get ("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriduzenle");
+	Route::post("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriupdate");
+	Route::get ("/kategori/sil/{CategoriesID?}","Admin\HomeController@kategorisil");
+	Route::post("/kategori/sil/{CategoriesID?}","Admin\HomeController@kategoridestroy");
 
 
 
