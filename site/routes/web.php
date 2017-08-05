@@ -87,10 +87,12 @@ Route::prefix('admin')->group(function() {
 	//Kategori Güncelle
 	Route::get ("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriduzenle");
 	Route::post("/kategori/guncelle/{CategoriesID?}","Admin\HomeController@kategoriupdate");
+
+	//Kategori Sil
 	Route::get ("/kategori/sil/{CategoriesID?}","Admin\HomeController@kategorisil");
 	Route::post("/kategori/sil/{CategoriesID?}","Admin\HomeController@kategoridestroy");
 
-
+    //Hizmet İşlemleri
 
 
 	//Kurum İşlemleri
